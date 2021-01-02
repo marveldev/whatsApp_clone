@@ -12,8 +12,16 @@ const chatPage = () => {
         <div class="chat-options">
           <button><i class="fa fa-video-camera"></i></button>
           <button><i class="fa fa-phone"></i></button>
-          <button><i class="material-icons">&#xe5d4;</i></button>
+          <button class="more-button"><i class="material-icons">&#xe5d4;</i></button>
         </div>
+      </div>
+      <div id="chatInputContent">
+        <div>
+          <button class="face-button"><i class="material-icons">&#xe7f2;</i></button>
+          <textarea class="chat-input" placeholder="Type a message"></textarea>
+          <button class="add-button"><i class="fa fa-paperclip"></i></button>
+        </div>
+        <button class="send-button"><i class="material-icons">&#xe163;</i></button>
       </div>
     </div>
   `
