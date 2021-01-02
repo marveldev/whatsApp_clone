@@ -1,0 +1,14 @@
+.calls-page {
+  position: relative;
+  top: 7em;
+}
+
+.calls-page p {
+  text-align: center;
+  margin: 10em 2em;
+  line-height: 1.5em;
+}
+
+.call > i {
+  font-size: 1.5em;
+}

@@ -1,0 +1,24 @@
+.status-page {
+  position: relative;
+  top: 6em;
+}
+
+.camera > i {
+  font-size: 1.5em;
+}
+
+.edit-icon {
+  position: fixed;
+  bottom: 7em;
+  right: 2.5em;
+  color: #000;
+  width: 3em;
+  height: 3em;
+  border-radius: 1.5em;
+  background-color: #f0e9e9;
+  box-shadow: 0 0.2em 0.4em 0em #000000d5;
+}
+
+.edit-icon > i {
+  vertical-align: middle;
+}
