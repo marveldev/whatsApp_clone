@@ -83,3 +83,41 @@
   padding-left: 0.2em;
   color: #fff;
 }
+
+.chat-container {
+  position: relative;
+  top: 7em;
+}
+
+.content {
+  background-color: #E5FFCC;
+  width: fit-content;
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
+
+.arrow-right {
+  position: relative;
+  left: 1em;
+  float: right;
+  width: 0;
+  height: 0;
+  border-top: 0.7em solid transparent;
+  border-bottom: 0.7em solid transparent;
+  border-left: 0.7em solid #E5FFCC;
+  clear: both;
+}
+
+.person-two {
+  margin: 0 1em 0 auto;
+}
+
+.text {
+  max-width: 15em;
+  height: auto;
+}
+.message-value {
+  word-wrap: break-word;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
