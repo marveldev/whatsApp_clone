@@ -1,6 +1,13 @@
+.chat-page {
+  position: absolute;
+  left: 0;
+  background-color: #A9DBD8;
+  width: 100%;
+  height: 100%;
+}
+
 .chat-top-nav {
   position: fixed;
-  left: 0;
   top: 0;
   display: grid;
   grid-template-columns: 0.2fr 0.4fr 1.2fr 1fr;
@@ -8,7 +15,7 @@
   height: 5em;
   color: #fff;
   z-index: 1;
-  background-color: #186d60fa;
+  background-color: #075E54;
 }
 
 .chat-top-nav > img {
@@ -21,8 +28,58 @@
   color: #fff;
 }
 
+.chat-options > .more-button {
+  vertical-align: sub;
+}
+
 .chat-options > button {
   font-size: 1.3em;
   color: #fff;
   margin-top: 1em;
+}
+
+#chatInputContent {
+  position: absolute;
+  bottom: 0;
+  display: grid;
+  margin: 0 1em;
+  grid-template-columns: 0.9fr 0.5fr;
+  column-gap: 0.5em;
+}
+
+.chat-input {
+  height: auto;
+  width: 100%;
+  padding: 1em 2em 0 2.5em;
+  font-size: 1.1em;
+  border-radius: 2em;
+  outline: none;
+  overflow: hidden;
+  resize: none;
+}
+
+.add-button {
+  position: relative;
+  left: 2.5em;
+  bottom: 1.9em;
+  float: right;
+  font-size: 1.4em;
+}
+
+.face-button {
+  position: relative;
+  top: 3em;
+}
+
+.send-button {
+  margin: 2.5em 0 0 5em;
+  background-color: #186d60fa;
+  width: 3em;
+  height: 3em;
+  border-radius: 1.5em;
+}
+
+.send-button > i {
+  padding-left: 0.2em;
+  color: #fff;
 }
