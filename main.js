@@ -1,7 +1,8 @@
 import topNav from './modules/topNav/topNav.js'
 import defaultPage from "./modules/defaultPage/defaultPage.js"
-import pageEventListeners from "./modules/helper.js"
 import defaultPageEventListeners from "./modules/defaultPage/events.js"
+import topNavEventListeners from './modules/topNav/events.js'
+import switchCurrentPage from './modules/helper.js'
 
 const main = () => {
   return `
@@ -13,5 +14,10 @@ const main = () => {
 }
 
 document.querySelector('.main').innerHTML = main()
-pageEventListeners()
+
+const currentPage = localStorage.getItem('currentPage')
+console.log(currentPage);
+switchCurrentPage(currentPage || 'defaultPage')
+
 defaultPageEventListeners()
+topNavEventListeners()
