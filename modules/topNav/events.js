@@ -4,8 +4,6 @@ const topNavEventListeners = () => {
   const addSwitchPageEvent = (button, page) => {
     button.addEventListener('click', () => {
       switchCurrentPage(page)
-      document.querySelector('.active').classList.remove('active')
-      button.classList.add('active')
     })
   }
 
