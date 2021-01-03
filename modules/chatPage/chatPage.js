@@ -15,16 +15,7 @@ const chatPage = () => {
           <button class="more-button"><i class="material-icons">&#xe5d4;</i></button>
         </div>
       </div>
-      <div class="chat-container">
-        <div class="person-two content">
-          <div class="arrow-right"></div>
-          <div class="text">
-            <span class="message-value">hello</span>
-            <sub>7:00 &#x2713;&#x2713;</sub>
-            <!-- <sub>&#x2713;&#x2713;</sub> -->
-          </div>
-        </div>
-      </div>
+      <div class="chat-container"></div>
       <form id="chatInputContent">
         <div>
           <button class="face-button"><i class="material-icons">&#xe7f2;</i></button>
