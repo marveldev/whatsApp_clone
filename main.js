@@ -16,7 +16,6 @@ const main = () => {
 document.querySelector('.main').innerHTML = main()
 
 const currentPage = localStorage.getItem('currentPage')
-console.log(currentPage);
 switchCurrentPage(currentPage || 'defaultPage')
 
 defaultPageEventListeners()
