@@ -18,5 +18,9 @@ document.querySelector('.main').innerHTML = main()
 const currentPage = localStorage.getItem('currentPage')
 switchCurrentPage(currentPage || 'defaultPage')
 
+if (currentPage === 'chatPage') {
+  switchCurrentPage(currentPage)
+}
+
 defaultPageEventListeners()
 topNavEventListeners()
