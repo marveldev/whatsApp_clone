@@ -5,36 +5,29 @@ import defaultPage from './defaultPage/defaultPage.js'
 const switchCurrentPage = (page) => {
   const currentPage = document.querySelector('.current-page')
   localStorage.setItem('currentPage', page)
-  // document.querySelector('.active').classList.remove('active')
-  // button.classList.add('active')
   
   switch (page) {
     case 'defaultPage':
       currentPage.innerHTML = defaultPage()
+      document.querySelector('.active').classList.remove('active')
+      document.querySelector('.default').classList.add('active')
       break;
     case 'statusPage':
       currentPage.innerHTML = statusPage()
+      document.querySelector('.active').classList.remove('active')
+      document.querySelector('.status').classList.add('active')
       break;
     case 'callsPage':
       currentPage.innerHTML = callsPage()
+      document.querySelector('.active').classList.remove('active')
+      document.querySelector('.call').classList.add('active')
       break;
     default:
       currentPage.innerHTML = defaultPage()
+      document.querySelector('.active').classList.remove('active')
+      document.querySelector('.default').classList.add('active')
       break;
   }
-
-  // const switchCurrentPage = (selector, page) => {
-  //   const button = document.querySelector(selector)
-  //   button.addEventListener('click', () => {
-  //     document.querySelector('.current-page').innerHTML = page
-  //     document.querySelector('.active').classList.remove('active')
-  //     button.classList.add('active')
-  //   })
-  // }
-
-  // switchCurrentPage('.chat', defaultPage())
-  // switchCurrentPage('.status', statusPage())
-  // switchCurrentPage('.call', callsPage())
 }
 
 export default switchCurrentPage
