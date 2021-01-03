@@ -41,38 +41,39 @@
 #chatInputContent {
   position: absolute;
   bottom: 0;
-  display: grid;
   margin: 0 1em;
-  grid-template-columns: 0.9fr 0.5fr;
   column-gap: 0.5em;
 }
 
 .chat-input {
-  height: auto;
+  max-height: 8em;
   width: 100%;
+  line-height: 1.2em;
   padding: 1em 2em 0 2.5em;
   font-size: 1.1em;
   border-radius: 2em;
   outline: none;
-  overflow: hidden;
+  overflow-y: scroll;
   resize: none;
 }
 
 .add-button {
   position: relative;
-  left: 2.5em;
+  left: 3em;
   bottom: 1.9em;
   float: right;
   font-size: 1.4em;
 }
 
 .face-button {
-  position: relative;
-  top: 3em;
+  position: absolute;
+  bottom: 3em;
 }
 
 .send-button {
-  margin: 2.5em 0 0 5em;
+  position: absolute;
+  left: 26em;
+  bottom: 2.8em;
   background-color: #186d60fa;
   width: 3em;
   height: 3em;
@@ -92,7 +93,7 @@
 .content {
   background-color: #E1FFC7;
   width: fit-content;
-  padding: 0.5em 0 1.5em 0.5em;
+  padding: 0.5em 0 1.8em 0.5em;
   border-radius: 0.5em;
 }
 
@@ -124,8 +125,13 @@
   vertical-align: middle;
 }
 
+.copy-button {
+  border: 1px solid #9aad88;
+}
+
 .delete-button {
   margin-left: 0.5em;
+  border: 1px solid #9aad88;
 }
 
 .message-value {
