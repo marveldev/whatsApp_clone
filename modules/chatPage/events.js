@@ -25,7 +25,7 @@ const chatPageEventListeners = () => {
       <div id="${itemId}" class="person-two content">
         <div class="arrow-right"></div>
         <div class="text">
-          <span class="message-value">${chatInputValue}</span>
+          <p class="message-value">${chatInputValue}</p>
           <small class="chat-time">${chatTime}</small>
         </div>
         <p class="restore-chat">Tap to restore chat in 5secs</p>
@@ -63,7 +63,7 @@ const displayItemFromDb = async () => {
       <div id="${itemId}" class="person-two content">
         <div class="arrow-right"></div>
         <div class="text">
-          <span class="message-value">${chatInputValue}</span>
+          <p class="message-value">${chatInputValue}</p>
           <small class="chat-time">${chatTime}</small>
         </div>
         <p class="restore-chat">Tap to restore chat in 5secs</p>
