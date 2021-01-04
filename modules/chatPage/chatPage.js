@@ -15,7 +15,6 @@ const chatPage = () => {
           <button class="more-button"><i class="material-icons">&#xe5d4;</i></button>
         </div>
       </div>
-      <div class="chat-container"></div>
       <form id="chatInputContent">
         <div>
           <button class="face-button"><i class="material-icons">&#xe7f2;</i></button>
@@ -24,6 +23,7 @@ const chatPage = () => {
         </div>
         <button type="button" class="send-button"><i class="material-icons">&#xe163;</i></button>
       </form>
+      <div class="chat-container"></div>
     </div>
   `
 }
