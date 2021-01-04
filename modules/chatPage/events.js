@@ -17,15 +17,14 @@ const chatPageEventListeners = () => {
   const sendChatButton = document.querySelector('.send-button')
   const addChatToDom = () => {
     const chatInputValue = chatInput.value.trim()
-    const time = new Date().toTimeString()
-    console.log(time);
+    const chatTime = new Date().toTimeString().substr(0, 5)
     const chatItem = `
       <div class="person-two content">
         <div class="arrow-right"></div>
         <div class="text">
           <p class="message-value">${chatInputValue}</p>
           <span class="chat-buttons">
-            <small>16:00</small>
+            <small>${chatTime}</small>
             <button class="delete-button"><i class="fa fa-trash"></i></button>
             <button class="copy-button"><i class="material-icons">&#xe14d;</i></button>
           </span>
@@ -40,8 +39,8 @@ const chatPageEventListeners = () => {
     `
     const chatContainer = document.querySelector('.chat-container')
     chatContainer.innerHTML += chatItem
-    chatInput.value = '';
-    chatInput.style.height = '';
+    chatInput.style.height = ''
+    chatInput.value = ''
   }
 
   sendChatButton.addEventListener('click', addChatToDom)
