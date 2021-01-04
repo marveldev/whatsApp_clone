@@ -35,16 +35,18 @@
 .chat-options > button {
   font-size: 1.3em;
   color: #fff;
-  margin: 1em 0.2em;
+  margin: 1em 0;
 }
 
 #chatInputContent {
   position: fixed;
-  bottom: 0.5em;
+  bottom: 0;
   display: grid;
+  width: 100%;
+  z-index: 1;
+  padding: 0.5em 0.5em 1em 0.5em;
+  background-color: #A9DBD8;
   grid-template-columns: 1fr 0.5fr;
-  margin: 0 1em;
-  column-gap: 0.5em;
 }
 
 .chat-input {
@@ -62,20 +64,20 @@
 
 .add-button {
   position: absolute;
-  right: 3em;
-  bottom: 0.7em;
+  right: 5em;
+  bottom: 1.3em;
   font-size: 1.4em;
 }
 
 .face-button {
   position: absolute;
-  bottom: 1em;
+  bottom: 2.1em;
 }
 
 .send-button {
   position: absolute;
-  right: 1em;
-  bottom: 0.7em;
+  right: 4em;
+  bottom: 1.8em;
   background-color: #186d60fa;
   width: 3em;
   height: 3em;
@@ -89,20 +91,27 @@
 
 .chat-container {
   position: relative;
-  top: 6em;
+  top: 5em;
+  margin: auto;
+  height: auto;
+  max-height: 25em;
+  overflow-y: scroll;
+  width: 25em;
+  padding: 1em 0 0 0;
 }
 
 .content {
   background-color: #E1FFC7;
   width: fit-content;
-  padding: 0.5em 0 1.8em 0.5em;
+  height: auto;
+  padding: 0.5em 0 0 0.5em;
   border-radius: 0.5em;
 }
 
 .arrow-right {
   position: relative;
   left: 0.5em;
-  bottom: 0.4em;
+  bottom: 0.5em;
   float: right;
   width: 0;
   height: 0;
@@ -115,36 +124,41 @@
   margin: 0 1em 0.5em auto;
 }
 
-.chat-buttons {
+.chat-time {
+  padding: 0.5em 0;
   float: right;
-  margin-right: 0.5em;
-  font-size: 1em;
   color: #9aad88;
 }
 
-.copy-button > i {
-  font-size: 1em;
-  vertical-align: middle;
-}
-
-.copy-button {
-  border: 1px solid #9aad88;
-}
-
-.delete-button {
-  margin-left: 0.5em;
-  border: 1px solid #9aad88;
+.text {
+  display: inline-block;
+  max-width: 18em;
+  word-wrap: break-word;
+  height: auto;
 }
 
 .message-value {
-  max-width: 20em;
-  height: auto;
   margin: 0;
-  word-wrap: break-word;
 }
 
-.delete-modal{
+.chat-options-modal {
   display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
+  width: 100%;
+  height: 5em;
+  /* z-index: 1; */
+  background-color: #19a796;
+}
+
+.chat-options-modal > button {
+  color: #fff;
+  font-size: 1.2em;
+  border: none;
+  vertical-align: middle;
 }
 
 .restore-chat {
