@@ -39,7 +39,7 @@
 }
 
 #chatInputContent {
-  position: absolute;
+  position: fixed;
   bottom: 0.5em;
   display: grid;
   grid-template-columns: 1fr 0.5fr;
@@ -89,7 +89,7 @@
 
 .chat-container {
   position: relative;
-  top: 7em;
+  top: 6em;
 }
 
 .content {
