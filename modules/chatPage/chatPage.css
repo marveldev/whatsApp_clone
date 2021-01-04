@@ -35,45 +35,47 @@
 .chat-options > button {
   font-size: 1.3em;
   color: #fff;
-  margin-top: 1em;
+  margin: 1em 0.2em;
 }
 
 #chatInputContent {
   position: absolute;
-  bottom: 0;
+  bottom: 0.5em;
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
   margin: 0 1em;
   column-gap: 0.5em;
 }
 
 .chat-input {
-  max-height: 8em;
-  width: 100%;
-  line-height: 1.2em;
-  padding: 1em 2em 0 2.5em;
   font-size: 1.1em;
+  width: 18em;
+  padding: 1em 2.5em 0 2.5em;
   border-radius: 2em;
   outline: none;
+  overflow-x: hidden;
   overflow-y: scroll;
   resize: none;
+  max-height: 8em;
+  line-height: 1.2em;
 }
 
 .add-button {
-  position: relative;
-  left: 3em;
-  bottom: 1.9em;
-  float: right;
+  position: absolute;
+  right: 3em;
+  bottom: 0.7em;
   font-size: 1.4em;
 }
 
 .face-button {
   position: absolute;
-  bottom: 3em;
+  bottom: 1em;
 }
 
 .send-button {
   position: absolute;
-  left: 26em;
-  bottom: 2.8em;
+  right: 1em;
+  bottom: 0.7em;
   background-color: #186d60fa;
   width: 3em;
   height: 3em;
