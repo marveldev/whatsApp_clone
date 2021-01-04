@@ -3,6 +3,8 @@ import defaultPage from "./modules/defaultPage/defaultPage.js"
 import defaultPageEventListeners from "./modules/defaultPage/events.js"
 import topNavEventListeners from './modules/topNav/events.js'
 import switchCurrentPage from './modules/helper.js'
+import { request } from './dataStorage.js'
+import { displayItemFromDb } from './modules/chatPage/events.js'
 
 const main = () => {
   return `
@@ -13,14 +15,16 @@ const main = () => {
   `
 }
 
-document.querySelector('.main').innerHTML = main()
+request.onsuccess = () => {
+  document.querySelector('.main').innerHTML = main()
+  const currentPage = localStorage.getItem('currentPage')
+  switchCurrentPage(currentPage || 'defaultPage')
 
-const currentPage = localStorage.getItem('currentPage')
-switchCurrentPage(currentPage || 'defaultPage')
+  if (currentPage === 'chatPage') {
+    switchCurrentPage(currentPage)
+  }
 
-if (currentPage === 'chatPage') {
-  switchCurrentPage(currentPage)
+  defaultPageEventListeners()
+  topNavEventListeners()
+  displayItemFromDb()
 }
-
-defaultPageEventListeners()
-topNavEventListeners()
