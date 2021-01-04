@@ -25,18 +25,16 @@ const chatPageEventListeners = () => {
       <div id="${itemId}" class="person-two content">
         <div class="arrow-right"></div>
         <div class="text">
-          <p class="message-value">${chatInputValue}</p>
-          <span class="chat-buttons">
-            <small>${chatTime}</small>
-            <button class="delete-button"><i class="fa fa-trash"></i></button>
-            <button class="copy-button"><i class="material-icons">&#xe14d;</i></button>
-          </span>
+          <span class="message-value">${chatInputValue}</span>
+          <small class="chat-time">${chatTime}</small>
         </div>
         <p class="restore-chat">Tap to restore chat in 5secs</p>
-        <div class="delete-modal">
-          <h2>Delete chat?</h2>
-          <button class="cancel button">Cancel</button>
-          <button class="delete button">Delete</button>
+        <div class="chat-options-modal">
+          <button><i class="material-icons">&#xe5c4;</i></button>
+          <button><i class="fa fa-star"></i></button>
+          <button><i class="fa fa-trash"></i></button>
+          <button><i class="material-icons">&#xe14d;</i></button>
+          <button><i class="fa fa-mail-forward"></i></button>
         </div>
       </div>
     `
@@ -65,18 +63,16 @@ const displayItemFromDb = async () => {
       <div id="${itemId}" class="person-two content">
         <div class="arrow-right"></div>
         <div class="text">
-          <p class="message-value">${chatInputValue}</p>
-          <span class="chat-buttons">
-            <small>${chatTime}</small>
-            <button class="delete-button"><i class="fa fa-trash"></i></button>
-            <button class="copy-button"><i class="material-icons">&#xe14d;</i></button>
-          </span>
+          <span class="message-value">${chatInputValue}</span>
+          <small class="chat-time">${chatTime}</small>
         </div>
         <p class="restore-chat">Tap to restore chat in 5secs</p>
-        <div class="delete-modal">
-          <h2>Delete chat?</h2>
-          <button class="cancel button">Cancel</button>
-          <button class="delete button">Delete</button>
+        <div class="chat-options-modal">
+          <button id="arrowLeftButton"><i class="material-icons">&#xe5c4;</i></button>
+          <button><i class="fa fa-star"></i></button>
+          <button class="delete-button"><i class="fa fa-trash"></i></button>
+          <button class="copy-button"><i class="material-icons">&#xe14d;</i></button>
+          <button><i class="fa fa-mail-forward"></i></button>
         </div>
       </div>
     `
