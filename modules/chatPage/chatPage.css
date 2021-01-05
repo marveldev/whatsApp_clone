@@ -24,7 +24,7 @@
   width: 3em;
 }
 
-.chat-top-nav > button {
+#arrowLeftButton {
   color: #fff;
 }
 
@@ -43,10 +43,15 @@
   bottom: 0;
   display: grid;
   width: 100%;
-  z-index: 1;
   padding: 0.5em 0.5em 1em 0.5em;
   background-color: #A9DBD8;
   grid-template-columns: 1fr 0.5fr;
+  box-shadow: 0 0 0.1em 0 #000;
+}
+
+#chatInputContent > div {
+  display: grid;
+  grid-template-columns: 1fr 0.2fr 0.2fr;
 }
 
 .chat-input {
@@ -63,21 +68,26 @@
 }
 
 .add-button {
-  position: absolute;
-  right: 5em;
-  bottom: 1.3em;
+  position: relative;
+  right: 3.8em;
+  width: 2em;
+  height: 100%;
   font-size: 1.4em;
+  color: #3a3a3a;
 }
 
 .face-button {
-  position: absolute;
-  bottom: 2.1em;
+  position: relative;
+  right: 24.7em;
+  width: 2.8em;
+  height: 100%;
+  color: #3a3a3a;
 }
 
 .send-button {
   position: absolute;
   right: 4em;
-  bottom: 1.8em;
+  bottom: 1.5em;
   background-color: #186d60fa;
   width: 3em;
   height: 3em;
@@ -97,7 +107,7 @@
   max-height: 25em;
   overflow-y: scroll;
   width: 25em;
-  padding: 1em 0 0 0;
+  padding: 0.5em 0 1em 0;
 }
 
 .content {
@@ -128,6 +138,7 @@
   padding: 0.5em 0;
   float: right;
   color: #9aad88;
+  font-size: 0.7em;
 }
 
 .text {
@@ -142,7 +153,6 @@
 }
 
 .chat-options-modal {
-  display: none;
   position: fixed;
   left: 0;
   top: 0;
