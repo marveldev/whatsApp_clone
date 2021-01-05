@@ -54,6 +54,7 @@ button {
   color: #e9e7e7c9;
   margin: 0 0.2em;
   font-weight: 550;
+  outline: none;
 }
 
 .active {
