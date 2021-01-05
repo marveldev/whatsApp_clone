@@ -57,6 +57,10 @@ button {
   outline: none;
 }
 
+button:active {
+  transform: translateY(0.1em);
+}
+
 .active {
   color: #ffffff;
   border-bottom: 0.25em solid #fff;
