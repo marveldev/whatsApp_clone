@@ -38,7 +38,9 @@ const chatPageEventListeners = () => {
         </div>
       </div>
     `
+
     chatContainer.innerHTML += chatItem
+    chatContainer.scrollTop = chatContainer.scrollHeight
     chatInput.style.height = ''
     chatInput.value = ''
 
@@ -79,6 +81,7 @@ const displayItemFromDb = async () => {
   })
 
   chatContainer.innerHTML = chatItems.join('')
+  chatContainer.scrollTop = chatContainer.scrollHeight
 }
 
 export { chatPageEventListeners, displayItemFromDb }
