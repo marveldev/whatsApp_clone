@@ -15,15 +15,15 @@ const chatPage = () => {
           <button class="more-button"><i class="material-icons">&#xe5d4;</i></button>
         </div>
       </div>
+      <div class="chat-container"></div>
       <form id="chatInputContent">
         <div>
-          <button class="face-button"><i class="material-icons">&#xe7f2;</i></button>
           <textarea class="chat-input" placeholder="Type a message"></textarea>
+          <button class="face-button"><i class="material-icons">&#xe7f2;</i></button>
           <button class="add-button"><i class="fa fa-paperclip"></i></button>
         </div>
         <button type="button" class="send-button"><i class="material-icons">&#xe163;</i></button>
       </form>
-      <div class="chat-container"></div>
     </div>
   `
 }
