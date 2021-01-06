@@ -3,6 +3,7 @@ import switchCurrentPage from "../helper.js"
 
 const openChatOptionModal = () => {
   const chatItemDivs = document.querySelectorAll('.content')
+  const deleteModal = document.querySelector('.delete-modal-overlay')
   const chatOptionsModal = document.querySelector('.chat-options-modal')
   for (let index = 0; index < chatItemDivs.length; index++) {
     const chatItemDiv = chatItemDivs[index]
@@ -10,6 +11,7 @@ const openChatOptionModal = () => {
       setTimeout(() => {
         chatOptionsModal.style.zIndex = "1"
         chatItemDiv.classList.add('overlay')
+        localStorage.setItem('itemDivId', chatItemDiv.id)
       }, 1000)
     })
   }
@@ -21,6 +23,14 @@ const openChatOptionModal = () => {
       const chatItemDiv = chatItemDivs[index];
       chatItemDiv.classList.remove('overlay')
     }
+  })
+
+  document.querySelector('.delete-chat-button').addEventListener('click', () => {
+    deleteModal.style.display = 'block'
+  })
+
+  document.querySelector('.cancel-button').addEventListener('click', () => {
+    deleteModal.style.display = 'none'
   })
 }
 
