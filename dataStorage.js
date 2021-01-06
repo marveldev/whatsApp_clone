@@ -47,11 +47,11 @@ const getEntryFromDb = () => {
   return Promise.resolve(data)
 }
 
-const deleteEntry = (entryId) => {
+const deleteEntry = (itemId) => {
   const database = request.result
   const transaction = database.transaction(['whatsApp'], 'readwrite')
   const store = transaction.objectStore('whatsApp')
-  store.delete(entryId)
+  store.delete(itemId)
 }
 
 export { request, addEntryToDb, getEntryFromDb, deleteEntry }
