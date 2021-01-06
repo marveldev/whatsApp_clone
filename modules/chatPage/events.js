@@ -1,47 +1,51 @@
-import { addEntryToDb, getEntryFromDb } from '../../dataStorage.js'
+import { addEntryToDb, deleteEntry, getEntryFromDb } from '../../dataStorage.js'
 import switchCurrentPage from "../helper.js"
+import { modal } from './chatPage.js'
 
-const openChatOptionModal = () => {
-  const chatItemDivs = document.querySelectorAll('.content')
-  const deleteChatButton = document.querySelector('.delete-button')
-  const deleteModal = document.querySelector('.delete-modal-overlay')
-  const chatOptionsModal = document.querySelector('.chat-options-modal')
-  for (let index = 0; index < chatItemDivs.length; index++) {
-    const chatItemDiv = chatItemDivs[index]
-    chatItemDiv.addEventListener('mousedown', () => {
-      if (chatItemDiv.classList.contains('overlay')) {
+const chatOptionEvent = () => {
+  const modalEventListeners = () => {
+    document.querySelector('.back-button').addEventListener('click', () => {
+      for (let index = 0; index < chatItemDivs.length; index++) {
+        const chatItemDiv = chatItemDivs[index]
         chatItemDiv.classList.remove('overlay')
-        chatOptionsModal.style.zIndex = "0"
-      } else {
-        chatOptionsModal.style.zIndex = "1"
-        chatItemDiv.classList.add('overlay')
-        console.log(chatItemDiv)
       }
+      document.querySelector('#modal').innerHTML = ''
+    })
+
+    document.querySelector('.delete-modal-button').addEventListener('click', () => {
+      document.querySelector('.delete-modal-overlay').style.display = 'block'
+    })
+
+    document.querySelector('.cancel-button').addEventListener('click', () => {
+      document.querySelector('.delete-modal-overlay').style.display = 'none'
+    })
+
+    const deleteButton = document.querySelector('.delete-button')
+    deleteButton.addEventListener('click', () => {
+      const element = deleteButton.title
+      const chatItemDiv = document.querySelector(`#${element}`)
+      const chatContainer = document.querySelector('.chat-container')
+      chatContainer.removeChild(chatItemDiv)
+      document.querySelector('#modal').innerHTML = ''
+
+      deleteEntry(element)
     })
   }
 
-  const backButton = document.querySelector('.back-button')
-  backButton.addEventListener('click', () => {
-    chatOptionsModal.style.zIndex = "0"
-    for (let index = 0; index < chatItemDivs.length; index++) {
-      const chatItemDiv = chatItemDivs[index]
-      chatItemDiv.classList.remove('overlay')
-    }
-  })
-
-  document.querySelector('.delete-modal-button').addEventListener('click', () => {
-    deleteModal.style.display = 'block'
-  })
-
-  document.querySelector('.cancel-button').addEventListener('click', () => {
-    deleteModal.style.display = 'none'
-  })
-
-  deleteChatButton.addEventListener('click', () => {
-    const chatContainer = document.querySelector('.chat-container')
-    const item = document.querySelector('.overlay')
-    chatContainer.removeChild(item)
-  })
+  const chatItemDivs = document.querySelectorAll('.content')
+  for (let index = 0; index < chatItemDivs.length; index++) {
+    const chatItemDiv = chatItemDivs[index]
+    chatItemDiv.addEventListener('click', () => {
+      if (chatItemDiv.classList.contains('overlay')) {
+        chatItemDiv.classList.remove('overlay')
+        document.querySelector('#modal').innerHTML = ''
+      } else {
+        chatItemDiv.classList.add('overlay')
+        document.querySelector('#modal').innerHTML = modal(`${chatItemDiv.id}`)
+        modalEventListeners()
+      }
+    })
+  }
 }
 
 const chatPageEventListeners = () => {
@@ -72,7 +76,6 @@ const chatPageEventListeners = () => {
             <span class="message-value">${chatInputValue}</span>
             <sub class="chat-time">${chatTime}</sub>
           </div>
-          <p class="restore-chat">Tap to restore chat in 5secs</p>
         </div>
       </div>
     `
@@ -82,7 +85,7 @@ const chatPageEventListeners = () => {
     chatInput.style.height = ''
     chatInput.value = ''
 
-    openChatOptionModal()
+    chatOptionEvent()
 
     const addItemToIndexDb = {
       itemId: itemId,
@@ -109,7 +112,6 @@ const displayItemFromDb = async () => {
             <span class="message-value">${chatInputValue}</span>
             <sub class="chat-time">${chatTime}</sub>
           </div>
-          <p class="restore-chat">Tap to restore chat in 5secs</p>
         </div>
       </div>
     `
@@ -118,7 +120,7 @@ const displayItemFromDb = async () => {
   chatContainer.innerHTML = chatItems.join('')
   chatContainer.scrollTop = chatContainer.scrollHeight
 
-  openChatOptionModal()
+  chatOptionEvent()
 }
 
 export { chatPageEventListeners, displayItemFromDb }
