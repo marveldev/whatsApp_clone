@@ -163,11 +163,13 @@
   vertical-align: top;
   text-align: justify;
   max-width: 18em;
+  user-select: none;
 }
 
 .chat-time {
   color: #9aad88;
   font-size: 0.7em;
+  user-select: none;
 }
 
 .overlay {
