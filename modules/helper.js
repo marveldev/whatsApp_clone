@@ -1,7 +1,7 @@
 import statusPage from './statusPage/statusPage.js'
 import callsPage from './callsPage/callsPage.js'
 import defaultPage from './defaultPage/defaultPage.js'
-import chatPage from './chatPage/chatPage.js'
+import { chatPage } from './chatPage/chatPage.js'
 import defaultPageEventListeners from './defaultPage/events.js'
 import { chatPageEventListeners } from './chatPage/events.js'
 
