@@ -1,6 +1,29 @@
 import { addEntryToDb, getEntryFromDb } from '../../dataStorage.js'
 import switchCurrentPage from "../helper.js"
 
+const openChatOptionModal = () => {
+  const chatItemDivs = document.querySelectorAll('.content')
+  const chatOptionsModal = document.querySelector('.chat-options-modal')
+  for (let index = 0; index < chatItemDivs.length; index++) {
+    const chatItemDiv = chatItemDivs[index]
+    chatItemDiv.addEventListener('mousedown', () => {
+      setTimeout(() => {
+        chatOptionsModal.style.zIndex = "1"
+        chatItemDiv.classList.add('overlay')
+      }, 1000)
+    })
+  }
+
+  const overlayButton = document.querySelector('.overlay-button')
+  overlayButton.addEventListener('click', () => {
+    chatOptionsModal.style.zIndex = "0"
+    for (let index = 0; index < chatItemDivs.length; index++) {
+      const chatItemDiv = chatItemDivs[index];
+      chatItemDiv.classList.remove('overlay')
+    }
+  })
+}
+
 const chatPageEventListeners = () => {
   const chatInput = document.querySelector('.chat-input')
   const arrowLeftButton = document.querySelector('#arrowLeftButton')
@@ -13,28 +36,23 @@ const chatPageEventListeners = () => {
   })
 
   chatInput.addEventListener('keydown', () => {
-    chatInput.style.height = "1px";
-    chatInput.style.height = (3+chatInput.scrollHeight)+"px";
+    chatInput.style.height = "1px"
+    chatInput.style.height = (3+chatInput.scrollHeight)+"px"
   })
 
   const addChatToDom = () => {
     const chatInputValue = chatInput.value.trim()
-    const itemId = 'id' + Date.parse(new Date()).toString();
+    const itemId = 'id' + Date.parse(new Date()).toString()
     const chatTime = new Date().toTimeString().substr(0, 5)
     const chatItem = `
-      <div id="${itemId}" class="person-two content">
+      <div id="${itemId}" class="content">
         <div class="arrow-right"></div>
-        <div class="text">
-          <p class="message-value">${chatInputValue}</p>
-          <small class="chat-time">${chatTime}</small>
-        </div>
-        <p class="restore-chat">Tap to restore chat in 5secs</p>
-        <div class="chat-options-modal">
-          <button><i class="material-icons">&#xe5c4;</i></button>
-          <button><i class="fa fa-star"></i></button>
-          <button><i class="fa fa-trash"></i></button>
-          <button><i class="material-icons">&#xe14d;</i></button>
-          <button><i class="fa fa-mail-forward"></i></button>
+        <div class="person-two">
+          <div class="text">
+            <span class="message-value">${chatInputValue}</span>
+            <sub class="chat-time">${chatTime}</sub>
+          </div>
+          <p class="restore-chat">Tap to restore chat in 5secs</p>
         </div>
       </div>
     `
@@ -43,6 +61,8 @@ const chatPageEventListeners = () => {
     chatContainer.scrollTop = chatContainer.scrollHeight
     chatInput.style.height = ''
     chatInput.value = ''
+
+    openChatOptionModal()
 
     const addItemToIndexDb = {
       itemId: itemId,
@@ -62,19 +82,14 @@ const displayItemFromDb = async () => {
   const chatItems = whatsApp.map((chatItem) => {
     const { itemId, chatTime, chatInputValue } = chatItem
     return `
-      <div id="${itemId}" class="person-two content">
+      <div id="${itemId}" class="content">
         <div class="arrow-right"></div>
-        <div class="text">
-          <p class="message-value">${chatInputValue}</p>
-          <small class="chat-time">${chatTime}</small>
-        </div>
-        <p class="restore-chat">Tap to restore chat in 5secs</p>
-        <div class="chat-options-modal">
-          <button id="arrowLeftButton"><i class="material-icons">&#xe5c4;</i></button>
-          <button><i class="fa fa-star"></i></button>
-          <button class="delete-button"><i class="fa fa-trash"></i></button>
-          <button class="copy-button"><i class="material-icons">&#xe14d;</i></button>
-          <button><i class="fa fa-mail-forward"></i></button>
+        <div class="person-two">
+          <div class="text">
+            <span class="message-value">${chatInputValue}</span>
+            <sub class="chat-time">${chatTime}</sub>
+          </div>
+          <p class="restore-chat">Tap to restore chat in 5secs</p>
         </div>
       </div>
     `
@@ -82,6 +97,8 @@ const displayItemFromDb = async () => {
 
   chatContainer.innerHTML = chatItems.join('')
   chatContainer.scrollTop = chatContainer.scrollHeight
+
+  openChatOptionModal()
 }
 
 export { chatPageEventListeners, displayItemFromDb }
