@@ -1,5 +1,12 @@
 const chatPage = () => {
   return `
+    <div class="delete-modal-overlay">
+      <div class="delete-modal">
+        <p>Delete message?</p>
+        <button class="cancel-button">CANCEL</button>
+        <button class="delete-button">DELETE FOR ME</button>
+      </div>
+    </div>
     <div class="chat-page">
       <div class="chat-top-nav">
         <button id="arrowLeftButton"><i class="material-icons">&#xe5c4;</i></button>
@@ -18,7 +25,7 @@ const chatPage = () => {
       <div class="chat-options-modal">
         <button class="overlay-button"><i class="material-icons">&#xe5c4</i></button>
         <button><i class="fa fa-star"></i></button>
-        <button><i class="fa fa-trash"></i></button>
+        <button class="delete-chat-button"><i class="fa fa-trash"></i></button>
         <button><i class="material-icons">&#xe14d</i></button>
         <button><i class="fa fa-mail-forward"></i></button>
       </div>
