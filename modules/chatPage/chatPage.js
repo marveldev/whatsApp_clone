@@ -23,9 +23,9 @@ const chatPage = () => {
         </div>
       </div>
       <div class="chat-options-modal">
-        <button class="overlay-button"><i class="material-icons">&#xe5c4</i></button>
+        <button class="back-button"><i class="material-icons">&#xe5c4</i></button>
         <button><i class="fa fa-star"></i></button>
-        <button class="delete-chat-button"><i class="fa fa-trash"></i></button>
+        <button class="delete-modal-button"><i class="fa fa-trash"></i></button>
         <button><i class="material-icons">&#xe14d</i></button>
         <button><i class="fa fa-mail-forward"></i></button>
       </div>
@@ -42,4 +42,4 @@ const chatPage = () => {
   `
 }
 
-export default chatPage
+export { chatPage }
