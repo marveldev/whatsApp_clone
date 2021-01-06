@@ -14,7 +14,6 @@
   width: 100%;
   height: 5em;
   color: #fff;
-  z-index: 1;
   background-color: #075E54;
 }
 
@@ -127,24 +126,24 @@
   grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
   width: 100%;
   height: 5em;
-  z-index: 0;
+  z-index: 1;
   background-color: #19a796;
 }
 
 .chat-options-modal > button {
   color: #fff;
-  font-size: 1.2em;
+  font-size: 1.5em;
   border: none;
-  vertical-align: middle;
 }
 
-.restore-chat {
-  display: none;
+.back-button {
+  padding-top: 0.4em;
 }
 
 .content {
   text-align: right;
   padding: 0.2em 0.5em;
+  user-select: none;
 }
 
 .text {
@@ -163,13 +162,11 @@
   vertical-align: top;
   text-align: justify;
   max-width: 18em;
-  user-select: none;
 }
 
 .chat-time {
   color: #9aad88;
   font-size: 0.7em;
-  user-select: none;
 }
 
 .overlay {
