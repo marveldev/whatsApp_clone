@@ -1,4 +1,3 @@
-import chatPage from "../chatPage/chatPage.js";
 import switchCurrentPage from "../helper.js";
 
 const defaultPageEventListeners = () => {
