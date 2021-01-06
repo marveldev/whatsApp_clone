@@ -1,7 +1,7 @@
 .chat-page {
   position: absolute;
   left: 0;
-  background-color: #A9DBD8;
+  background: #efe7dd url("https://cloud.githubusercontent.com/assets/398893/15136779/4e765036-1639-11e6-9201-67e728e86f39.jpg") repeat;
   width: 100%;
   height: 100%;
 }
@@ -44,9 +44,8 @@
   display: grid;
   width: 100%;
   padding: 0.5em 0.5em 1em 0.5em;
-  background-color: #A9DBD8;
+  background: #efe7dd url("https://cloud.githubusercontent.com/assets/398893/15136779/4e765036-1639-11e6-9201-67e728e86f39.jpg") repeat;
   grid-template-columns: 1fr 0.2fr;
-  box-shadow: 0 0 0.1em 0 #000;
 }
 
 #chatInputContent > div {
@@ -104,51 +103,20 @@
   margin: auto;
   height: auto;
   max-height: 25em;
-  overflow-y: scroll;
+  overflow-y: auto;
   width: auto;
   padding: 0.5em 0 1em 0;
 }
 
-.content {
-  background-color: #E1FFC7;
-  width: fit-content;
-  height: auto;
-  padding: 0.5em 0 0 0.5em;
-  border-radius: 0.5em;
-}
-
 .arrow-right {
   position: relative;
-  left: 0.5em;
-  bottom: 0.5em;
+  right: 0.3em;
   float: right;
   width: 0;
   height: 0;
-  border-top: 0.7em solid transparent;
+  border-top: 0.6em solid transparent;
   border-bottom: 0.7em solid transparent;
   border-left: 0.7em solid #E5FFCC;
-}
-
-.person-two {
-  margin: 0 1em 0.5em auto;
-}
-
-.chat-time {
-  padding: 0.5em 0;
-  float: right;
-  color: #9aad88;
-  font-size: 0.7em;
-}
-
-.text {
-  display: inline-block;
-  max-width: 18em;
-  word-wrap: break-word;
-  height: auto;
-}
-
-.message-value {
-  margin: 0;
 }
 
 .chat-options-modal {
@@ -159,7 +127,7 @@
   grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
   width: 100%;
   height: 5em;
-  /* z-index: 1; */
+  z-index: 0;
   background-color: #19a796;
 }
 
@@ -174,7 +142,39 @@
   display: none;
 }
 
-@media only screen and (max-width: 375px)  {
+.content {
+  text-align: right;
+  padding: 0.2em 0.5em;
+}
+
+.text {
+  background-color: #E1FFC7;
+  border-radius: 0.5em;
+  display: inline-block;
+  padding: 0.5em 1em;
+  max-width: 18em;
+  word-wrap: break-word;
+  height: auto;
+  margin-bottom: 0.2em;
+}
+
+.message-value {
+  display: inline-block;
+  vertical-align: top;
+  text-align: justify;
+  max-width: 18em;
+}
+
+.chat-time {
+  color: #9aad88;
+  font-size: 0.7em;
+}
+
+.overlay {
+  background-color: #136ace66;
+}
+
+@media only screen and (max-width: 375px) {
   .add-button {
     right: 0.7em;
   }
@@ -188,7 +188,7 @@
   }
 }
 
-@media only screen and (max-width: 320px)   {
+@media only screen and (max-width: 340px)   {
   .add-button {
     right: 0.4em;
   }
@@ -199,5 +199,13 @@
 
   .send-button {
     right: 2em;
+  }
+
+  .text {
+    max-width: 15em;
+  }
+
+  .message-value {
+    max-width: 15em;
   }
 }
