@@ -3,34 +3,44 @@ import switchCurrentPage from "../helper.js"
 
 const openChatOptionModal = () => {
   const chatItemDivs = document.querySelectorAll('.content')
+  const deleteChatButton = document.querySelector('.delete-button')
   const deleteModal = document.querySelector('.delete-modal-overlay')
   const chatOptionsModal = document.querySelector('.chat-options-modal')
   for (let index = 0; index < chatItemDivs.length; index++) {
     const chatItemDiv = chatItemDivs[index]
     chatItemDiv.addEventListener('mousedown', () => {
-      setTimeout(() => {
+      if (chatItemDiv.classList.contains('overlay')) {
+        chatItemDiv.classList.remove('overlay')
+        chatOptionsModal.style.zIndex = "0"
+      } else {
         chatOptionsModal.style.zIndex = "1"
         chatItemDiv.classList.add('overlay')
-        localStorage.setItem('itemDivId', chatItemDiv.id)
-      }, 1000)
+        console.log(chatItemDiv)
+      }
     })
   }
 
-  const overlayButton = document.querySelector('.overlay-button')
-  overlayButton.addEventListener('click', () => {
+  const backButton = document.querySelector('.back-button')
+  backButton.addEventListener('click', () => {
     chatOptionsModal.style.zIndex = "0"
     for (let index = 0; index < chatItemDivs.length; index++) {
-      const chatItemDiv = chatItemDivs[index];
+      const chatItemDiv = chatItemDivs[index]
       chatItemDiv.classList.remove('overlay')
     }
   })
 
-  document.querySelector('.delete-chat-button').addEventListener('click', () => {
+  document.querySelector('.delete-modal-button').addEventListener('click', () => {
     deleteModal.style.display = 'block'
   })
 
   document.querySelector('.cancel-button').addEventListener('click', () => {
     deleteModal.style.display = 'none'
+  })
+
+  deleteChatButton.addEventListener('click', () => {
+    const chatContainer = document.querySelector('.chat-container')
+    const item = document.querySelector('.overlay')
+    chatContainer.removeChild(item)
   })
 }
 
