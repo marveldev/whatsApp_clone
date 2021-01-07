@@ -67,6 +67,15 @@ const chatEvent = () => {
     document.querySelector('#deleteModal').innerHTML = ''
     overlay.style.display = 'none'
   })
+
+  const photoInput = document.querySelector('#addPhoto')
+  photoInput.addEventListener('change', () => {
+    const photoReader = new FileReader()
+    photoReader.readAsDataURL(photoInput.files[0])
+    photoReader.addEventListener('load', () => {
+      document.querySelector('.chat-page').style.backgroundImage = `url(${photoReader.result})`
+    })
+  })
 }
 
 export default chatEvent
