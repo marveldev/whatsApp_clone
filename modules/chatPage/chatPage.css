@@ -82,18 +82,30 @@
 }
 
 .send-button {
-  position: absolute;
-  right: 4em;
-  bottom: 1.5em;
+  display: none;
   background-color: #186d60fa;
   width: 3em;
   height: 3em;
   border-radius: 1.5em;
+  margin-top: 0.3em;
 }
 
 .send-button > i {
-  padding-left: 0.2em;
+  padding: 0.1em 0 0 0.2em;
   color: #fff;
+}
+
+.record-button {
+  background-color: #186d60fa;
+  width: 3em;
+  height: 3em;
+  border-radius: 1.5em;
+  color: #fff;
+  margin-top: 0.3em;
+}
+
+.record-button > i {
+  font-size: 1.5em;
 }
 
 .chat-container {
@@ -170,7 +182,7 @@
 }
 
 .overlay {
-  background-color: #136ace66;
+  background-color: #2690b1a2;
 }
 
 .delete-modal-overlay {
@@ -182,7 +194,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: #00000080;
   z-index: 2;
   cursor: pointer;
 }
