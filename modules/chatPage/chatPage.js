@@ -1,11 +1,9 @@
 const modal = (itemId) => {
   return `
-    <div class="delete-modal-overlay">
-      <div class="delete-modal">
-        <p>Delete message?</p>
-        <button class="cancel-button">CANCEL</button>
-        <button class="delete-button" title="${itemId}">DELETE FOR ME</button>
-      </div>
+    <div class="delete-modal">
+      <p>Delete message?</p>
+      <button class="cancel-button">CANCEL</button>
+      <button class="delete-button" title="${itemId}">DELETE FOR ME</button>
     </div>
     <div class="chat-options-modal">
       <button class="back-button"><i class="material-icons">&#xe5c4</i></button>
@@ -19,7 +17,32 @@ const modal = (itemId) => {
 
 const chatPage = () => {
   return `
-    <div id="modal"></div>
+    <div id="overlay"></div>
+    <div id="deleteModal"></div>
+    <div id="dropdownModal">
+      <div id="moreOptions">
+        <button>View contact</button>
+        <button>Media, links, and docs</button>
+        <button>Search</button>
+        <button>Mute notifications</button>
+        <button id="wallpaperButton">Wallpaper</button>
+        <button>Clear chat</button>
+      </div>
+      <div class="wallpaper-container">
+        <p>Wallpaper</p>
+        <button type="button" id="defaultButton">
+          <i class="material-icons">&#xe5d5;</i>
+          <span>Default</span>
+        </button>
+        <button type="button" id="galleryButton">
+          <input type="file" id="addPhoto">
+          <label for="addPhoto">
+            <i class="fa fa-photo"></i>
+            <span>Gallery</span>
+          </label>
+        </button>
+      </div>
+    </div>
     <div class="chat-page">
       <div class="chat-top-nav">
         <button id="arrowLeftButton"><i class="material-icons">&#xe5c4;</i></button>
@@ -32,16 +55,8 @@ const chatPage = () => {
         <div class="chat-options">
           <button type="button"><i class="fa fa-video-camera"></i></button>
           <button type="button"><i class="fa fa-phone"></i></button>
-          <button type="button" class="more-button"><i class="material-icons">&#xe5d4;</i></button>
+          <button type="button" class="dropdown-button"><i class="material-icons">&#xe5d4;</i></button>
         </div>
-        <span id="moreOptions">
-          <button>View contact</button>
-          <button>Media, links, and docs</button>
-          <button>Search</button>
-          <button>Mute notifications</button>
-          <button>Wallpaper</button>
-          <button>Clear chat</button>
-        </span>
       </div>
       <div class="chat-container"></div>
       <form id="chatInputContent">
