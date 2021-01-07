@@ -30,9 +30,9 @@ const chatPage = () => {
           <p>online</p>
         </div>
         <div class="chat-options">
-          <button><i class="fa fa-video-camera"></i></button>
-          <button><i class="fa fa-phone"></i></button>
-          <button class="more-button"><i class="material-icons">&#xe5d4;</i></button>
+          <button type="button"><i class="fa fa-video-camera"></i></button>
+          <button type="button"><i class="fa fa-phone"></i></button>
+          <button type="button" class="more-button"><i class="material-icons">&#xe5d4;</i></button>
         </div>
       </div>
       <div class="chat-container"></div>
@@ -42,6 +42,7 @@ const chatPage = () => {
           <button class="face-button"><i class="material-icons">&#xe7f2;</i></button>
           <button class="add-button"><i class="fa fa-paperclip"></i></button>
         </div>
+        <button type="button" class="record-button"><i class="fa fa-microphone"></i></button>
         <button type="button" class="send-button"><i class="material-icons">&#xe163;</i></button>
       </form>
     </div>
