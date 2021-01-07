@@ -1,56 +1,13 @@
-import { addEntryToDb, deleteEntry, getEntryFromDb } from '../../dataStorage.js'
+import { addEntryToDb, getEntryFromDb } from '../../dataStorage.js'
 import switchCurrentPage from "../helper.js"
-import { modal } from './chatPage.js'
-
-const chatItemEvent = () => {
-  const modalEventListeners = () => {
-    document.querySelector('.back-button').addEventListener('click', () => {
-      for (let index = 0; index < chatItemDivs.length; index++) {
-        const chatItemDiv = chatItemDivs[index]
-        chatItemDiv.classList.remove('overlay')
-        chatItemDiv.parentElement.style.pointerEvents = 'auto'
-      }
-      document.querySelector('#modal').innerHTML = ''
-    })
-
-    document.querySelector('.delete-modal-button').addEventListener('click', () => {
-      document.querySelector('.delete-modal-overlay').style.display = 'block'
-    })
-
-    document.querySelector('.cancel-button').addEventListener('click', () => {
-      document.querySelector('.delete-modal-overlay').style.display = 'none'
-    })
-
-    const deleteButton = document.querySelector('.delete-button')
-    deleteButton.addEventListener('click', () => {
-      const element = deleteButton.title
-      const chatItemDiv = document.querySelector(`#${element}`)
-      const chatContainer = document.querySelector('.chat-container')
-      chatContainer.removeChild(chatItemDiv)
-      document.querySelector('#modal').innerHTML = ''
-
-      deleteEntry(element)
-    })
-  }
-
-  const chatItemDivs = document.querySelectorAll('.content')
-  for (let index = 0; index < chatItemDivs.length; index++) {
-    const chatItemDiv = chatItemDivs[index]
-    chatItemDiv.addEventListener('click', () => {
-      chatItemDiv.classList.add('overlay')
-      document.querySelector('#modal').innerHTML = modal(`${chatItemDiv.id}`)
-      modalEventListeners()
-      chatItemDiv.parentElement.style.pointerEvents = 'none'
-    })
-  }
-}
+import chatEvent from './chatEvents.js'
 
 const chatPageEventListeners = () => {
   const chatInput = document.querySelector('.chat-input')
   const arrowLeftButton = document.querySelector('#arrowLeftButton')
   const sendChatButton = document.querySelector('.send-button')
   const chatContainer = document.querySelector('.chat-container')
-  const moreButton = document.querySelector('.more-button')
+  const dropdownButton = document.querySelector('.dropdown-button')
   const recordButton = document.querySelector('.record-button')
 
   arrowLeftButton.addEventListener('click', () => {
@@ -58,8 +15,9 @@ const chatPageEventListeners = () => {
     document.querySelector('.nav-container').style.display = 'block'
   })
 
-  moreButton.addEventListener('click', () => {
-    
+  dropdownButton.addEventListener('click', () => {
+    document.querySelector('#moreOptions').style.display = 'block'
+    document.querySelector('#overlay').style.display = 'block'
   })
 
   chatInput.addEventListener('keyup', () => {
@@ -102,7 +60,7 @@ const chatPageEventListeners = () => {
     }
 
     addEntryToDb(addItemToIndexDb)
-    chatItemEvent()
+    chatEvent()
   }
 
   sendChatButton.addEventListener('click', addChatToDom)
@@ -127,7 +85,7 @@ const displayItemFromDb = async () => {
   chatContainer.innerHTML = chatItems.join('')
   chatContainer.scrollTop = chatContainer.scrollHeight
 
-  chatItemEvent()
+  chatEvent()
 }
 
 export { chatPageEventListeners, displayItemFromDb }
