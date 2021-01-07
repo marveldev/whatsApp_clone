@@ -27,7 +27,7 @@
   color: #fff;
 }
 
-.chat-options > .more-button {
+.dropdown-button {
   vertical-align: sub;
 }
 
@@ -185,24 +185,71 @@
   background-color: #2690b1a2;
 }
 
-.delete-modal-overlay {
+#overlay {
   display: none;
   position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
+  background-color: #00000066;
+}
+
+.wallpaper-container {
+  display: none;
+  position: fixed;
   bottom: 0;
-  background-color: #00000080;
-  z-index: 2;
-  cursor: pointer;
+  left: 0;
+  width: 100%;
+  padding: 2em 1.5em;
+  background-color: #fff;
+  text-align: center;
+  z-index: 1;
+}
+
+.wallpaper-container > p {
+  margin-top: 0;
+  font-weight: 600;
+  text-align: left;
+  font-size: 1.1em;
+}
+
+#defaultButton {
+  color: #fff;
+  background-color: #186d60bc;
+  padding: 0.5em 1em 0.5em 0.5em;
+  font-size: 1em;
+  margin: 0.5em;
+  border-radius: 0.5em;
+}
+
+#defaultButton > i {
+  font-size: 1.2em;
+  vertical-align: bottom;
+}
+
+#galleryButton {
+  color: #fff;
+  background-color:#a76046ef;
+  padding: 0.6em;
+  font-size: 1em;
+  margin: 0.5em;
+  border-radius: 0.5em;
+}
+
+#addPhoto {
+  display: none;
 }
 
 .delete-modal {
+  display: none;
+  position: absolute;
+  top: 40%;
+  left: 10%;
   background-color: #fff;
-  width: 60%;
-  margin: 15em auto;
+  width: 70%;
+  z-index: 1;
   padding: 0.5em 1.5em 1.5em 1.5em;
 }
 
@@ -214,10 +261,12 @@
 }
 
 #moreOptions {
-  display: block;
-  position: absolute;
+  display: none;
+  position: fixed;
   right: 0;
+  top: 0;
   width: 12em;
+  z-index: 1;
   padding: 0.5em 0;
   background-color: #fff;
 }
@@ -226,6 +275,7 @@
   display: block;
   padding: 1em;
   width: 100%;
+  font-weight: 600;
   text-align: left;
 }
 
