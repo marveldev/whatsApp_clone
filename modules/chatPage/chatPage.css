@@ -213,6 +213,22 @@
   outline: none;
 }
 
+#moreOptions {
+  display: block;
+  position: absolute;
+  right: 0;
+  width: 12em;
+  padding: 0.5em 0;
+  background-color: #fff;
+}
+
+#moreOptions > button {
+  display: block;
+  padding: 1em;
+  width: 100%;
+  text-align: left;
+}
+
 @media only screen and (max-width: 375px) {
   .add-button {
     right: 0.7em;
