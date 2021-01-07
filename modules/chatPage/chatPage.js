@@ -34,6 +34,14 @@ const chatPage = () => {
           <button type="button"><i class="fa fa-phone"></i></button>
           <button type="button" class="more-button"><i class="material-icons">&#xe5d4;</i></button>
         </div>
+        <span id="moreOptions">
+          <button>View contact</button>
+          <button>Media, links, and docs</button>
+          <button>Search</button>
+          <button>Mute notifications</button>
+          <button>Wallpaper</button>
+          <button>Clear chat</button>
+        </span>
       </div>
       <div class="chat-container"></div>
       <form id="chatInputContent">
