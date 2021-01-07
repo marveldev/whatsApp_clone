@@ -2,7 +2,7 @@ import { addEntryToDb, deleteEntry, getEntryFromDb } from '../../dataStorage.js'
 import switchCurrentPage from "../helper.js"
 import { modal } from './chatPage.js'
 
-const chatOptionEvent = () => {
+const chatItemEvent = () => {
   const modalEventListeners = () => {
     document.querySelector('.back-button').addEventListener('click', () => {
       for (let index = 0; index < chatItemDivs.length; index++) {
@@ -50,21 +50,27 @@ const chatPageEventListeners = () => {
   const arrowLeftButton = document.querySelector('#arrowLeftButton')
   const sendChatButton = document.querySelector('.send-button')
   const chatContainer = document.querySelector('.chat-container')
+  const moreButton = document.querySelector('.more-button')
+  const recordButton = document.querySelector('.record-button')
 
   arrowLeftButton.addEventListener('click', () => {
     switchCurrentPage('defaultPage')
     document.querySelector('.nav-container').style.display = 'block'
   })
 
+  moreButton.addEventListener('click', () => {
+    
+  })
+
   chatInput.addEventListener('keyup', () => {
     chatInput.style.height = "1px"
     chatInput.style.height = (3+chatInput.scrollHeight)+"px"
     if (chatInput.value.trim().length >= 1) {
-      document.querySelector('.record-button').style.display = 'none'
-      document.querySelector('.send-button').style.display = 'block'
+      recordButton.style.display = 'none'
+      sendChatButton.style.display = 'block'
     } else {
-      document.querySelector('.record-button').style.display = 'block'
-      document.querySelector('.send-button').style.display = 'none'
+      recordButton.style.display = 'block'
+      sendChatButton.style.display = 'none'
     }
   })
 
@@ -86,8 +92,8 @@ const chatPageEventListeners = () => {
     chatContainer.scrollTop = chatContainer.scrollHeight
     chatInput.style.height = ''
     chatInput.value = ''
-
-    chatOptionEvent()
+    recordButton.style.display = 'block'
+    sendChatButton.style.display = 'none'
 
     const addItemToIndexDb = {
       itemId: itemId,
@@ -96,6 +102,7 @@ const chatPageEventListeners = () => {
     }
 
     addEntryToDb(addItemToIndexDb)
+    chatItemEvent()
   }
 
   sendChatButton.addEventListener('click', addChatToDom)
@@ -120,7 +127,7 @@ const displayItemFromDb = async () => {
   chatContainer.innerHTML = chatItems.join('')
   chatContainer.scrollTop = chatContainer.scrollHeight
 
-  chatOptionEvent()
+  chatItemEvent()
 }
 
 export { chatPageEventListeners, displayItemFromDb }
