@@ -8,6 +8,7 @@ const chatOptionEvent = () => {
       for (let index = 0; index < chatItemDivs.length; index++) {
         const chatItemDiv = chatItemDivs[index]
         chatItemDiv.classList.remove('overlay')
+        chatItemDiv.parentElement.style.pointerEvents = 'auto'
       }
       document.querySelector('#modal').innerHTML = ''
     })
@@ -36,14 +37,10 @@ const chatOptionEvent = () => {
   for (let index = 0; index < chatItemDivs.length; index++) {
     const chatItemDiv = chatItemDivs[index]
     chatItemDiv.addEventListener('click', () => {
-      if (chatItemDiv.classList.contains('overlay')) {
-        chatItemDiv.classList.remove('overlay')
-        document.querySelector('#modal').innerHTML = ''
-      } else {
-        chatItemDiv.classList.add('overlay')
-        document.querySelector('#modal').innerHTML = modal(`${chatItemDiv.id}`)
-        modalEventListeners()
-      }
+      chatItemDiv.classList.add('overlay')
+      document.querySelector('#modal').innerHTML = modal(`${chatItemDiv.id}`)
+      modalEventListeners()
+      chatItemDiv.parentElement.style.pointerEvents = 'none'
     })
   }
 }
@@ -59,9 +56,16 @@ const chatPageEventListeners = () => {
     document.querySelector('.nav-container').style.display = 'block'
   })
 
-  chatInput.addEventListener('keydown', () => {
+  chatInput.addEventListener('keyup', () => {
     chatInput.style.height = "1px"
     chatInput.style.height = (3+chatInput.scrollHeight)+"px"
+    if (chatInput.value.trim().length >= 1) {
+      document.querySelector('.record-button').style.display = 'none'
+      document.querySelector('.send-button').style.display = 'block'
+    } else {
+      document.querySelector('.record-button').style.display = 'block'
+      document.querySelector('.send-button').style.display = 'none'
+    }
   })
 
   const addChatToDom = () => {
@@ -71,11 +75,9 @@ const chatPageEventListeners = () => {
     const chatItem = `
       <div id="${itemId}" class="content">
         <div class="arrow-right"></div>
-        <div class="person-two">
-          <div class="text">
-            <span class="message-value">${chatInputValue}</span>
-            <sub class="chat-time">${chatTime}</sub>
-          </div>
+        <div class="person-one text">
+          <span class="message-value">${chatInputValue}</span>
+          <sub class="chat-time">${chatTime}</sub>
         </div>
       </div>
     `
@@ -107,11 +109,9 @@ const displayItemFromDb = async () => {
     return `
       <div id="${itemId}" class="content">
         <div class="arrow-right"></div>
-        <div class="person-two">
-          <div class="text">
-            <span class="message-value">${chatInputValue}</span>
-            <sub class="chat-time">${chatTime}</sub>
-          </div>
+        <div class="person-one text">
+          <span class="message-value">${chatInputValue}</span>
+          <sub class="chat-time">${chatTime}</sub>
         </div>
       </div>
     `
