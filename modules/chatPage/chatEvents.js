@@ -45,7 +45,6 @@ const chatEvent = () => {
       chatItemDiv.classList.add('overlay')
       deleteChatModal.innerHTML = modal(`${chatItemDiv.id}`)
       modalEventListeners()
-      chatItemDiv.parentElement.style.pointerEvents = 'none'
     })
   }
 }
