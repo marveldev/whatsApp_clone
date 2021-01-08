@@ -1,4 +1,5 @@
 import { getEntryFromDb } from "../../dataStorage.js";
+import { chatPageEventListeners } from "./events.js";
 
 const modal = (itemId) => {
   return `
@@ -18,7 +19,7 @@ const modal = (itemId) => {
 }
 
 const chatPage = async () => {
-  const whatsApp = await getEntryFromDb()
+  const whatsApp = await getEntryFromDb('whatsApp')
   const chatItems = whatsApp.map((chatItem) => {
     const { itemId, chatTime, chatInputValue } = chatItem
     return `
