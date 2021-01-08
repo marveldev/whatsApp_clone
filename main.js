@@ -22,9 +22,9 @@ request.onsuccess = () => {
 
   if (currentPage === 'chatPage') {
     switchCurrentPage(currentPage)
+    displayItemFromDb()
   }
 
   defaultPageEventListeners()
   topNavEventListeners()
-  displayItemFromDb()
 }
