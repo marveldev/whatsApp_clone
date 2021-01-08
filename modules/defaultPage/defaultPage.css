@@ -5,33 +5,22 @@
 
 .chat-item {
   display: flex;
-  /* display: grid; */
-  /* grid-template-columns: 0.5fr 1fr; */
   width: 100%;
-  background-color: aqua;
-  /* margin: 0.5em 0; */
-  /* vertical-align: middle; */
-
-  /* margin-bottom: 0.5em; */
 }
 
 .image {
-  margin-top: 0.4em;
   height: 4em;
   width: 4em;
   border-radius: 50%;
   object-fit: cover;
   background-color: #000000d7;
-  margin-right: 0.5em;
+  margin: 0.4em 1em 0 0;
 }
 
 .chats {
-  /* background-color: rgb(0, 4, 255); */
   border-bottom: 0.5px solid #95959555;
   text-align: left;
   width: 100%;
-  /* margin: 0.5em; */
-  /* vertical-align: sub; */
   line-height: 1.5em;
   padding: 1em 0;
 }
