@@ -1,3 +1,5 @@
+import { getEntryFromDb } from "../../dataStorage.js";
+
 const modal = (itemId) => {
   return `
     <div class="delete-modal">
@@ -15,7 +17,21 @@ const modal = (itemId) => {
   `
 }
 
-const chatPage = () => {
+const chatPage = async () => {
+  const whatsApp = await getEntryFromDb()
+  const chatItems = whatsApp.map((chatItem) => {
+    const { itemId, chatTime, chatInputValue } = chatItem
+    return `
+      <div id="${itemId}" class="content">
+        <div class="arrow-right"></div>
+        <div class="person-one text">
+          <span class="message-value">${chatInputValue}</span>
+          <sub class="chat-time">${chatTime}</sub>
+        </div>
+      </div>
+    `
+  })
+
   return `
     <div id="overlay"></div>
     <div id="deleteModal"></div>
@@ -58,7 +74,7 @@ const chatPage = () => {
           <button type="button" class="dropdown-button"><i class="material-icons">&#xe5d4;</i></button>
         </div>
       </div>
-      <div class="chat-container"></div>
+      <div class="chat-container">${chatItems.join('')}</div>
       <form id="chatInputContent">
         <div>
           <textarea class="chat-input" placeholder="Type a message"></textarea>
