@@ -2,7 +2,6 @@ import topNav from './modules/topNav/topNav.js'
 import topNavEventListeners from './modules/topNav/events.js'
 import switchCurrentPage from './modules/helper.js'
 import { request } from './dataStorage.js'
-import { chatPageEventListeners } from './modules/chatPage/events.js'
 
 const main = () => {
   return `
@@ -20,8 +19,7 @@ request.onsuccess = async () => {
 
   if (currentPage === 'chatPage') {
     await switchCurrentPage(currentPage)
-    chatPageEventListeners()
   }
-  
+
   topNavEventListeners()
 }
