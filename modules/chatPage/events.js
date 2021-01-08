@@ -1,8 +1,8 @@
-import { addEntryToDb, getEntryFromDb } from '../../dataStorage.js'
+import { addEntryToDb, clearAllEntries, getEntryFromDb } from '../../dataStorage.js'
 import switchCurrentPage from "../helper.js"
 import chatEvent from './chatEvents.js'
 
-const chatPageEventListeners = () => {
+const chatPageEventListeners = async () => {
   const chatInput = document.querySelector('.chat-input')
   const arrowLeftButton = document.querySelector('#arrowLeftButton')
   const sendChatButton = document.querySelector('.send-button')
@@ -10,6 +10,10 @@ const chatPageEventListeners = () => {
   const dropdownButton = document.querySelector('.dropdown-button')
   const recordButton = document.querySelector('.record-button')
   const overlay = document.querySelector('#overlay')
+
+  // const pageBackground = await getEntryFromDb('background')
+  console.log('ok');
+  // document.querySelector('.chat-page').style.backgroundImage = `url(${pageBackground[0] ? pageBackground[0] : 'https://cloud.githubusercontent.com/assets/398893/15136779/4e765036-1639-11e6-9201-67e728e86f39.jpg'})`
 
   arrowLeftButton.addEventListener('click', () => {
     switchCurrentPage('defaultPage')
@@ -39,14 +43,17 @@ const chatPageEventListeners = () => {
     overlay.style.display = 'none'
   })
 
-  const photoInput = document.querySelector('#addPhoto')
-  photoInput.addEventListener('change', () => {
+  const chatBackground = document.querySelector('#addPhoto')
+  chatBackground.addEventListener('change', () => {
     const photoReader = new FileReader()
-    photoReader.readAsDataURL(photoInput.files[0])
+    photoReader.readAsDataURL(chatBackground.files[0])
     photoReader.addEventListener('load', () => {
-      document.querySelector('.chat-page').style.backgroundImage = `url(${photoReader.result})`
       overlay.style.display = 'none'
       document.querySelector('.wallpaper-container').style.display = 'none'
+      document.querySelector('.chat-page').style.backgroundImage = `url(${photoReader.result})`
+
+      clearAllEntries('background')
+      addEntryToDb('background', photoReader.result)
     })
   })
 
@@ -83,15 +90,15 @@ const chatPageEventListeners = () => {
     recordButton.style.display = 'block'
     sendChatButton.style.display = 'none'
 
-    chatEvent()
-
     const addItemToIndexDb = {
       itemId: itemId,
       chatTime: chatTime,
       chatInputValue: chatInputValue
     }
 
-    addEntryToDb(addItemToIndexDb)
+    addEntryToDb('whatsApp', addItemToIndexDb)
+
+    chatEvent()
   }
 
   sendChatButton.addEventListener('click', addChatToDom)
@@ -99,7 +106,7 @@ const chatPageEventListeners = () => {
 
 const displayItemFromDb = async () => {
   const chatContainer = document.querySelector('.chat-container')
-  const whatsApp = await getEntryFromDb()
+  const whatsApp = await getEntryFromDb('whatsApp')
   const chatItems = whatsApp.map((chatItem) => {
     const { itemId, chatTime, chatInputValue } = chatItem
     return `
