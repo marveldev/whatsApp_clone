@@ -20,18 +20,18 @@
 }
 
 .chats {
-  /* border-bottom: 0.5px solid #95959555;
+  border-bottom: 0.5px solid #95959555;
   text-align: left;
-  line-height: 1.5em;
-  padding: 1em 0; */
+  /* line-height: 1.5em; */
+  /* padding: 1em 0; */
 }
 
 .chats p {
-  /* margin: 0; */
+  margin: 0;
 }
 
 .chats > strong {
-  /* font-size: 1.2em; */
+  font-size: 1.2em;
 }
 
 .icon {
