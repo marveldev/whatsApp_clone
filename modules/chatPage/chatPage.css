@@ -2,7 +2,7 @@
   position: absolute;
   left: 0;
   background-color: #efe7dd;
-  background-repeat: repeat;
+  background-repeat: no-repeat;
   background-size: cover;
   background-image: url("https://cloud.githubusercontent.com/assets/398893/15136779/4e765036-1639-11e6-9201-67e728e86f39.jpg");
   width: 100%;
@@ -45,8 +45,7 @@
   bottom: 0;
   display: grid;
   width: 100%;
-  padding: 0.5em 0.5em 1em 0.5em;
-  background: #efe7dd url("https://cloud.githubusercontent.com/assets/398893/15136779/4e765036-1639-11e6-9201-67e728e86f39.jpg") repeat;
+  padding: 1em 0.5em;
   grid-template-columns: 1fr 0.2fr;
 }
 
