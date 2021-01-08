@@ -4,6 +4,7 @@ import defaultPage from './defaultPage/defaultPage.js'
 import { chatPage } from './chatPage/chatPage.js'
 import defaultPageEventListeners from './defaultPage/events.js'
 import { chatPageEventListeners } from './chatPage/events.js'
+import chatEvent from './chatPage/chatEvents.js'
 
 const switchCurrentPage = async (page) => {
   const currentPage = document.querySelector('.current-page')
@@ -27,9 +28,11 @@ const switchCurrentPage = async (page) => {
       document.querySelector('.call').classList.add('active')
       break;
     case 'chatPage':
+      document.querySelector('.nav-container').style.display = 'none'
       currentPage.innerHTML = await chatPage()
       chatPageEventListeners()
-      document.querySelector('.nav-container').style.display = 'none'
+      chatEvent()
+      // chatContainer.scrollTop = chatContainer.scrollHeight
       break;
     default:
       currentPage.innerHTML = defaultPage()
