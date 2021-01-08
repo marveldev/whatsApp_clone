@@ -5,7 +5,7 @@ import { chatPage } from './chatPage/chatPage.js'
 import defaultPageEventListeners from './defaultPage/events.js'
 import { chatPageEventListeners } from './chatPage/events.js'
 
-const switchCurrentPage = (page) => {
+const switchCurrentPage = async (page) => {
   const currentPage = document.querySelector('.current-page')
   localStorage.setItem('currentPage', page)
 
@@ -27,7 +27,7 @@ const switchCurrentPage = (page) => {
       document.querySelector('.call').classList.add('active')
       break;
     case 'chatPage':
-      currentPage.innerHTML = chatPage()
+      currentPage.innerHTML = await chatPage()
       chatPageEventListeners()
       document.querySelector('.nav-container').style.display = 'none'
       break;
