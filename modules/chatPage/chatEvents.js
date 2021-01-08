@@ -31,6 +31,7 @@ const chatEvent = () => {
     deleteButton.addEventListener('click', () => {
       const element = deleteButton.title
       const chatItemDiv = document.querySelector(`#${element}`)
+      chatItemDiv.parentElement.style.pointerEvents = 'auto'
       const chatContainer = document.querySelector('.chat-container')
       chatContainer.removeChild(chatItemDiv)
       deleteChatModal.innerHTML = ''
