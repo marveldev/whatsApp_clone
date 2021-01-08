@@ -95,8 +95,6 @@ const chatPageEventListeners = () => {
     chatEvent()
   }
   sendChatButton.addEventListener('click', addChatToDom)
-
-  chatEvent()
 }
 
 export { chatPageEventListeners }
