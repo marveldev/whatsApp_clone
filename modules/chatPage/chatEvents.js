@@ -10,7 +10,6 @@ const chatEvent = () => {
       for (let index = 0; index < chatItemDivs.length; index++) {
         const chatItemDiv = chatItemDivs[index]
         chatItemDiv.classList.remove('overlay')
-        chatItemDiv.parentElement.style.pointerEvents = 'auto'
       }
       deleteChatModal.innerHTML = ''
     })
@@ -31,7 +30,6 @@ const chatEvent = () => {
     deleteButton.addEventListener('click', () => {
       const element = deleteButton.title
       const chatItemDiv = document.querySelector(`#${element}`)
-      chatItemDiv.parentElement.style.pointerEvents = 'auto'
       const chatContainer = document.querySelector('.chat-container')
       chatContainer.removeChild(chatItemDiv)
       deleteChatModal.innerHTML = ''

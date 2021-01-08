@@ -1,5 +1,4 @@
 import { getEntryFromDb } from "../../dataStorage.js";
-import { chatPageEventListeners } from "./events.js";
 
 const modal = (itemId) => {
   return `

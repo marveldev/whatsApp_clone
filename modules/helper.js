@@ -4,7 +4,7 @@ import defaultPage from './defaultPage/defaultPage.js'
 import { chatPage } from './chatPage/chatPage.js'
 import defaultPageEventListeners from './defaultPage/events.js'
 import { chatPageEventListeners } from './chatPage/events.js'
-import chatEvent from './chatPage/chatEvents.js'
+import { getEntryFromDb } from '../dataStorage.js'
 
 const switchCurrentPage = async (page) => {
   const currentPage = document.querySelector('.current-page')
@@ -30,9 +30,9 @@ const switchCurrentPage = async (page) => {
     case 'chatPage':
       document.querySelector('.nav-container').style.display = 'none'
       currentPage.innerHTML = await chatPage()
+      // const pageBackground = await getEntryFromDb('background')
+      // document.querySelector('.chat-page').style.backgroundImage = `url(${pageBackground[0] ? pageBackground[0] : 'https://cloud.githubusercontent.com/assets/398893/15136779/4e765036-1639-11e6-9201-67e728e86f39.jpg'})`
       chatPageEventListeners()
-      chatEvent()
-      // chatContainer.scrollTop = chatContainer.scrollHeight
       break;
     default:
       currentPage.innerHTML = defaultPage()

@@ -7,8 +7,8 @@ request.onsuccess = () => {
 
 request.onupgradeneeded = () => {
   const database = request.result
-  database.createObjectStore('whatsApp', { keyPath: 'itemId' })
   database.createObjectStore('background', { autoIncrement: false })
+  database.createObjectStore('whatsApp', { keyPath: 'itemId' })
 }
 
 request.onerror = () => {
