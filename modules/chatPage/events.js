@@ -53,6 +53,8 @@ const chatPageEventListeners = () => {
     recordButton.style.display = 'block'
     sendChatButton.style.display = 'none'
 
+    chatEvent()
+
     const addItemToIndexDb = {
       itemId: itemId,
       chatTime: chatTime,
@@ -60,7 +62,6 @@ const chatPageEventListeners = () => {
     }
 
     addEntryToDb(addItemToIndexDb)
-    chatEvent()
   }
 
   sendChatButton.addEventListener('click', addChatToDom)
