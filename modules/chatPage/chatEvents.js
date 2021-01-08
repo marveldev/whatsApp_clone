@@ -50,33 +50,6 @@ const chatEvent = () => {
       chatItemDiv.parentElement.style.pointerEvents = 'none'
     })
   }
-
-  document.querySelector('#wallpaperButton').addEventListener('click', () => {
-    document.querySelector('.wallpaper-container').style.display = 'block'
-    document.querySelector('#moreOptions').style.display = 'none'
-  })
-
-  overlay.addEventListener('click', () => {
-    const chatItemDivs = document.querySelectorAll('.content')
-    for (let index = 0; index < chatItemDivs.length; index++) {
-      const chatItemDiv = chatItemDivs[index]
-      chatItemDiv.classList.remove('overlay')
-      chatItemDiv.parentElement.style.pointerEvents = 'auto'
-    }
-    document.querySelector('#moreOptions').style.display = 'none'
-    document.querySelector('.wallpaper-container').style.display = 'none'
-    document.querySelector('#deleteModal').innerHTML = ''
-    overlay.style.display = 'none'
-  })
-
-  const photoInput = document.querySelector('#addPhoto')
-  photoInput.addEventListener('change', () => {
-    const photoReader = new FileReader()
-    photoReader.readAsDataURL(photoInput.files[0])
-    photoReader.addEventListener('load', () => {
-      document.querySelector('.chat-page').style.backgroundImage = `url(${photoReader.result})`
-    })
-  })
 }
 
 export default chatEvent
