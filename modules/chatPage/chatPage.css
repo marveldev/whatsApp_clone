@@ -120,6 +120,7 @@
   overflow-y: auto;
   width: auto;
   padding: 0.5em 0 1em 0;
+  pointer-events: auto;
 }
 
 .arrow-right {
