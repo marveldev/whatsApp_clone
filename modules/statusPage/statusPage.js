@@ -7,7 +7,7 @@ const statusPage = () => {
       </div>
       <div>
         <button class="chat-item">
-          <img src="https://images.pexels.com/photos/4724071/pexels-photo-4724071.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
+          <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
             class="image" alt="photo">
           <div class="chats">
             <strong>My status</strong>
