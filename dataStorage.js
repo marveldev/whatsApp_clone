@@ -8,16 +8,17 @@ request.onsuccess = () => {
 request.onupgradeneeded = () => {
   const database = request.result
   database.createObjectStore('whatsApp', { keyPath: 'itemId' })
+  database.createObjectStore('background', { autoIncrement: false })
 }
 
 request.onerror = () => {
   console.log('request unsuccessful')
 }
 
-const addEntryToDb = (entry) => {
+const addEntryToDb = (storeName, entry) => {
   const database = request.result
-  const transaction = database.transaction(['whatsApp'], 'readwrite')
-  const store = transaction.objectStore('whatsApp')
+  const transaction = database.transaction([storeName], 'readwrite')
+  const store = transaction.objectStore(storeName)
   store.add(entry)
 
   transaction.oncomplete = () => {
@@ -25,15 +26,15 @@ const addEntryToDb = (entry) => {
   }
 
   transaction.onerror = () => {
-    console.log(`error adding to whatsApp`)
+    console.log(`error adding to ${storeName}`)
   }
 }
 
-const getEntryFromDb = () => {
+const getEntryFromDb = (storeName) => {
   const data = new Promise((resolve, reject) => {
     const database = request.result
-    const transaction = database.transaction(['whatsApp'])
-    const store = transaction.objectStore('whatsApp')
+    const transaction = database.transaction([storeName])
+    const store = transaction.objectStore(storeName)
     const getData = store.getAll()
 
     getData.onsuccess = () => {
@@ -47,6 +48,13 @@ const getEntryFromDb = () => {
   return Promise.resolve(data)
 }
 
+const clearAllEntries = (storeName) => {
+  const database = request.result;
+  const transaction = database.transaction([storeName], 'readwrite');
+  const store = transaction.objectStore(storeName);
+  store.clear();
+}
+
 const deleteEntry = (itemId) => {
   const database = request.result
   const transaction = database.transaction(['whatsApp'], 'readwrite')
@@ -54,4 +62,4 @@ const deleteEntry = (itemId) => {
   store.delete(itemId)
 }
 
-export { request, addEntryToDb, getEntryFromDb, deleteEntry }
+export { request, addEntryToDb, getEntryFromDb, clearAllEntries, deleteEntry }
