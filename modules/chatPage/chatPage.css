@@ -158,7 +158,6 @@
 .content {
   text-align: right;
   padding: 0.2em 0.5em;
-  user-select: none;
 }
 
 .text {
@@ -295,6 +294,42 @@
 
 #chats > strong {
   font-size: 1.2em;
+}
+
+.person-two {
+  text-align: left;
+}
+
+#person-two {
+  background-color: #fff;
+}
+
+.arrow-left {
+  position: relative;
+  left: 0.3em;
+  float: left;
+  width: 0;
+  height: 0;
+  border-top: 0.6em solid transparent;
+  border-bottom: 0.7em solid transparent; 
+  border-right: 0.7em solid #fff;
+}
+
+.person-button-container {
+  display: none;
+  background-color: #fff;
+  width: 7em;
+  position: absolute;
+  bottom: 5em;
+  left: 7em;
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
+
+.person-button-container > button {
+  width: 100%;
+  padding: 0.5em 0;
+  font-weight: 600;
 }
 
 @media only screen and (max-width: 375px) {
