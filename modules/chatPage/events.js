@@ -4,19 +4,16 @@ import chatEvent from './chatEvents.js'
 
 const chatPageEventListeners = () => {
   const chatInput = document.querySelector('.chat-input')
-  const arrowLeftButton = document.querySelector('#arrowLeftButton')
   const sendChatButton = document.querySelector('.send-button')
-  const chatContainer = document.querySelector('.chat-container')
-  const dropdownButton = document.querySelector('.dropdown-button')
-  const recordButton = document.querySelector('.record-button')
   const overlay = document.querySelector('#overlay')
+  const chatBackground = document.querySelector('#addPhoto')
 
-  arrowLeftButton.addEventListener('click', () => {
+  document.querySelector('#arrowLeftButton').addEventListener('click', () => {
     switchCurrentPage('defaultPage')
     document.querySelector('.nav-container').style.display = 'block'
   })
 
-  dropdownButton.addEventListener('click', () => {
+  document.querySelector('.dropdown-button').addEventListener('click', () => {
     document.querySelector('#moreOptions').style.display = 'block'
     document.querySelector('#overlay').style.display = 'block'
   })
@@ -38,7 +35,6 @@ const chatPageEventListeners = () => {
     overlay.style.display = 'none'
   })
 
-  const chatBackground = document.querySelector('#addPhoto')
   chatBackground.addEventListener('change', () => {
     const photoReader = new FileReader()
     photoReader.readAsDataURL(chatBackground.files[0])
@@ -56,22 +52,46 @@ const chatPageEventListeners = () => {
     chatInput.style.height = "1px"
     chatInput.style.height = (3+chatInput.scrollHeight)+"px"
     if (chatInput.value.trim().length >= 1) {
-      recordButton.style.display = 'none'
       sendChatButton.style.display = 'block'
+      document.querySelector('.record-button').style.display = 'none'
     } else {
-      recordButton.style.display = 'block'
       sendChatButton.style.display = 'none'
+      document.querySelector('.record-button').style.display = 'block'
+      document.querySelector('.person-button-container').style.display = 'none'
     }
   })
 
-  const addChatToDom = () => {
+  sendChatButton.addEventListener('click', () => {
+    document.querySelector('.person-button-container').style.display = 'block'
+  })
+
+  document.querySelector('#clearChatButton').addEventListener('click', () => {
+    document.querySelector('.chat-container').innerHTML = ''
+    document.querySelector('#moreOptions').style.display = 'none'
+    document.querySelector('#overlay').style.display = 'none'
+    clearAllEntries('whatsApp')
+  })
+
+  addPersonChatsToDom()
+}
+
+const addPersonChatsToDom = () => {
+  const personOneChatButton = document.querySelector('.person-one-button')
+  const personTwoChatButton = document.querySelector('.person-two-button')
+  const chatContainer = document.querySelector('.chat-container')
+  const chatInput = document.querySelector('.chat-input')
+  const personContainerButton = document.querySelector('.person-button-container')
+  const recordButton = document.querySelector('.record-button')
+  const sendChatButton = document.querySelector('.send-button')
+
+  const addPersonOneChatToDom = () => {
     const chatInputValue = chatInput.value.trim()
     const itemId = 'id' + Date.parse(new Date()).toString()
     const chatTime = new Date().toTimeString().substr(0, 5)
     const chatItem = `
-      <div id="${itemId}" class="content">
+      <div id="${itemId}" class="person-one content">
         <div class="arrow-right"></div>
-        <div class="person-one text">
+        <div id="person-one" class="text">
           <span class="message-value">${chatInputValue}</span>
           <sub class="chat-time">${chatTime}</sub>
         </div>
@@ -84,9 +104,12 @@ const chatPageEventListeners = () => {
     chatInput.value = ''
     recordButton.style.display = 'block'
     sendChatButton.style.display = 'none'
+    personContainerButton.style.display = 'none'
 
     const addItemToIndexDb = {
       itemId: itemId,
+      person: 'person-one',
+      arrow: 'arrow-right',
       chatTime: chatTime,
       chatInputValue: chatInputValue
     }
@@ -94,7 +117,42 @@ const chatPageEventListeners = () => {
     addEntryToDb('whatsApp', addItemToIndexDb)
     chatEvent()
   }
-  sendChatButton.addEventListener('click', addChatToDom)
+  personOneChatButton.addEventListener('click', addPersonOneChatToDom)
+
+  const addPersonTwoChatToDom = () => {
+    const chatInputValue = chatInput.value.trim()
+    const itemId = 'id' + Date.parse(new Date()).toString()
+    const chatTime = new Date().toTimeString().substr(0, 5)
+    const chatItem = `
+      <div id="${itemId}" class="person-two content">
+        <div class="arrow-left"></div>
+        <div id="person-two" class="text">
+          <span class="message-value">${chatInputValue}</span>
+          <sub class="chat-time">${chatTime}</sub>
+        </div>
+      </div>
+    `
+
+    chatContainer.innerHTML += chatItem
+    chatContainer.scrollTop = chatContainer.scrollHeight
+    chatInput.style.height = ''
+    chatInput.value = ''
+    recordButton.style.display = 'block'
+    sendChatButton.style.display = 'none'
+    personContainerButton.style.display = 'none'
+
+    const addItemToIndexDb = {
+      itemId: itemId,
+      person: 'person-two',
+      arrow: 'arrow-left',
+      chatTime: chatTime,
+      chatInputValue: chatInputValue
+    }
+
+    addEntryToDb('whatsApp', addItemToIndexDb)
+    chatEvent()
+  }
+  personTwoChatButton.addEventListener('click', addPersonTwoChatToDom)
 }
 
 export { chatPageEventListeners }
