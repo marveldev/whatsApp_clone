@@ -20,11 +20,11 @@ const modal = (itemId) => {
 const chatPage = async () => {
   const whatsApp = await getEntryFromDb('whatsApp')
   const chatItems = whatsApp.map((chatItem) => {
-    const { itemId, chatTime, chatInputValue } = chatItem
+    const { itemId, person, arrow, chatTime,  chatInputValue } = chatItem
     return `
-      <div id="${itemId}" class="content">
-        <div class="arrow-right"></div>
-        <div class="person-one text">
+      <div id="${itemId}" class="${person} content">
+        <div class="${arrow}"></div>
+        <div id="${person}" class="text">
           <span class="message-value">${chatInputValue}</span>
           <sub class="chat-time">${chatTime}</sub>
         </div>
@@ -42,7 +42,7 @@ const chatPage = async () => {
         <button>Search</button>
         <button>Mute notifications</button>
         <button id="wallpaperButton">Wallpaper</button>
-        <button>Clear chat</button>
+        <button id="clearChatButton">Clear chat</button>
       </div>
       <div class="wallpaper-container">
         <p>Wallpaper</p>
@@ -83,6 +83,10 @@ const chatPage = async () => {
         </div>
         <button type="button" class="record-button"><i class="fa fa-microphone"></i></button>
         <button type="button" class="send-button"><i class="material-icons">&#xe163;</i></button>
+        <span class="person-button-container">
+          <button type="button" class="person-one-button">Person1</button>
+          <button type="button" class="person-two-button">Person2</button>
+        </span>
       </form>
     </div>
   `
