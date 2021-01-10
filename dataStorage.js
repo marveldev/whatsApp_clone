@@ -7,8 +7,8 @@ request.onsuccess = () => {
 
 request.onupgradeneeded = () => {
   const database = request.result
-  database.createObjectStore('background', { autoIncrement: false })
-  database.createObjectStore('whatsApp', { keyPath: 'itemId' })
+  database.createObjectStore('chatPageBackground', { autoIncrement: true })
+  database.createObjectStore('chatData', { keyPath: 'itemId' })
 }
 
 request.onerror = () => {
@@ -57,8 +57,8 @@ const clearAllEntries = (storeName) => {
 
 const deleteEntry = (itemId) => {
   const database = request.result
-  const transaction = database.transaction(['whatsApp'], 'readwrite')
-  const store = transaction.objectStore('whatsApp')
+  const transaction = database.transaction(['chatData'], 'readwrite')
+  const store = transaction.objectStore('chatData')
   store.delete(itemId)
 }
 
