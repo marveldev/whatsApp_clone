@@ -1,4 +1,4 @@
-import switchCurrentPage from "../helper.js";
+import switchCurrentPage from "../helper.js"
 
 const defaultPageEventListeners = () => {
   const chatItems = document.querySelectorAll('.chat-item')
