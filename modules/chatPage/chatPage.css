@@ -1,6 +1,7 @@
 .chat-page {
   position: absolute;
   left: 0;
+  top: 0;
   background-color: #efe7dd;
   background-size: cover;
   background-attachment: fixed;
@@ -12,12 +13,17 @@
 .chat-top-nav {
   position: fixed;
   top: 0;
-  display: grid;
-  grid-template-columns: 0.2fr 0.4fr 1.2fr 1fr;
+  display: flex;
   width: 100%;
   height: 5em;
   color: #fff;
   background-color: #075E54;
+}
+
+.chat-top-nav > button {
+  flex: 1;
+  color: #fff;
+  font-size: 1.3em;
 }
 
 .chat-top-nav > img {
@@ -26,30 +32,24 @@
   width: 3em;
 }
 
-#arrowLeftButton {
-  color: #fff;
+.chat-top-nav > div {
+  margin-top: 1.2em;
 }
 
-.dropdown-button {
-  vertical-align: sub;
-}
-
-.chat-options > button {
-  font-size: 1.3em;
-  color: #fff;
-  margin: 1em 0;
+.chat-top-nav > div > p {
+  margin: 0.2em 0;
 }
 
 #chatInputContent {
   position: fixed;
   bottom: 0;
   display: grid;
+  grid-template-columns: 1fr 0.2fr;
   width: 100%;
   padding: 1em 0.5em;
-  grid-template-columns: 1fr 0.2fr;
 }
 
-#chatInputContent > div {
+#chatInputContent > form {
   display: grid;
   grid-template-columns: 1fr 0.2fr 0.2fr;
 }
@@ -66,7 +66,7 @@
   line-height: 1.2em;
 }
 
-.add-button {
+.clip-icon {
   position: relative;
   right: 1.1em;
   width: 2em;
@@ -75,9 +75,9 @@
   color: #3a3a3a;
 }
 
-.face-button {
+.smiley-icon {
   position: relative;
-  right: 19em;
+  right: 18.7em;
   width: 2.8em;
   height: 100%;
   color: #3a3a3a;
@@ -90,6 +90,7 @@
   height: 3em;
   border-radius: 1.5em;
   margin-top: 0.3em;
+  flex-grow: 1;
 }
 
 .send-button > i {
@@ -104,78 +105,95 @@
   border-radius: 1.5em;
   color: #fff;
   margin-top: 0.3em;
+  flex-grow: 1;
 }
 
 .record-button > i {
   font-size: 1.5em;
 }
 
-.chat-container {
+.person-button-container {
+  display: none;
+  background-color: #fff;
+  width: 7em;
+  position: absolute;
+  bottom: 5em;
+  right: 2em;
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
+
+.person-button-container > button {
+  width: 100%;
+  padding: 0.5em 0;
+  font-weight: 600;
+  background-color: #186d60fa;
+  color: white;
+  text-align: center;
+}
+
+.person-one-button {
+  margin-bottom: 0.5em;
+}
+
+.chat-container { 
   position: relative;
-  top: 5em;
-  margin: auto;
+  top: 6em;
   height: auto;
   max-height: 25em;
   overflow-y: auto;
-  width: auto;
-  padding: 0.5em 0 1em 0;
-  pointer-events: auto;
+  margin: 0 1em;
+  padding: 0.5em 0 0 0;
 }
 
-.arrow-right {
-  position: relative;
-  right: 0.3em;
-  float: right;
-  width: 0;
-  height: 0;
-  border-top: 0.6em solid transparent;
-  border-bottom: 0.7em solid transparent;
-  border-left: 0.7em solid #E5FFCC;
-}
-
-.chat-options-modal {
-  position: fixed;
-  left: 0;
+#dropdownModal {
+  display: none;
+  position: absolute;
   top: 0;
-  display: grid;
-  grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
-  width: 100%;
-  height: 5em;
+  right: 0;
+  background-color: #fff;
+  height: auto;
+  width: 12em;
   z-index: 1;
-  background-color: #19a796;
+  padding: 0.5em 1em;
 }
 
-.chat-options-modal > button {
-  color: #fff;
-  font-size: 1.5em;
-  border: none;
+#dropdownModal > button {
+  display: block;
+  padding: 1em 0;
 }
 
-.back-button {
-  padding-top: 0.4em;
+#overlay {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000066;
 }
 
-.content {
-  text-align: right;
-  padding: 0.2em 0.5em;
+.chat-item {
+  padding: 0.2em 0;
+  margin-bottom: 0.5em;
 }
 
-.text {
+.person-one {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.chat-text {
   background-color: #E1FFC7;
   border-radius: 0.5em;
-  display: inline-block;
   padding: 0.5em 1em;
   max-width: 18em;
   word-wrap: break-word;
   height: auto;
-  margin-bottom: 0.2em;
 }
 
-.message-value {
-  display: inline-block;
-  vertical-align: top;
-  text-align: justify;
-  max-width: 18em;
+#person-two {
+  background-color: #fff;
 }
 
 .chat-time {
@@ -183,21 +201,69 @@
   font-size: 0.7em;
 }
 
+.arrow-right {
+  position: relative;
+  right: 0.2em;
+  width: 0;
+  height: 0;
+  border-top: 0.7em solid transparent;
+  border-bottom: 0.7em solid transparent;
+  border-left: 0.7em solid #E5FFCC;
+}
+
+.arrow-left {
+  position: relative;
+  left: 0.1em;
+  width: 0;
+  height: 0;
+  border-top: 0.7em solid transparent;
+  border-bottom: 0.7em solid transparent; 
+  border-right: 0.7em solid #fff;
+}
+
+.single-chat-nav {
+  display: none;
+}
+
+#singleChatNav {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 5em;
+  z-index: 1;
+  background-color: #19a796;
+}
+
+#singleChatNav > button {
+  color: #fff;
+  font-size: 1.5em;
+  outline: none;
+  flex: 1;
+}
+
+.delete-modal {
+  display: none;
+  position: fixed;
+  top: 40%;
+  left: 10%;
+  background-color: #fff;
+  width: 70%;
+  z-index: 1;
+  padding: 0.5em 1.5em 1.5em 1.5em;
+}
+
+.delete-modal > button {
+  color: #186d60fa;
+  font-weight: 550;
+  padding: 0.5em 1em;
+  outline: none;
+}
+
 .overlay {
   background-color: #2690b1a2;
 }
 
-#overlay {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #00000066;
-}
-
+/*  */
 .wallpaper-container {
   display: none;
   position: fixed;
@@ -244,23 +310,7 @@
   display: none;
 }
 
-.delete-modal {
-  display: none;
-  position: absolute;
-  top: 40%;
-  left: 10%;
-  background-color: #fff;
-  width: 70%;
-  z-index: 1;
-  padding: 0.5em 1.5em 1.5em 1.5em;
-}
 
-.delete-modal > button {
-  color: #186d60fa;
-  font-weight: 550;
-  padding: 0.5em 1em;
-  outline: none;
-}
 
 #moreOptions {
   display: none;
@@ -296,41 +346,17 @@
   font-size: 1.2em;
 }
 
-.person-two {
+/* .person-two {
   text-align: left;
 }
 
 #person-two {
   background-color: #fff;
-}
+} */
 
-.arrow-left {
-  position: relative;
-  left: 0.3em;
-  float: left;
-  width: 0;
-  height: 0;
-  border-top: 0.6em solid transparent;
-  border-bottom: 0.7em solid transparent; 
-  border-right: 0.7em solid #fff;
-}
 
-.person-button-container {
-  display: none;
-  background-color: #fff;
-  width: 7em;
-  position: absolute;
-  bottom: 5em;
-  left: 7em;
-  padding: 0.5em;
-  border-radius: 0.5em;
-}
 
-.person-button-container > button {
-  width: 100%;
-  padding: 0.5em 0;
-  font-weight: 600;
-}
+
 
 @media only screen and (max-width: 375px) {
   .add-button {
