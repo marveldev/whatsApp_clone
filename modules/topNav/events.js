@@ -7,8 +7,8 @@ const topNavEventListeners = () => {
     document.querySelector('#topNavDropdown').style.display = 'block'
   })
 
-  const addSwitchPageEvent = (button, page) => {
-    button.addEventListener('click', () => {
+  const addSwitchPageEvent = (selector, page) => {
+    selector.addEventListener('click', () => {
       switchCurrentPage(page)
     })
   }
@@ -16,6 +16,12 @@ const topNavEventListeners = () => {
   addSwitchPageEvent(document.querySelector('.default'), 'defaultPage')
   addSwitchPageEvent(document.querySelector('.status'), 'statusPage')
   addSwitchPageEvent(document.querySelector('.call'), 'callsPage')
+  addSwitchPageEvent(document.querySelector('.settings'), 'settingsPage')
+
+  document.querySelector('#topNavOverlay').addEventListener('click', () => {
+    document.querySelector('#topNavDropdown').style.display = 'none'
+    document.querySelector('#topNavOverlay').style.display = 'none'
+  })
 }
 
 export default topNavEventListeners
