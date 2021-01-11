@@ -145,24 +145,8 @@
   padding: 0.5em 0 1em 0;
 }
 
-#dropdownModal {
+#chatPageDropdown {
   display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: #fff;
-  height: auto;
-  width: 12em;
-  z-index: 1;
-  padding: 0.5em 1em;
-}
-
-#dropdownModal > button {
-  display: block;
-  padding: 1em 0;
-  width: 100%;
-  text-align: left;
-  margin: 0.2em 0;
 }
 
 #overlay {
