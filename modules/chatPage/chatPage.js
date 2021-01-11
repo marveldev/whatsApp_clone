@@ -14,13 +14,13 @@ const chatDropdownModal = `
 const wallPaperSettings = `
   <div class="wallpaper-container">
     <p>Wallpaper</p>
-    <button type="button" id="defaultButton">
+    <button type="button" id="defaultBackgroundButton">
       <i class="material-icons">&#xe5d5;</i>
       <span>Default</span>
     </button>
-    <button type="button" id="galleryButton">
-      <input type="file" id="addPhoto">
-      <label for="addPhoto">
+    <button type="button" id="addBackgroundButton">
+      <input type="file" id="addBackground">
+      <label for="addBackground">
         <i class="fa fa-photo"></i>
         <span>Gallery</span>
       </label>
@@ -40,21 +40,25 @@ const deleteModal = (itemId) => {
 
 const chatPage = async () => {
   const chatData = await getEntryFromDb('chatData')
+  const chatPageBackground = await getEntryFromDb('chatPageBackground')
   const chatItems = chatData.map(chatItem => {
-    const { itemId, person, arrow, chatTime,  chatInputValue } = chatItem
+    const { itemId, person, chatTime,  chatInputValue } = chatItem
     return `
-      <div id="${itemId}" class="${person} chat-item">
-        <div class="${arrow}"></div>
-        <div id="${person}" class="text">
-          <span class="message-value">${chatInputValue}</span>
-          <sub class="chat-time">${chatTime}</sub>
+      <div id="${itemId}">
+        <div class="${person === 'person-one' ? 'arrow-right' : 'arrow-left'}"></div>
+        <div class="chat-item-overlay"></div>
+        <div class="${person} chat-item" title="${itemId}">
+          <div id="${person}" class="chat-text">
+            <span class="message-value">${chatInputValue}</span>
+            <sub class="chat-time">${chatTime}</sub>
+          </div>
         </div>
       </div>
     `
   })
 
   return `
-    <div class="chat-page">
+    <div class="chat-page" style="background-image: url(${chatPageBackground[0] || `https://cloud.githubusercontent.com/assets/398893/15136779/4e765036-1639-11e6-9201-67e728e86f39.jpg`});">
       <div id="overlay"></div>
       <div class="chat-top-nav">
         <button type="button" id="arrowLeftButton"><i class="material-icons">&#xe5c4;</i></button>
