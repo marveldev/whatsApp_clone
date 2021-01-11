@@ -10,7 +10,7 @@ const chatItemEvents = () => {
     document.querySelector('.nav-back-button').addEventListener('click', () => {
       for (let index = 0; index < chatItemDivs.length; index++) {
         const chatItemDiv = chatItemDivs[index]
-        chatItemDiv.classList.remove('overlay')
+        chatItemDiv.previousElementSibling.style.display = 'none'
       }
       singleChatNav.style.display = 'none'
     })
@@ -45,9 +45,9 @@ const chatItemEvents = () => {
   for (let index = 0; index < chatItemDivs.length; index++) {
     const chatItemDiv = chatItemDivs[index]
     chatItemDiv.addEventListener('click', () => {
-      chatItemDiv.classList.add('overlay')
+      chatItemDiv.previousElementSibling.style.display = 'block'
       singleChatNav.style.display = 'block'
-      document.querySelector('#deleteModalContent').innerHTML = deleteModal(`${chatItemDiv.id}`)
+      document.querySelector('#deleteModalContent').innerHTML = deleteModal(`${chatItemDiv.title}`)
       modalEventListeners()
     })
   }
