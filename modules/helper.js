@@ -5,6 +5,7 @@ import { chatPage } from './chatPage/chatPage.js'
 import defaultPageEventListeners from './defaultPage/events.js'
 import chatPageEventListeners from './chatPage/chatPageEvents.js'
 import chatItemEvents from './chatPage/chatItemEvents.js'
+import settingsPage from './settingsPage/settingsPage.js'
 
 const switchCurrentPage = async (page) => {
   const currentPage = document.querySelector('.current-page')
@@ -26,6 +27,10 @@ const switchCurrentPage = async (page) => {
       currentPage.innerHTML = callsPage()
       document.querySelector('.active').classList.remove('active')
       document.querySelector('.call').classList.add('active')
+      break;
+    case 'settingsPage':
+      currentPage.innerHTML = settingsPage()
+      document.querySelector('.top-nav').style.display = 'none'
       break;
     case 'chatPage':
       currentPage.innerHTML = await chatPage()
