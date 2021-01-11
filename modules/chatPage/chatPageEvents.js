@@ -13,11 +13,14 @@ const addChatItemToDom = person => {
   const itemId = 'id' + Date.parse(new Date()).toString()
   const chatTime = new Date().toTimeString().substr(0, 5)
   const chatItem = `
-    <div id="${itemId}" class="${person} chat-item">
+    <div id="${itemId}">
       <div class="${person === 'person-one' ? 'arrow-right' : 'arrow-left'}"></div>
-      <div id="${person}" class="chat-text">
-        <span class="message-value">${chatInputValue}</span>
-        <sub class="chat-time">${chatTime}</sub>
+      <div class="chat-item-overlay"></div>
+      <div class="${person} chat-item" title="${itemId}">
+        <div id="${person}" class="chat-text">
+          <span class="message-value">${chatInputValue}</span>
+          <sub class="chat-time">${chatTime}</sub>
+        </div>
       </div>
     </div>
   `
@@ -47,6 +50,7 @@ const chatPageEventListeners = () => {
   const sendChatButton = document.querySelector('.send-button')
   const overlay = document.querySelector('#overlay')
   const chatInput = document.querySelector('.chat-input')
+  const chatItemDivs = document.querySelectorAll('.chat-item')
 
   personOneChatButton.addEventListener('click', () => addChatItemToDom('person-one'))
   personTwoChatButton.addEventListener('click', () => addChatItemToDom('person-two'))
@@ -75,7 +79,7 @@ const chatPageEventListeners = () => {
 
   document.querySelector('.dropdown-button').addEventListener('click', () => {
     document.querySelector('#dropdownModal').style.display = 'block'
-    document.querySelector('#overlay').style.display = 'block'
+    overlay.style.display = 'block'
   })
 
   document.querySelector('#wallpaperButton').addEventListener('click', () => {
@@ -84,35 +88,37 @@ const chatPageEventListeners = () => {
   })
 
   overlay.addEventListener('click', () => {
-    // const chatItemDivs = document.querySelectorAll('.chat-item')
-    // for (let index = 0; index < chatItemDivs.length; index++) {
-    //   const chatItemDiv = chatItemDivs[index]
-    //   chatItemDiv.classList.remove('overlay')
-    // }
-    // document.querySelector('.wallpaper-container').style.display = 'none'
-    // document.querySelector('#deleteModal').innerHTML = ''
+    for (let index = 0; index < chatItemDivs.length; index++) {
+      const chatItemDiv = chatItemDivs[index]
+      chatItemDiv.previousElementSibling.style.display = 'none'
+    }
+    // document.querySelector('.delete-modal').style.display = 'none'
+    document.querySelector('.single-chat-nav').style.display = 'none'
+    document.querySelector('#singleChatNav').style.display = 'flex'
+    document.querySelector('.wallpaper-container').style.display = 'none'
     document.querySelector('#dropdownModal').style.display = 'none'
     overlay.style.display = 'none'
   })
 
-  // chatBackground.addEventListener('change', () => {
-  //   const photoReader = new FileReader()
-  //   photoReader.readAsDataURL(chatBackground.files[0])
-  //   photoReader.addEventListener('load', () => {
-  //     overlay.style.display = 'none'
-  //     document.querySelector('.wallpaper-container').style.display = 'none'
-  //     document.querySelector('.chat-page').style.backgroundImage = `url(${photoReader.result})`
+  const addChatPageBackground = document.querySelector('#addBackground')
+  addChatPageBackground.addEventListener('change', () => {
+    const photoReader = new FileReader()
+    photoReader.readAsDataURL(addChatPageBackground.files[0])
+    photoReader.addEventListener('load', () => {
+      document.querySelector('.chat-page').style.backgroundImage = `url(${photoReader.result})`
+      document.querySelector('.wallpaper-container').style.display = 'none'
+      overlay.style.display = 'none'
 
-  //     clearAllEntries('background')
-  //     addEntryToDb('background', photoReader.result)
-  //   })
-  // })
+      clearAllEntries('chatPageBackground')
+      addEntryToDb('chatPageBackground', photoReader.result)
+    })
+  })
 
   document.querySelector('#clearChatButton').addEventListener('click', () => {
-    document.querySelector('.chat-container').innerHTML = ''
-    document.querySelector('#moreOptions').style.display = 'none'
+    document.querySelector('#dropdownModal').style.display = 'none'
     document.querySelector('#overlay').style.display = 'none'
-    clearAllEntries('whatsApp')
+    document.querySelector('.chat-container').innerHTML = ''
+    clearAllEntries('chatData')
   })
 }
 
