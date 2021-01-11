@@ -1,7 +1,7 @@
 const defaultPage = () => {
   return `
     <div class="default-page">
-      <button class="chat-item">
+      <button class="chat-list">
         <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
           class="image" alt="photo">
         <div class="chats">
@@ -11,7 +11,7 @@ const defaultPage = () => {
           </div>
         </div>
       </button>
-      <button class="chat-item">
+      <button class="chat-list">
         <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
           class="image" alt="photo">
         <div class="chats">
@@ -21,7 +21,7 @@ const defaultPage = () => {
           </div>
         </div>
       </button>
-      <button class="chat-item">
+      <button class="chat-list">
         <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
           class="image" alt="photo">
         <div class="chats">
@@ -31,7 +31,7 @@ const defaultPage = () => {
           </div>
         </div>
       </button>
-      <button class="chat-item">
+      <button class="chat-list">
         <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
           class="image" alt="photo">
         <div class="chats">
@@ -41,7 +41,7 @@ const defaultPage = () => {
           </div>
         </div>
       </button>
-      <button class="chat-item">
+      <button class="chat-list">
         <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
           class="image" alt="photo">
         <div class="chats">
@@ -51,7 +51,7 @@ const defaultPage = () => {
           </div>
         </div>
       </button>
-      <button class="chat-item">
+      <button class="chat-list">
         <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
           class="image" alt="photo">
         <div class="chats">
@@ -61,7 +61,7 @@ const defaultPage = () => {
           </div>
         </div>
       </button>
-      <button class="chat-item">
+      <button class="chat-list">
         <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
           class="image" alt="photo">
         <div class="chats">
@@ -71,7 +71,7 @@ const defaultPage = () => {
           </div>
         </div>
       </button>
-      <button class="chat-item">
+      <button class="chat-list">
         <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
           class="image" alt="photo">
         <div class="chats">
@@ -81,7 +81,7 @@ const defaultPage = () => {
           </div>
         </div>
       </button>
-      <button class="chat-item">
+      <button class="chat-list">
         <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
           class="image" alt="photo">
         <div class="chats">
@@ -91,7 +91,7 @@ const defaultPage = () => {
           </div>
         </div>
       </button>
-      <button class="chat-item">
+      <button class="chat-list">
         <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
           class="image" alt="photo">
         <div class="chats">
@@ -101,7 +101,7 @@ const defaultPage = () => {
           </div>
         </div>
       </button>
-      <button class="chat-item">
+      <button class="chat-list">
         <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
           class="image" alt="photo">
         <div class="chats">
