@@ -1,10 +1,10 @@
 import switchCurrentPage from "../helper.js"
 
 const defaultPageEventListeners = () => {
-  const chatItems = document.querySelectorAll('.chat-item')
-  for (let index = 0; index < chatItems.length; index++) {
-    const chatItem = chatItems[index];
-    chatItem.addEventListener('click', () => {
+  const chatLists = document.querySelectorAll('.chat-list')
+  for (let index = 0; index < chatLists.length; index++) {
+    const chatList = chatLists[index];
+    chatList.addEventListener('click', () => {
       switchCurrentPage('chatPage')
     })
   }
