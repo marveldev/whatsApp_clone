@@ -138,12 +138,11 @@
 
 .chat-container { 
   position: relative;
-  top: 6em;
+  top: 5em;
   height: auto;
-  max-height: 25em;
+  max-height: 23em;
   overflow-y: auto;
-  margin: 0 1em;
-  padding: 0.5em 0 0 0;
+  padding: 0.5em 0 1em 0;
 }
 
 #dropdownModal {
@@ -161,6 +160,9 @@
 #dropdownModal > button {
   display: block;
   padding: 1em 0;
+  width: 100%;
+  text-align: left;
+  margin: 0.2em 0;
 }
 
 #overlay {
@@ -175,7 +177,8 @@
 
 .chat-item {
   padding: 0.2em 0;
-  margin-bottom: 0.5em;
+  width: 95%;
+  margin: 0 0.5em 0.5em 0.6em;
 }
 
 .person-one {
@@ -185,7 +188,7 @@
 
 .chat-text {
   background-color: #E1FFC7;
-  border-radius: 0.5em;
+  border-radius: 0.3em;
   padding: 0.5em 1em;
   max-width: 18em;
   word-wrap: break-word;
@@ -203,22 +206,32 @@
 
 .arrow-right {
   position: relative;
-  right: 0.2em;
+  right: 0.3em;
+  top: 0.2em;
+  float: right;
   width: 0;
   height: 0;
-  border-top: 0.7em solid transparent;
-  border-bottom: 0.7em solid transparent;
-  border-left: 0.7em solid #E5FFCC;
+  border-bottom: 1.5em solid transparent;
+  border-left: 0.8em solid #E5FFCC;
 }
 
 .arrow-left {
   position: relative;
-  left: 0.1em;
+  left: 0.3em;
+  top: 0.2em;
+  float: left;
   width: 0;
   height: 0;
-  border-top: 0.7em solid transparent;
-  border-bottom: 0.7em solid transparent; 
-  border-right: 0.7em solid #fff;
+  border-bottom: 1.5em solid transparent; 
+  border-right: 0.8em solid #fff;
+}
+
+.chat-item-overlay {
+  display: none;
+  position: absolute;
+  width: 100%;
+  padding: 2em 0 0.8em 0;
+  background-color: #2690b1a2;
 }
 
 .single-chat-nav {
@@ -241,6 +254,11 @@
   flex: 1;
 }
 
+.nav-back-button > i {
+  vertical-align: bottom;
+  font-size: 1.2em;
+}
+
 .delete-modal {
   display: none;
   position: fixed;
@@ -259,16 +277,10 @@
   outline: none;
 }
 
-.overlay {
-  background-color: #2690b1a2;
-}
-
-/*  */
 .wallpaper-container {
   display: none;
   position: fixed;
   bottom: 0;
-  left: 0;
   width: 100%;
   padding: 2em 1.5em;
   background-color: #fff;
@@ -283,7 +295,7 @@
   font-size: 1.1em;
 }
 
-#defaultButton {
+#defaultBackgroundButton {
   color: #fff;
   background-color: #186d60bc;
   padding: 0.5em 1em 0.5em 0.5em;
@@ -292,12 +304,12 @@
   border-radius: 0.5em;
 }
 
-#defaultButton > i {
+#defaultBackgroundButton > i {
   font-size: 1.2em;
   vertical-align: bottom;
 }
 
-#galleryButton {
+#addBackgroundButton {
   color: #fff;
   background-color:#a76046ef;
   padding: 0.6em;
@@ -306,57 +318,9 @@
   border-radius: 0.5em;
 }
 
-#addPhoto {
+#addBackground {
   display: none;
 }
-
-
-
-#moreOptions {
-  display: none;
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 12em;
-  z-index: 1;
-  padding: 0.5em 0;
-  background-color: #fff;
-}
-
-#moreOptions > button {
-  display: block;
-  padding: 1em;
-  width: 100%;
-  font-weight: 600;
-  text-align: left;
-}
-
-#chats {
-  border-bottom: 0.5px solid #95959555;
-  text-align: left;
-  line-height: 1.5em;
-  padding: 1em 0;
-}
-
-#chats p {
-  margin: 0;
-}
-
-#chats > strong {
-  font-size: 1.2em;
-}
-
-/* .person-two {
-  text-align: left;
-}
-
-#person-two {
-  background-color: #fff;
-} */
-
-
-
-
 
 @media only screen and (max-width: 375px) {
   .add-button {
