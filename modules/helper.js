@@ -30,8 +30,8 @@ const switchCurrentPage = async (page) => {
     case 'chatPage':
       document.querySelector('.nav-container').style.display = 'none'
       currentPage.innerHTML = await chatPage()
-      chatItemEvents()
       chatPageEventListeners()
+      chatItemEvents()
       break;
     default:
       currentPage.innerHTML = defaultPage()
