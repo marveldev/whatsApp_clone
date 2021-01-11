@@ -1,7 +1,7 @@
 import { getEntryFromDb } from "../../dataStorage.js"
 
 const chatDropdownModal = `
-  <div id="dropdownModal">
+  <div id="chatPageDropdown" class="dropdown-modal">
     <button>View contact</button>
     <button>Media, links, and docs</button>
     <button>Search</button>
