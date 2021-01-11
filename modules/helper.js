@@ -28,8 +28,8 @@ const switchCurrentPage = async (page) => {
       document.querySelector('.call').classList.add('active')
       break;
     case 'chatPage':
-      document.querySelector('.nav-container').style.display = 'none'
       currentPage.innerHTML = await chatPage()
+      document.querySelector('.top-nav').style.display = 'none'
       chatPageEventListeners()
       chatItemEvents()
       break;
