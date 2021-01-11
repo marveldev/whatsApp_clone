@@ -1,9 +1,9 @@
 .default-page {
   position: relative;
-  top: 6em;
+  top: 6.2em;
 }
 
-.chat-item {
+.chat-list {
   display: flex;
   width: 100%;
 }
@@ -18,8 +18,8 @@
 }
 
 .chats {
-  border-bottom: 0.5px solid #95959555;
   text-align: left;
+  border-bottom: 0.5px solid #95959555;
   width: 100%;
   line-height: 1.5em;
   padding: 1em 0;
