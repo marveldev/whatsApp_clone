@@ -15,10 +15,11 @@ request.onsuccess = async () => {
   document.querySelector('.main').innerHTML = main()
 
   const currentPage = localStorage.getItem('currentPage')
-  switchCurrentPage(currentPage || 'defaultPage')
 
   if (currentPage === 'chatPage') {
     await switchCurrentPage(currentPage)
+  } else {
+    switchCurrentPage(currentPage || 'defaultPage')
   }
 
   topNavEventListeners()
