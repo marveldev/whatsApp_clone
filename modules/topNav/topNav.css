@@ -3,7 +3,7 @@
   font-family: "Roboto", sans-serif, Helvetica;
 }
 
-.top-nav {
+.top-nav-content {
   position: fixed;
   left: 0;
   top: 0;
@@ -12,6 +12,17 @@
   background-color: #186d60fa;
   color: #fff;
   z-index: 1;
+}
+
+#topNavOverlay {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000066;
 }
 
 .top-header {
@@ -43,14 +54,14 @@ button {
   cursor: pointer;
 }
 
-.nav-button {
+.top-nav-content > nav {
   display: inline-grid;
   grid-template-columns: 0.5fr 1fr 1fr 1fr;
   width: 100%;
   height: 3em;
 }
 
-.nav-button > button {
+.top-nav-content > nav > button {
   color: #e9e7e7c9;
   margin: 0 0.2em;
   font-weight: 550;
@@ -87,14 +98,4 @@ button:active {
   width: 100%;
   text-align: left;
   margin: 0.2em 0;
-}
-
-#topNavOverlay {
-  display: none;
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #00000066;
 }
