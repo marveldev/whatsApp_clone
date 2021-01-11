@@ -74,17 +74,17 @@ const chatPageEventListeners = () => {
 
   document.querySelector('#arrowLeftButton').addEventListener('click', () => {
     switchCurrentPage('defaultPage')
-    document.querySelector('.nav-container').style.display = 'block'
+    document.querySelector('.top-nav').style.display = 'block'
   })
 
   document.querySelector('.dropdown-button').addEventListener('click', () => {
-    document.querySelector('#dropdownModal').style.display = 'block'
+    document.querySelector('#chatPageDropdown').style.display = 'block'
     overlay.style.display = 'block'
   })
 
   document.querySelector('#wallpaperButton').addEventListener('click', () => {
     document.querySelector('.wallpaper-container').style.display = 'block'
-    document.querySelector('#dropdownModal').style.display = 'none'
+    document.querySelector('#chatPageDropdown').style.display = 'none'
   })
 
   overlay.addEventListener('click', () => {
@@ -92,11 +92,10 @@ const chatPageEventListeners = () => {
       const chatItemDiv = chatItemDivs[index]
       chatItemDiv.previousElementSibling.style.display = 'none'
     }
-    // document.querySelector('.delete-modal').style.display = 'none'
     document.querySelector('.single-chat-nav').style.display = 'none'
     document.querySelector('#singleChatNav').style.display = 'flex'
     document.querySelector('.wallpaper-container').style.display = 'none'
-    document.querySelector('#dropdownModal').style.display = 'none'
+    document.querySelector('#chatPageDropdown').style.display = 'none'
     overlay.style.display = 'none'
   })
 
@@ -115,7 +114,7 @@ const chatPageEventListeners = () => {
   })
 
   document.querySelector('#clearChatButton').addEventListener('click', () => {
-    document.querySelector('#dropdownModal').style.display = 'none'
+    document.querySelector('#chatPageDropdown').style.display = 'none'
     document.querySelector('#overlay').style.display = 'none'
     document.querySelector('.chat-container').innerHTML = ''
     clearAllEntries('chatData')
