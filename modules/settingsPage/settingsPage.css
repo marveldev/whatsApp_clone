@@ -1,0 +1,64 @@
+.settings-page {
+  /* position: absolute; */
+  /* top: 0; */
+  /* left: 0; */
+  width: 100%;
+  height: 100%;
+}
+
+.settings-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1em;
+  background-color: #075E54;
+  color: #fff;
+}
+
+.settings-nav > strong {
+  vertical-align: super;
+  margin-left: 1.5em;
+}
+
+.settings-nav > button {
+  color: #fff;
+}
+
+.user-profile {
+  display: flex;
+  padding: 0.5em 1em;
+  width: 100%;
+  border-bottom: 0.5px solid #95959555;
+}
+
+.user-profile > div {
+  line-height: 1.5em;
+  padding: 1em 0;
+}
+
+.user-profile > div > p {
+  margin: 0;
+  font-size: 0.8em;
+}
+
+.settings-option {
+  display: flex;
+  padding: 0 1em;
+  width: 100%;
+}
+
+.settings-option > div {
+  line-height: 1.5em;
+  padding: 1em 0;
+}
+
+.settings-option > div > p {
+  margin: 0;
+  font-size: 0.8em;
+}
+
+.settings-option > button {
+  font-size: 1.5em;
+  padding: 0 1em;
+}
