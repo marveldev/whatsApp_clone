@@ -15,6 +15,10 @@
   box-shadow: 0 0.2em 0.2em 0em #00000060;
 }
 
+.circle {
+  border: 0.15em solid #186d60fa;
+}
+
 #addStatusButton > i {
   padding: 0.8em;
   font-size: 1.2em;
@@ -67,13 +71,14 @@
   width: 3em;
 }
 
-#returnButton > i {
+.close-button > i {
   color: #fff;
   vertical-align: bottom;
 }
 
 .status-photo-container {
   display: none;
+  grid-template-columns: 1fr 1fr;
   position: fixed;
   top: 0;
   left: 0;
