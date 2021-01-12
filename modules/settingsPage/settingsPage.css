@@ -1,4 +1,7 @@
 .settings-page {
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
 }
@@ -6,7 +9,6 @@
 .settings-nav {
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   padding: 1.5em 1em;
   background-color: #075E54;
@@ -25,13 +27,14 @@
 
 .settings-options {
   position: relative;
-  top: 4em;
+  top: 5em;
+  width: 100%;
+  padding-bottom: 2em;
 }
 
 .user-profile {
   display: flex;
   padding: 0.5em 1em;
-  width: 100%;
   border-bottom: 0.5px solid #95959555;
 }
 
@@ -47,8 +50,6 @@
 
 .settings-option {
   display: flex;
-  padding: 0 1em;
-  width: 100%;
 }
 
 .settings-option > div {
