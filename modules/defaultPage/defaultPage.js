@@ -4,7 +4,7 @@ const defaultPage = () => {
       <button class="chat-list">
         <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
           class="image" alt="photo">
-        <div class="chats">
+        <div>
           <strong>Jack Williams</strong>
           <div>
             <p>Hello</p>
@@ -14,7 +14,7 @@ const defaultPage = () => {
       <button class="chat-list">
         <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
           class="image" alt="photo">
-        <div class="chats">
+        <div>
           <strong>Jack Williams</strong>
           <div>
             <p>Hello</p>
@@ -24,7 +24,7 @@ const defaultPage = () => {
       <button class="chat-list">
         <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
           class="image" alt="photo">
-        <div class="chats">
+        <div>
           <strong>Jack Williams</strong>
           <div>
             <p>Hello</p>
@@ -34,7 +34,7 @@ const defaultPage = () => {
       <button class="chat-list">
         <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
           class="image" alt="photo">
-        <div class="chats">
+        <div>
           <strong>Jack Williams</strong>
           <div>
             <p>Hello</p>
@@ -44,7 +44,7 @@ const defaultPage = () => {
       <button class="chat-list">
         <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
           class="image" alt="photo">
-        <div class="chats">
+        <div>
           <strong>Jack Williams</strong>
           <div>
             <p>Hello</p>
@@ -54,7 +54,7 @@ const defaultPage = () => {
       <button class="chat-list">
         <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
           class="image" alt="photo">
-        <div class="chats">
+        <div>
           <strong>Jack Williams</strong>
           <div>
             <p>Hello</p>
@@ -64,7 +64,7 @@ const defaultPage = () => {
       <button class="chat-list">
         <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
           class="image" alt="photo">
-        <div class="chats">
+        <div>
           <strong>Jack Williams</strong>
           <div>
             <p>Hello</p>
@@ -74,7 +74,7 @@ const defaultPage = () => {
       <button class="chat-list">
         <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
           class="image" alt="photo">
-        <div class="chats">
+        <div>
           <strong>Jack Williams</strong>
           <div>
             <p>Hello</p>
@@ -84,7 +84,7 @@ const defaultPage = () => {
       <button class="chat-list">
         <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
           class="image" alt="photo">
-        <div class="chats">
+        <div>
           <strong>Jack Williams</strong>
           <div>
             <p>Hello</p>
@@ -94,7 +94,7 @@ const defaultPage = () => {
       <button class="chat-list">
         <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
           class="image" alt="photo">
-        <div class="chats">
+        <div>
           <strong>Jack Williams</strong>
           <div>
             <p>Hello</p>
@@ -104,7 +104,7 @@ const defaultPage = () => {
       <button class="chat-list">
         <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
           class="image" alt="photo">
-        <div class="chats">
+        <div>
           <strong>Jack Williams</strong>
           <div>
             <p>Hello</p>
