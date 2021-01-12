@@ -17,7 +17,7 @@
   margin: 0.4em 1em 0 0;
 }
 
-.chats {
+.chat-list > div {
   text-align: left;
   border-bottom: 0.5px solid #95959555;
   width: 100%;
@@ -25,11 +25,11 @@
   padding: 1em 0;
 }
 
-.chats p {
+.chat-list p {
   margin: 0;
 }
 
-.chats > strong {
+.chat-list strong {
   font-size: 1.2em;
 }
 
