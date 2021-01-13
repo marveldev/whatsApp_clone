@@ -71,7 +71,7 @@
   width: 3em;
 }
 
-.close-button > i {
+.close-status-button > i {
   color: #fff;
   vertical-align: bottom;
 }
@@ -95,6 +95,7 @@
 }
 
 .status-photo {
+  display: none;
   position: relative;
   top: 3em;
   object-fit: cover;
@@ -103,27 +104,23 @@
   background-color: #000000d7;
 }
 
-.status-photo-item {
-  display: none;
-}
-
 .current {
   display: block;
 }
 
 #previousButton {
-  color: #fff;
-  font-size: large;
   position: absolute;
-  top: 50%;
-  background-color: aqua;
+  top: 7em;
+  height: 70%;
+  width: 5em;
+  opacity: 0;
 }
 
 #nextButton {
-  color: #fff;
-  font-size: large;
   position: absolute;
   right: 0;
-  top: 50%;
-  background-color: aqua;
+  top: 7em;
+  height: 70%;
+  width: 5em;
+  opacity: 0;
 }
