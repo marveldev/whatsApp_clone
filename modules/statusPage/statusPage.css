@@ -102,3 +102,28 @@
   width: 100%;
   background-color: #000000d7;
 }
+
+.status-photo-item {
+  display: none;
+}
+
+.current {
+  display: block;
+}
+
+#previousButton {
+  color: #fff;
+  font-size: large;
+  position: absolute;
+  top: 50%;
+  background-color: aqua;
+}
+
+#nextButton {
+  color: #fff;
+  font-size: large;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  background-color: aqua;
+}
