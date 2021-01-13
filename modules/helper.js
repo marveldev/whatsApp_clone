@@ -21,10 +21,10 @@ const switchCurrentPage = async (page) => {
       document.querySelector('.default').classList.add('active')
       break;
     case 'statusPage':
-      currentPage.innerHTML = statusPage()
-      statusPageEventListener()
+      currentPage.innerHTML = await statusPage()
       document.querySelector('.active').classList.remove('active')
       document.querySelector('.status').classList.add('active')
+      statusPageEventListener()
       break;
     case 'callsPage':
       currentPage.innerHTML = callsPage()
