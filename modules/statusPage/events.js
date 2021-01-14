@@ -1,25 +1,21 @@
 import { addEntryToDb } from "../../dataStorage.js"
 
 const statusPageEventListener = () => {
-  const addStatusPhoto = (selector) => {
-    const addStatusPhotoButton = selector
-    addStatusPhotoButton.addEventListener('change', () => {
-      const photoReader = new FileReader()
-      photoReader.readAsDataURL(addStatusPhotoButton.files[0])
-      photoReader.addEventListener('load', () => {
-        const statusPhoto =  `
-          <img src=${photoReader.result} class="status-photo" alt="photo">
-        `
-        document.querySelector('#statusPhotoContent').innerHTML += statusPhoto
-        document.querySelector('#statusProfilePhoto').src = photoReader.result
-        document.querySelector('.view-status').style.display = 'flex'
-        document.querySelector('.add-status').style.display = 'none'
-        addEntryToDb('statusPhoto', photoReader.result)
-      })
+  const statusFilePicker = document.querySelector('#addStatus')
+  statusFilePicker.addEventListener('change', () => {
+    const photoReader = new FileReader()
+    photoReader.readAsDataURL(statusFilePicker.files[0])
+    photoReader.addEventListener('load', () => {
+      const statusData =  `
+        <img src=${photoReader.result} class="status-photo" alt="photo">
+      `
+      document.querySelector('#statusPhotoContent').innerHTML += statusData
+      document.querySelector('#statusProfilePhoto').src = photoReader.result
+      document.querySelector('.view-status').style.display = 'flex'
+      document.querySelector('.add-status').style.display = 'none'
+      addEntryToDb('statusData', photoReader.result)
     })
-  }
-
-  addStatusPhoto(document.querySelector('#addStatus'))
+  })
 
   let interval;
 
@@ -82,8 +78,8 @@ const statusPageEventListener = () => {
 
   const statusPhotos = document.querySelectorAll('.status-photo')
   for (let index = 0; index < statusPhotos.length; index++) {
-    const statusPhoto = statusPhotos[index]
-    statusPhoto.addEventListener('mousedown', () => {
+    const statusData = statusPhotos[index]
+    statusData.addEventListener('mousedown', () => {
       alert()
       console.log('ok');
     })
@@ -93,6 +89,7 @@ const statusPageEventListener = () => {
     document.querySelector('.top-nav').style.display = 'block'
     document.querySelector('.current').classList.remove('current')
     document.querySelector('.status-photo-container').style.display = 'none'
+    clearInterval(interval)
   })
 }
 
