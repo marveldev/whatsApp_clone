@@ -1,10 +1,10 @@
 import { getEntryFromDb } from "../../dataStorage.js";
 
 const statusPage = async () => {
-  const statusPhoto = await getEntryFromDb('statusPhoto')
-  const statusPhotoItems = statusPhoto.map(statusPhotoItem => {
+  const statusData = await getEntryFromDb('statusData')
+  const statusItems = statusData.map(statusItem => {
     return `
-    <img src=${statusPhotoItem} class="status-photo" alt="photo">
+      <img src=${statusItem} class="status-photo" alt="photo">
     `
   })
 
@@ -20,7 +20,7 @@ const statusPage = async () => {
         </div>
       </div>
       <div>
-        <button class="add-status photo-button" style="display: ${statusPhotoItems.length >= 1 ? 'none' : 'flex'};">
+        <button class="add-status photo-button" style="display: ${statusItems.length >= 1 ? 'none' : 'flex'};">
           <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
             class="image" alt="photo">
           <div>
@@ -30,8 +30,8 @@ const statusPage = async () => {
             </label>
           </div>
         </button>
-        <button class="view-status photo-button" style="display: ${statusPhotoItems.length >= 1 ? 'flex' : 'none'};">
-          <img src=${statusPhoto[statusPhoto.length - 1]}
+        <button class="view-status photo-button" style="display: ${statusItems.length >= 1 ? 'flex' : 'none'};">
+          <img src=${statusItems[statusItems.length - 1]}
             id="statusProfilePhoto" class="image" alt="photo">
           <div>
             <strong>My status</strong>
@@ -51,7 +51,7 @@ const statusPage = async () => {
               </div>
             </div>
             <div id="statusPhotoContent">
-              ${statusPhotoItems.join('') || ''}
+              ${statusItems.join('') || ''}
             </div>
           </div>
           <button id="previousButton">previous</button>
