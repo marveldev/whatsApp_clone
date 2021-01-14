@@ -2,7 +2,7 @@ const settingsPage = () => {
   return `
     <div class="settings-page">
       <div class="settings-nav">
-        <button type="button" class="return-Button"><i class="material-icons">&#xe5c4;</i></button>
+        <button type="button" class="return-button"><i class="material-icons">&#xe5c4;</i></button>
         <strong>Settings</strong>
       </div>
       <div class="settings-options">

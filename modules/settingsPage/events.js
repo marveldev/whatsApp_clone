@@ -1,7 +1,7 @@
 import switchCurrentPage from "../helper.js"
 
 const settingsPageEventListener = () => {
-  document.querySelector('.return-Button').addEventListener('click', () => {
+  document.querySelector('.return-button').addEventListener('click', () => {
     switchCurrentPage('defaultPage')
     document.querySelector('.top-nav').style.display = 'block'
     document.querySelector('#topNavDropdown').style.display = 'none'
