@@ -52,6 +52,7 @@ button {
   border: unset;
   background-color: unset;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .top-nav-content > nav {
