@@ -38,9 +38,10 @@
   bottom: 2em;
   right: 2em;
   color: #fff;
-  width: 4em;
-  height: 4em;
-  border-radius: 2em;
+  width: 3em;
+  height: 3em;
+  border-radius: 1.5em;
+  font-size: 1.2em;
   background-color: #186d60fa;
   box-shadow: 0 0.2em 0.2em 0em #00000060;
 }
