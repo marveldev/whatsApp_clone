@@ -8,10 +8,10 @@ const addChatItemToDom = person => {
   const recordButton = document.querySelector('.record-button')
   const sendChatButton = document.querySelector('.send-button')
   const chatInput = document.querySelector('.chat-input')
-
   const chatInputValue = chatInput.value.trim()
   const itemId = 'id' + Date.parse(new Date()).toString()
   const chatTime = new Date().toTimeString().substr(0, 5)
+
   const chatItem = `
     <div id="${itemId}">
       <div class="${person === 'person-one' ? 'arrow-right' : 'arrow-left'}"></div>
