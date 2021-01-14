@@ -1,4 +1,4 @@
-const request = indexedDB.open('whatsApp', 3)
+const request = indexedDB.open('whatsApp', 4)
 
 request.onsuccess = () => {
   const database = request.result
@@ -8,7 +8,7 @@ request.onsuccess = () => {
 request.onupgradeneeded = () => {
   const database = request.result
   database.createObjectStore('chatPageBackground', { autoIncrement: true })
-  database.createObjectStore('statusPhoto', { autoIncrement: true })
+  database.createObjectStore('statusData', { autoIncrement: true })
   database.createObjectStore('chatData', { keyPath: 'itemId' })
 }
 
