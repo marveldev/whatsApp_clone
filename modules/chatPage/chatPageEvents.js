@@ -52,6 +52,32 @@ const chatPageEventListeners = () => {
   const chatInput = document.querySelector('.chat-input')
   const chatItemDivs = document.querySelectorAll('.chat-item')
 
+  const pusher = new Pusher('28732b89eff34d2e9cb2', {
+    cluster: 'mt1'
+  })
+
+  const channel = pusher.subscribe('chat')
+
+  channel.bind('send-message', data => {
+    const { person, message } = data
+    const chatTime = new Date().toTimeString().substr(0, 5)
+
+    const chatItem = `
+      <div id="">
+        <div class="${person === 'person-one' ? 'arrow-right' : 'arrow-left'}"></div>
+        <div class="chat-item-overlay"></div>
+        <div class="${person} chat-item" title="">
+          <div id="${person}" class="chat-text">
+            <span class="message-value">${message}</span>
+            <sub class="chat-time">${chatTime}</sub>
+          </div>
+        </div>
+      </div>
+    `
+    const chatContainer = document.querySelector('.chat-container')
+    chatContainer.innerHTML += chatItem
+  })
+
   personOneChatButton.addEventListener('click', () => addChatItemToDom('person-one'))
   personTwoChatButton.addEventListener('click', () => addChatItemToDom('person-two'))
 
