@@ -24,7 +24,7 @@ const statusPage = async () => {
           <button class="add-status photo-button" style="display: ${statusItems.length >= 1 ? 'none' : 'flex'};">
             <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
               class="image" alt="photo">
-            <div>
+            <div class="status-info">
               <label for="addStatus">
                 <strong>My status</strong>
                 <p>Tap to add status update</p>
@@ -33,9 +33,8 @@ const statusPage = async () => {
           </button>
           <button class="photo-button" style="display: ${statusItems.length >= 1 ? 'flex' : 'none'};">
             <div class="view-status">
-              <img src="${statusData[statusData.length - 1]}"
-                id="statusPreview" class="image" alt="photo">
-              <div>
+              <img src="${statusData[statusData.length - 1]}" id="statusPreview" class="image" alt="photo">
+              <div class="status-info">
                 <strong>My status</strong>
                 <p>Tap to view status update</p>
               </div>
@@ -64,9 +63,34 @@ const statusPage = async () => {
         </div>
       </div>
       <div class="more-status-options">
-        <div class="">
-          <button type="button" class=""><i class="material-icons">&#xe5c4;</i></button>
+        <div id="statusOverlay" class="overlay"></div>
+        <div id="moreStatusOptions">
+          <button type="button" class="previous-button"><i class="material-icons">&#xe5c4;</i></button>
           <strong>My status</strong>
+        </div>
+        <div>
+          <div id="statusItemDropdown" class="dropdown-modal">
+            <button>Forward</button>
+            <button>Share...</button>
+            <button>Share to Facebook</button>
+            <button>Delete</button>
+          </div>
+          <div class="status-delete-modal">
+            <p>Delete this status update? It will also be deleted for everyone who received it.</p>
+            <button class="">CANCEL</button>
+            <button class="">DELETE</button>
+          </div>
+          <button class="single-photo-button">
+            <div>
+              <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                id="" class="image" alt="photo">
+              <div class="status-info">
+                <strong>18 views</strong>
+                <p>Today 06:03</p>
+              </div>
+            </div>
+            <span id="statusMoreButton"><i class="material-icons">&#xe5d4;</i></span>
+          </button>
         </div>
       </div>
     </div>
