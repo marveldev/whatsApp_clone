@@ -84,13 +84,14 @@ const statusPageEventListener = () => {
   })
 
   document.querySelector('#moreOptions').addEventListener('click', () => {
-    console.log('ok');
     document.querySelector('.top-nav').style.display = 'none'
     document.querySelector('#statusPage').style.display = 'none'
     document.querySelector('.more-status-options').style.display = 'block'
-    // document.querySelector('.current').classList.remove('current')
-    // document.querySelector('.status-photo-container').style.display = 'none'
-    // clearInterval(interval)
+  })
+
+  document.querySelector('#statusMoreButton').addEventListener('click', () => {
+    document.querySelector('#statusItemDropdown').style.display = 'block'
+    document.querySelector('#statusOverlay').style.display = 'block'
   })
 }
 
