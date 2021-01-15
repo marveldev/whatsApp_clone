@@ -63,10 +63,10 @@ const chatPageEventListeners = () => {
     const chatTime = new Date().toTimeString().substr(0, 5)
 
     const chatItem = `
-      <div id="">
+      <div>
         <div class="${person === 'person-one' ? 'arrow-right' : 'arrow-left'}"></div>
         <div class="chat-item-overlay"></div>
-        <div class="${person} chat-item" title="">
+        <div class="${person} chat-item">
           <div id="${person}" class="chat-text">
             <span class="message-value">${message}</span>
             <sub class="chat-time">${chatTime}</sub>
