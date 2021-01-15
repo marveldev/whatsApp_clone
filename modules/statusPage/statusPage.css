@@ -128,31 +128,8 @@
 }
 
 .photo-button {
+  display: flex;
   width: 100%;
-}
-
-.add-status > div {
-  text-align: left;
-  border-bottom: 0.5px solid #95959555;
-  width: 100%;
-  line-height: 1.5em;
-  padding: 1em 0;
-}
-
-.view-status > div {
-  text-align: left;
-  border-bottom: 0.5px solid #95959555;
-  width: 100%;
-  line-height: 1.5em;
-  padding: 1em 0;
-}
-
-.photo-button p {
-  margin: 0;
-}
-
-.photo-button strong {
-  font-size: 1.2em;
 }
 
 #moreOptions {
@@ -165,5 +142,69 @@
 }
 
 .more-status-options {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#moreStatusOptions {
+  padding: 1em 0;
+  color: #fff;
+  background-color: #075E54;
+  font-size: 1.1em;
+  margin-bottom: 0.5em;
+}
+
+.previous-button {
+  color: #fff;
+  margin: 0 1em 0 1em;
+}
+
+#moreStatusOptions > strong {
+  vertical-align: super;
+}
+
+.single-photo-button {
+  display: flex;
+  width: 100%;
+}
+
+.single-photo-button > div {
+  display: flex;
+  width: 100%;
+}
+
+.status-info {
+  text-align: left;
+  border-bottom: 0.5px solid #95959555;
+  width: 100%;
+  line-height: 1.5em;
+  padding: 1em 0;
+}
+
+.status-info p {
+  margin: 0;
+}
+
+.status-info strong {
+  font-size: 1.2em;
+}
+
+#statusItemDropdown {
+  display: none;
+}
+
+.status-delete-modal {
+  display: none;
+}
+
+#statusMoreButton {
+  margin: 1em;
+}
+
+#statusOverlay {
   display: none;
 }
