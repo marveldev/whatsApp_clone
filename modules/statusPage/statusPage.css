@@ -122,11 +122,24 @@
   opacity: 0;
 }
 
+.view-status {
+  display: flex;
+  width: 100%;
+}
+
 .photo-button {
   width: 100%;
 }
 
-.photo-button > div {
+.add-status > div {
+  text-align: left;
+  border-bottom: 0.5px solid #95959555;
+  width: 100%;
+  line-height: 1.5em;
+  padding: 1em 0;
+}
+
+.view-status > div {
   text-align: left;
   border-bottom: 0.5px solid #95959555;
   width: 100%;
@@ -140,4 +153,17 @@
 
 .photo-button strong {
   font-size: 1.2em;
+}
+
+#moreOptions {
+  vertical-align: bottom;
+  margin-top: 0.5em;
+  padding: 0.5em;
+  border-radius: 1.5em;
+  color: #186d60fa;
+  font-size: 1.2em;
+}
+
+.more-status-options {
+  display: none;
 }
