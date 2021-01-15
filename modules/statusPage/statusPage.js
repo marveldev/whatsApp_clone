@@ -31,8 +31,8 @@ const statusPage = async () => {
           </div>
         </button>
         <button class="view-status photo-button" style="display: ${statusItems.length >= 1 ? 'flex' : 'none'};">
-          <img src=${statusItems[statusItems.length - 1]}
-            id="statusProfilePhoto" class="image" alt="photo">
+          <img src="${statusData[statusData.length - 1]}"
+            id="statusPreview" class="image" alt="photo">
           <div>
             <strong>My status</strong>
             <p>Tap to view status update</p>
