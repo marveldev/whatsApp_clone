@@ -1,10 +1,11 @@
 import { deleteEntry } from '../../dataStorage.js'
-import { deleteModal } from './chatPage.js'
 
 const chatItemEvents = () => {
   const chatItemDivs = document.querySelectorAll('.chat-item')
   const singleChatNav = document.querySelector('.single-chat-nav')
   const overlay = document.querySelector('#overlay')
+
+  let itemId = []
 
   const modalEventListeners = () => {
     document.querySelector('.nav-back-button').addEventListener('click', () => {
@@ -30,15 +31,18 @@ const chatItemEvents = () => {
     const deleteButton = document.querySelector('.delete-button')
     deleteButton.addEventListener('click', () => {
       const chatContainer = document.querySelector('.chat-container')
-      const element = deleteButton.title
-      const chatItemDiv = document.querySelector(`#${element}`)
-      chatContainer.removeChild(chatItemDiv)
+      for (let index = 0; index < itemId.length; index++) {
+        const singleItemId = itemId[index]
+        const chatItemDiv = document.querySelector(`#${singleItemId}`)
+        chatContainer.removeChild(chatItemDiv)
+      }
       singleChatNav.style.display = 'none'
       document.querySelector('.delete-modal').style.display = 'none'
       document.querySelector('#singleChatNav').style.display = 'flex'
       overlay.style.display = 'none'
 
-      deleteEntry(element)
+      deleteEntry(itemId)
+      itemId = []
     })
   }
 
@@ -47,7 +51,7 @@ const chatItemEvents = () => {
     chatItemDiv.addEventListener('click', () => {
       chatItemDiv.previousElementSibling.style.display = 'block'
       singleChatNav.style.display = 'block'
-      document.querySelector('#deleteModalContent').innerHTML = deleteModal(`${chatItemDiv.title}`)
+      itemId.push(chatItemDiv.title)
       modalEventListeners()
     })
   }
