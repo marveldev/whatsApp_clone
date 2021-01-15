@@ -1,18 +1,18 @@
-import topNav from './modules/topNav/topNav.js'
+import TopNav from './modules/topNav/TopNav.js'
 import topNavEventListeners from './modules/topNav/events.js'
 import switchCurrentPage from './modules/helper.js'
 import { request } from './dataStorage.js'
 
-const main = () => {
+const App = () => {
   return `
-    ${topNav()}
+    ${TopNav()}
     <div class="current-page">
     </div>
   `
 }
 
 request.onsuccess = async () => {
-  document.querySelector('.main').innerHTML = main()
+  document.querySelector('.root').innerHTML = App()
 
   const currentPage = localStorage.getItem('currentPage')
 

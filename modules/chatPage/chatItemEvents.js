@@ -51,7 +51,7 @@ const chatItemEvents = () => {
     chatItemDiv.addEventListener('click', () => {
       chatItemDiv.previousElementSibling.style.display = 'block'
       singleChatNav.style.display = 'block'
-      itemId.push(chatItemDiv.title)
+      itemId.push(chatItemDiv.parentElement.id)
       modalEventListeners()
     })
   }

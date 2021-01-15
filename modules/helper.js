@@ -1,11 +1,11 @@
-import statusPage from './statusPage/statusPage.js'
-import callsPage from './callsPage/callsPage.js'
-import defaultPage from './defaultPage/defaultPage.js'
-import { chatPage } from './chatPage/chatPage.js'
+import StatusPage from './statusPage/StatusPage.js'
+import CallsPage from './callsPage/CallsPage.js'
+import DefaultPage from './defaultPage/DefaultPage.js'
+import ChatPage from './chatPage/ChatPage.js'
 import defaultPageEventListeners from './defaultPage/events.js'
 import chatPageEventListeners from './chatPage/chatPageEvents.js'
 import chatItemEvents from './chatPage/chatItemEvents.js'
-import settingsPage from './settingsPage/settingsPage.js'
+import SettingsPage from './settingsPage/SettingsPage.js'
 import settingsPageEventListener from './settingsPage/events.js'
 import statusPageEventListener from './statusPage/events.js'
 
@@ -15,35 +15,35 @@ const switchCurrentPage = async (page) => {
 
   switch (page) {
     case 'defaultPage':
-      currentPage.innerHTML = defaultPage()
+      currentPage.innerHTML = DefaultPage()
       defaultPageEventListeners()
       document.querySelector('.active').classList.remove('active')
       document.querySelector('.default').classList.add('active')
       break;
     case 'statusPage':
-      currentPage.innerHTML = await statusPage()
+      currentPage.innerHTML = await StatusPage()
       document.querySelector('.active').classList.remove('active')
       document.querySelector('.status').classList.add('active')
       statusPageEventListener()
       break;
     case 'callsPage':
-      currentPage.innerHTML = callsPage()
+      currentPage.innerHTML = CallsPage()
       document.querySelector('.active').classList.remove('active')
       document.querySelector('.call').classList.add('active')
       break;
     case 'settingsPage':
-      currentPage.innerHTML = settingsPage()
+      currentPage.innerHTML = SettingsPage()
       settingsPageEventListener()
       document.querySelector('.top-nav').style.display = 'none'
       break;
     case 'chatPage':
-      currentPage.innerHTML = await chatPage()
+      currentPage.innerHTML = await ChatPage()
       document.querySelector('.top-nav').style.display = 'none'
       chatPageEventListeners()
       chatItemEvents()
       break;
     default:
-      currentPage.innerHTML = defaultPage()
+      currentPage.innerHTML = DefaultPage()
       document.querySelector('.active').classList.remove('active')
       document.querySelector('.default').classList.add('active')
       break;

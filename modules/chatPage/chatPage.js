@@ -27,7 +27,7 @@ const wallPaperSettings = `
     </button>
   </div>
 `
-const chatPage = async () => {
+const ChatPage = async () => {
   const chatData = await getEntryFromDb('chatData')
   const chatPageBackground = await getEntryFromDb('chatPageBackground')
   const chatItems = chatData.map(chatItem => {
@@ -95,4 +95,4 @@ const chatPage = async () => {
   `
 }
 
-export { chatPage }
+export default ChatPage

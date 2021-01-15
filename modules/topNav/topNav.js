@@ -1,4 +1,4 @@
-const topNav = () => {
+const TopNav = () => {
   return `
     <div class="top-nav">
       <div id="topNavOverlay"></div>
@@ -28,4 +28,4 @@ const topNav = () => {
   `
 }
 
-export default topNav
+export default TopNav

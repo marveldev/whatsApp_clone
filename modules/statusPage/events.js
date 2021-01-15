@@ -11,7 +11,7 @@ const statusPageEventListener = () => {
       `
       document.querySelector('#statusPhotoContent').innerHTML += statusData
       document.querySelector('#statusPreview').src = photoReader.result
-      document.querySelector('.view-status').style.display = 'flex'
+      document.querySelector('.view').style.display = 'flex'
       document.querySelector('.add-status').style.display = 'none'
       addEntryToDb('statusData', photoReader.result)
     })
@@ -92,6 +92,17 @@ const statusPageEventListener = () => {
   document.querySelector('#statusMoreButton').addEventListener('click', () => {
     document.querySelector('#statusItemDropdown').style.display = 'block'
     document.querySelector('#statusOverlay').style.display = 'block'
+  })
+
+  document.querySelector('.previous-button').addEventListener('click', () => {
+    document.querySelector('.top-nav').style.display = 'block'
+    document.querySelector('#statusPage').style.display = 'block'
+    document.querySelector('.more-status-options').style.display = 'none'
+  })
+
+  document.querySelector('#statusOverlay').addEventListener('click', () => {
+    document.querySelector('#statusItemDropdown').style.display = 'none'
+    document.querySelector('#statusOverlay').style.display = 'none'
   })
 }
 

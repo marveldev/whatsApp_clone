@@ -1,4 +1,4 @@
-const settingsPage = () => {
+const SettingsPage = () => {
   return `
     <div class="settings-page">
       <div class="settings-nav">
@@ -56,4 +56,4 @@ const settingsPage = () => {
   `
 }
 
-export default settingsPage
+export default SettingsPage

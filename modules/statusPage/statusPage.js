@@ -1,6 +1,6 @@
 import { getEntryFromDb } from "../../dataStorage.js";
 
-const statusPage = async () => {
+const StatusPage = async () => {
   const statusData = await getEntryFromDb('statusData')
   const statusItems = statusData.map(statusItem => {
     return `
@@ -31,7 +31,7 @@ const statusPage = async () => {
               </label>
             </div>
           </button>
-          <button class="photo-button" style="display: ${statusItems.length >= 1 ? 'flex' : 'none'};">
+          <button class="view photo-button" style="display: ${statusItems.length >= 1 ? 'flex' : 'none'};">
             <div class="view-status">
               <img src="${statusData[statusData.length - 1]}" id="statusPreview" class="image" alt="photo">
               <div class="status-info">
@@ -97,4 +97,4 @@ const statusPage = async () => {
   `
 }
 
-export default statusPage
+export default StatusPage

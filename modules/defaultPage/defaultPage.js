@@ -1,4 +1,4 @@
-const defaultPage = () => {
+const DefaultPage = () => {
   return `
     <div class="default-page">
       <button class="chat-list">
@@ -118,4 +118,4 @@ const defaultPage = () => {
   `
 }
 
-export default defaultPage;
+export default DefaultPage

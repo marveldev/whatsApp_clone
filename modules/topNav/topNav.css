@@ -1,4 +1,4 @@
-.main {
+.root {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif, Helvetica;
 }
@@ -88,14 +88,14 @@ button:active {
   right: 0;
   background-color: #fff;
   height: auto;
-  width: fit-content;
+  width: 10em;
   z-index: 1;
-  padding: 0.5em 3em 0.5em 1em;
+  padding: 0.5em 1em;
 }
 
 .dropdown-modal > button {
   display: block;
-  padding: 1em 0;
+  padding: 1em 0.5em;
   width: 100%;
   text-align: left;
   margin: 0.2em 0;

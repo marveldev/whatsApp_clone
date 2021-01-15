@@ -1,4 +1,4 @@
-const callsPage = () => {
+const CallsPage = () => {
   return `
     <div class="calls-page">
       <div>
@@ -13,4 +13,4 @@ const callsPage = () => {
   `
 }
 
-export default callsPage
+export default CallsPage
