@@ -82,10 +82,8 @@ const chatPage = async () => {
         </div>
         <div id="deleteModalContent"></div>
       </div>
-
       ${chatDropdownModal}
       ${wallPaperSettings}
-
       <div class="chat-container">${chatItems.join('')}</div>
       <div id="chatInputContent">
         <form>
