@@ -7,10 +7,10 @@ const statusPageEventListener = () => {
     photoReader.readAsDataURL(statusFilePicker.files[0])
     photoReader.addEventListener('load', () => {
       const statusData =  `
-        <img src=${photoReader.result} class="status-photo" alt="photo">
+        <img src="${photoReader.result}" class="status-photo" alt="photo">
       `
       document.querySelector('#statusPhotoContent').innerHTML += statusData
-      document.querySelector('#statusProfilePhoto').src = photoReader.result
+      document.querySelector('#statusPreview').src = photoReader.result
       document.querySelector('.view-status').style.display = 'flex'
       document.querySelector('.add-status').style.display = 'none'
       addEntryToDb('statusData', photoReader.result)
@@ -75,15 +75,6 @@ const statusPageEventListener = () => {
       slides[slides.length - 1].classList.add('current')
     }
   })
-
-  const statusPhotos = document.querySelectorAll('.status-photo')
-  for (let index = 0; index < statusPhotos.length; index++) {
-    const statusData = statusPhotos[index]
-    statusData.addEventListener('mousedown', () => {
-      alert()
-      console.log('ok');
-    })
-  }
 
   document.querySelector('.close-status-button').addEventListener('click', () => {
     document.querySelector('.top-nav').style.display = 'block'
