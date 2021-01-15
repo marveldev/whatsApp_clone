@@ -303,38 +303,30 @@
   display: none;
 }
 
-@media only screen and (max-width: 375px) {
-  .add-button {
-    right: 0.7em;
-  }
-
-  .face-button {
-    right: 16.7em;
-  }
-
-  .send-button {
-    right: 3em;
+@media only screen and (max-height: 600px) {
+  .chat-container { 
+    max-height: 26em;
   }
 }
 
-@media only screen and (max-width: 340px)   {
-  .add-button {
-    right: 0.4em;
+@media only screen and (max-width: 375px) {
+  .smiley-icon {
+    right: 16.5em;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .smiley-icon {
+    right: 14.6em;
   }
 
-  .face-button {
-    right: 13.8em;
-  }
-
-  .send-button {
-    right: 2em;
-  }
-
-  .text {
+  .chat-text {
     max-width: 15em;
   }
+}
 
-  .message-value {
-    max-width: 15em;
+@media only screen and (max-width: 320px) {
+  .smiley-icon {
+    right: 13.5em;
   }
 }
