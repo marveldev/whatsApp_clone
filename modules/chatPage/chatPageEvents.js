@@ -48,7 +48,7 @@ const chatPageEventListeners = () => {
   const personOneChatButton = document.querySelector('.person-one-button')
   const personTwoChatButton = document.querySelector('.person-two-button')
   const sendChatButton = document.querySelector('.send-button')
-  const overlay = document.querySelector('#overlay')
+  const overlay = document.querySelector('#chatOverlay')
   const chatInput = document.querySelector('.chat-input')
   const chatItemDivs = document.querySelectorAll('.chat-item')
 
@@ -151,7 +151,7 @@ const chatPageEventListeners = () => {
 
   document.querySelector('#clearChatButton').addEventListener('click', () => {
     document.querySelector('#chatPageDropdown').style.display = 'none'
-    document.querySelector('#overlay').style.display = 'none'
+    document.querySelector('#chatOverlay').style.display = 'none'
     document.querySelector('.chat-container').innerHTML = ''
     clearAllEntries('chatData')
   })

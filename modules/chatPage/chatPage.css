@@ -147,8 +147,11 @@
   display: none;
 }
 
-#overlay {
+#chatOverlay {
   display: none;
+}
+
+.overlay {
   position: absolute;
   z-index: 1;
   top: 0;

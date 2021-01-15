@@ -48,7 +48,7 @@ const chatPage = async () => {
 
   return `
     <div class="chat-page" style="background-image: url(${chatPageBackground[0] || `https://cloud.githubusercontent.com/assets/398893/15136779/4e765036-1639-11e6-9201-67e728e86f39.jpg`});">
-      <div id="overlay"></div>
+      <div id="chatOverlay" class="overlay"></div>
       <div class="chat-top-nav">
         <button type="button" id="arrowLeftButton"><i class="material-icons">&#xe5c4;</i></button>
         <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 

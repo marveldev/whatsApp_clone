@@ -3,7 +3,7 @@ import { deleteEntry } from '../../dataStorage.js'
 const chatItemEvents = () => {
   const chatItemDivs = document.querySelectorAll('.chat-item')
   const singleChatNav = document.querySelector('.single-chat-nav')
-  const overlay = document.querySelector('#overlay')
+  const overlay = document.querySelector('#chatOverlay')
 
   let itemId = []
 
