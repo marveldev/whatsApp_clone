@@ -27,17 +27,6 @@ const wallPaperSettings = `
     </button>
   </div>
 `
-
-const deleteModal = (itemId) => {
-  return `
-    <div class="delete-modal">
-      <p>Delete message?</p>
-      <button class="cancel-button">CANCEL</button>
-      <button class="delete-button" title="${itemId}">DELETE FOR ME</button>
-    </div>
-  `
-}
-
 const chatPage = async () => {
   const chatData = await getEntryFromDb('chatData')
   const chatPageBackground = await getEntryFromDb('chatPageBackground')
@@ -47,7 +36,7 @@ const chatPage = async () => {
       <div id="${itemId}">
         <div class="${person === 'person-one' ? 'arrow-right' : 'arrow-left'}"></div>
         <div class="chat-item-overlay"></div>
-        <div class="${person} chat-item" title="${itemId}">
+        <div class="${person} chat-item">
           <div id="${person}" class="chat-text">
             <span class="message-value">${chatInputValue}</span>
             <sub class="chat-time">${chatTime}</sub>
@@ -80,7 +69,11 @@ const chatPage = async () => {
           <button><i class="material-icons">&#xe14d</i></button>
           <button><i class="fa fa-mail-forward"></i></button>
         </div>
-        <div id="deleteModalContent"></div>
+        <div class="delete-modal">
+          <p>Delete message?</p>
+          <button class="cancel-button">CANCEL</button>
+          <button class="delete-button">DELETE FOR ME</button>
+        </div>
       </div>
       ${chatDropdownModal}
       ${wallPaperSettings}
@@ -102,4 +95,4 @@ const chatPage = async () => {
   `
 }
 
-export { deleteModal, chatPage }
+export { chatPage }
