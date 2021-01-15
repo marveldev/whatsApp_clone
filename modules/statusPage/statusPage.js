@@ -10,52 +10,63 @@ const statusPage = async () => {
 
   return `
     <div class="status-page">
-      <div>
-        <button class="edit-icon"><i class="material-icons">&#xe3c9;</i></button>
+      <div id="statusPage">
         <div>
-          <input type="file" id="addStatus">
-          <label for="addStatus">
-            <div id="addStatusButton"><i class="fa fa-camera"></i></div>
-          </label>
-        </div>
-      </div>
-      <div>
-        <button class="add-status photo-button" style="display: ${statusItems.length >= 1 ? 'none' : 'flex'};">
-          <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
-            class="image" alt="photo">
+          <button class="edit-icon"><i class="material-icons">&#xe3c9;</i></button>
           <div>
+            <input type="file" id="addStatus">
             <label for="addStatus">
-              <strong>My status</strong>
-              <p>Tap to add status update</p>
+              <div id="addStatusButton"><i class="fa fa-camera"></i></div>
             </label>
           </div>
-        </button>
-        <button class="view-status photo-button" style="display: ${statusItems.length >= 1 ? 'flex' : 'none'};">
-          <img src="${statusData[statusData.length - 1]}"
-            id="statusPreview" class="image" alt="photo">
-          <div>
-            <strong>My status</strong>
-            <p>Tap to view status update</p>
-          </div>
-        </button>
-        <div class="status-photo-container">
-          <div class="status-photo-item">
-            <div class="progress-bar"><div class="bar"></div></div>
-            <div class="status-profile">
-              <button type="button" class="close-status-button"><i class="material-icons">&#xe5c4;</i></button>
-              <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
-                class="image" alt="photo">
+        </div>
+        <div>
+          <button class="add-status photo-button" style="display: ${statusItems.length >= 1 ? 'none' : 'flex'};">
+            <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
+              class="image" alt="photo">
+            <div>
+              <label for="addStatus">
+                <strong>My status</strong>
+                <p>Tap to add status update</p>
+              </label>
+            </div>
+          </button>
+          <button class="photo-button" style="display: ${statusItems.length >= 1 ? 'flex' : 'none'};">
+            <div class="view-status">
+              <img src="${statusData[statusData.length - 1]}"
+                id="statusPreview" class="image" alt="photo">
               <div>
-                <strong>Jack Williams</strong>
-                <small>5 mins ago</small>
+                <strong>My status</strong>
+                <p>Tap to view status update</p>
               </div>
             </div>
-            <div id="statusPhotoContent">
-              ${statusItems.join('') || ''}
+            <span id="moreOptions"><i class="material-icons">&#xe5d3;</i></span>
+          </button>
+          <div class="status-photo-container">
+            <div class="status-photo-item">
+              <div class="progress-bar"><div class="bar"></div></div>
+              <div class="status-profile">
+                <button type="button" class="close-status-button"><i class="material-icons">&#xe5c4;</i></button>
+                <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
+                  class="image" alt="photo">
+                <div>
+                  <strong>Jack Williams</strong>
+                  <small>5 mins ago</small>
+                </div>
+              </div>
+              <div id="statusPhotoContent">
+                ${statusItems.join('') || ''}
+              </div>
             </div>
+            <button id="previousButton">previous</button>
+            <button id="nextButton">next</button>
           </div>
-          <button id="previousButton">previous</button>
-          <button id="nextButton">next</button>
+        </div>
+      </div>
+      <div class="more-status-options">
+        <div class="">
+          <button type="button" class=""><i class="material-icons">&#xe5c4;</i></button>
+          <strong>My status</strong>
         </div>
       </div>
     </div>
