@@ -60,7 +60,10 @@ const deleteEntry = (itemId) => {
   const database = request.result
   const transaction = database.transaction(['chatData'], 'readwrite')
   const store = transaction.objectStore('chatData')
-  store.delete(itemId)
+  for (let index = 0; index < itemId.length; index++) {
+    const singleItemId = itemId[index]
+    store.delete(singleItemId)
+  }
 }
 
 export { request, addEntryToDb, getEntryFromDb, clearAllEntries, deleteEntry }
