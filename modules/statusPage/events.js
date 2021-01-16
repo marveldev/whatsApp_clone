@@ -9,9 +9,9 @@ const statusPageEventListener = () => {
       const statusData =  `
         <img src="${photoReader.result}" class="status-photo" alt="photo">
       `
-      document.querySelector('#statusPhotoContent').innerHTML += statusData
+      document.querySelector('#statusItemContent').innerHTML += statusData
       document.querySelector('#statusPreview').src = photoReader.result
-      document.querySelector('.view').style.display = 'flex'
+      document.querySelector('.view-status').style.display = 'flex'
       document.querySelector('.add-status').style.display = 'none'
       addEntryToDb('statusData', photoReader.result)
     })
@@ -33,7 +33,7 @@ const statusPageEventListener = () => {
         } else {
           slides[0].classList.add('current')
           document.querySelector('.top-nav').style.display = 'block'
-          document.querySelector('.status-photo-container').style.display = 'none'
+          document.querySelector('.status-entry-container').style.display = 'none'
           clearInterval(interval)
         }
       } else {
@@ -43,10 +43,11 @@ const statusPageEventListener = () => {
     }, 30)
   }
 
-  document.querySelector('.view-status').addEventListener('click', () => {
+  document.querySelector('.display-status').addEventListener('click', () => {
     document.querySelector('.top-nav').style.display = 'none'
-    document.querySelector('.status-photo-container').style.display = 'block'
-    document.querySelector('#statusPhotoContent').firstElementChild.classList.add('current')
+    document.querySelector('#statusMainContent').style.display = 'none'
+    document.querySelector('.status-entry-container').style.display = 'block'
+    document.querySelector('#statusItemContent').firstElementChild.classList.add('current')
     progress()
   })
 
@@ -78,31 +79,44 @@ const statusPageEventListener = () => {
 
   document.querySelector('.close-status-button').addEventListener('click', () => {
     document.querySelector('.top-nav').style.display = 'block'
+    document.querySelector('#statusMainContent').style.display = 'block'
     document.querySelector('.current').classList.remove('current')
-    document.querySelector('.status-photo-container').style.display = 'none'
+    document.querySelector('.status-entry-container').style.display = 'none'
     clearInterval(interval)
   })
 
-  document.querySelector('#moreOptions').addEventListener('click', () => {
-    document.querySelector('.top-nav').style.display = 'none'
-    document.querySelector('#statusPage').style.display = 'none'
-    document.querySelector('.more-status-options').style.display = 'block'
-  })
-
-  document.querySelector('#statusMoreButton').addEventListener('click', () => {
-    document.querySelector('#statusItemDropdown').style.display = 'block'
-    document.querySelector('#statusOverlay').style.display = 'block'
-  })
+  const displayElement = (value1, value2) => {
+    document.querySelector('.top-nav').style.display = value1
+    document.querySelector('#statusMainContent').style.display = value1
+    document.querySelector('.status-entry-options').style.display = value2
+  }
 
   document.querySelector('.previous-button').addEventListener('click', () => {
-    document.querySelector('.top-nav').style.display = 'block'
-    document.querySelector('#statusPage').style.display = 'block'
-    document.querySelector('.more-status-options').style.display = 'none'
+    displayElement('block', 'none')
+  })
+
+  document.querySelector('#entryOptionsButton').addEventListener('click', () => {
+    displayElement('none', 'block')
+  })
+
+  document.querySelector('#itemDropdown').addEventListener('click', () => {
+    document.querySelector('#statusItemDropdown').style.display = 'block'
+    document.querySelector('#statusOverlay').style.display = 'block'
   })
 
   document.querySelector('#statusOverlay').addEventListener('click', () => {
     document.querySelector('#statusItemDropdown').style.display = 'none'
     document.querySelector('#statusOverlay').style.display = 'none'
+  })
+
+  document.querySelector('.delete-modal-button').addEventListener('click', () => {
+    document.querySelector('#statusItemDropdown').style.display = 'none'
+    document.querySelector('.status-delete-modal').style.display = 'block'
+  })
+
+  document.querySelector('.close-modal-button').addEventListener('click', () => {
+    document.querySelector('#statusOverlay').style.display = 'none'
+    document.querySelector('.status-delete-modal').style.display = 'none'
   })
 }
 
