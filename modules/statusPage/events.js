@@ -9,7 +9,19 @@ const statusPageEventListener = () => {
       const statusData =  `
         <img src="${photoReader.result}" class="status-photo" alt="photo">
       `
+
+      const statusItemPreview = `
+        <button class="status-item-preview">
+          <img src="${photoReader.result}" class="image" alt="photo">
+          <div class="status-info">
+            <strong>18 views</strong>
+            <p>Today 06:03</p>
+          </div>
+          <span class="item-dropdown-icon"><i class="material-icons">&#xe5d4;</i></span>
+        </button>
+      `
       document.querySelector('#statusItemContent').innerHTML += statusData
+      document.querySelector('.status-item-container').innerHTML += statusItemPreview
       document.querySelector('#statusPreview').src = photoReader.result
       document.querySelector('.view-status').style.display = 'flex'
       document.querySelector('.add-status').style.display = 'none'
@@ -99,10 +111,14 @@ const statusPageEventListener = () => {
     displayElement('none', 'block')
   })
 
-  document.querySelector('#itemDropdown').addEventListener('click', () => {
-    document.querySelector('#statusItemDropdown').style.display = 'block'
-    document.querySelector('#statusOverlay').style.display = 'block'
-  })
+  const itemDropdownIcons =  document.querySelectorAll('.item-dropdown-icon')
+  for (let index = 0; index < itemDropdownIcons.length; index++) {
+    const itemDropdownIcon = itemDropdownIcons[index]
+    itemDropdownIcon.addEventListener('click', () => {
+      document.querySelector('#statusItemDropdown').style.display = 'block'
+      document.querySelector('#statusOverlay').style.display = 'block'
+    })
+  }
 
   document.querySelector('#statusOverlay').addEventListener('click', () => {
     document.querySelector('#statusItemDropdown').style.display = 'none'
@@ -112,6 +128,10 @@ const statusPageEventListener = () => {
   document.querySelector('.delete-modal-button').addEventListener('click', () => {
     document.querySelector('#statusItemDropdown').style.display = 'none'
     document.querySelector('.status-delete-modal').style.display = 'block'
+  })
+
+  document.querySelector('.delete-item-button').addEventListener('click', () => {
+    console.log('ok');
   })
 
   document.querySelector('.close-modal-button').addEventListener('click', () => {
