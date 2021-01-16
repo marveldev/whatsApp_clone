@@ -3,6 +3,7 @@ import { addEntryToDb } from "../../dataStorage.js"
 const statusPageEventListener = () => {
   const statusFilePicker = document.querySelector('#addStatus')
   statusFilePicker.addEventListener('change', () => {
+    const itemId = 'id' + Date.parse(new Date()).toString()
     const photoReader = new FileReader()
     photoReader.readAsDataURL(statusFilePicker.files[0])
     photoReader.addEventListener('load', () => {
@@ -11,7 +12,7 @@ const statusPageEventListener = () => {
       `
 
       const statusItemPreview = `
-        <button class="status-item-preview">
+        <button id="${itemId}" class="status-item-preview">
           <img src="${photoReader.result}" class="image" alt="photo">
           <div class="status-info">
             <strong>18 views</strong>
@@ -25,7 +26,12 @@ const statusPageEventListener = () => {
       document.querySelector('#statusPreview').src = photoReader.result
       document.querySelector('.view-status').style.display = 'flex'
       document.querySelector('.add-status').style.display = 'none'
-      addEntryToDb('statusData', photoReader.result)
+
+      const statusObject = {
+        itemId: itemId,
+        photoSource: photoReader.result
+      }
+      addEntryToDb('statusData', statusObject)
     })
   })
 
@@ -132,6 +138,7 @@ const statusPageEventListener = () => {
 
   document.querySelector('.delete-item-button').addEventListener('click', () => {
     console.log('ok');
+    console.log(document.querySelector('.status-item-container'));
   })
 
   document.querySelector('.close-modal-button').addEventListener('click', () => {
