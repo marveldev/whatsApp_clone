@@ -3,15 +3,17 @@ import { getEntryFromDb } from "../../dataStorage.js";
 const StatusPage = async () => {
   const statusData = await getEntryFromDb('statusData')
   const statusItems = statusData.map(statusItem => {
+    const { photoSource } = statusItem
     return `
-      <img src=${statusItem} class="status-photo" alt="photo">
+      <img src=${photoSource} class="status-photo" alt="photo">
     `
   })
 
-  const statusItemsPreview = statusData.map(statusItemPreview => {
+  const statusItemsPreview = statusData.map(statusItem => {
+    const { itemId, photoSource } = statusItem
     return `
-      <button class="status-item-preview">
-        <img src="${statusItemPreview}" class="image" alt="photo">
+      <button id="${itemId}" class="status-item-preview">
+        <img src="${photoSource}" class="image" alt="photo">
         <div class="status-info">
           <strong>18 views</strong>
           <p>Today 06:03</p>
@@ -37,7 +39,7 @@ const StatusPage = async () => {
         </button>
         <div class="view-status photo-button" style="display: ${statusItems.length >= 1 ? 'flex' : 'none'};">
           <button class="display-status">
-            <img src="${statusData[statusData.length - 1]}" id="statusPreview" class="image" alt="photo">
+            <img src="${statusData[0] ? statusData[0][statusData.length - 1].photoSource : ''}" id="statusPreview" class="image" alt="photo">
             <div class="status-info">
               <strong>My status</strong>
               <p>Tap to view status update</p>
