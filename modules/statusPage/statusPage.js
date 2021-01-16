@@ -8,6 +8,19 @@ const StatusPage = async () => {
     `
   })
 
+  const statusItemsPreview = statusData.map(statusItemPreview => {
+    return `
+      <button class="status-item-preview">
+        <img src="${statusItemPreview}" class="image" alt="photo">
+        <div class="status-info">
+          <strong>18 views</strong>
+          <p>Today 06:03</p>
+        </div>
+        <span class="item-dropdown-icon"><i class="material-icons">&#xe5d4;</i></span>
+      </button>
+    `
+  })
+
   return `
     <div class="status-page">
       <div id="statusMainContent">
@@ -78,15 +91,9 @@ const StatusPage = async () => {
             <button class="delete-item-button">DELETE</button>
             <button class="close-modal-button">CANCEL</button>
           </div>
-          <button class="status-item-preview">
-            <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-              class="image" alt="photo">
-            <div class="status-info">
-              <strong>18 views</strong>
-              <p>Today 06:03</p>
-            </div>
-            <span id="itemDropdown"><i class="material-icons">&#xe5d4;</i></span>
-          </button>
+          <div class="status-item-container">
+            ${statusItemsPreview.join('')}
+          </div>
         </div>
       </div>
     </div>
