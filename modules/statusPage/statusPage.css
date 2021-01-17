@@ -230,14 +230,36 @@
 #statusText {
   font-size: 2em;
   width: 90%;
-  margin: 0.8em;
+  margin: 0.8em 0.5em;
   color: #ffffff;
   border: none;
   outline: none;
-  overflow: hidden;
+  overflow-x: hidden;
   resize: none;
   max-height: 18em;
   text-align: center;
   line-height: 1.2em;
   background-color: transparent;
+}
+
+#statusText::placeholder {
+  color: #ffffffaf;
+}
+
+#backButton {
+  left: 2em;
+}
+
+#backButton > i {
+  font-size: 1.5em;
+  padding: 0.2em;
+}
+
+#sendTextButton {
+  display: none;
+}
+
+#sendTextButton > i {
+  font-size: 1.5em;
+  padding: 0.5em 0.4em;
 }
