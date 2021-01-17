@@ -85,6 +85,11 @@ const statusPageEventListener = () => {
   statusTextInput.addEventListener('keyup', () => {
     statusTextInput.style.height = "1px"
     statusTextInput.style.height = (3+statusTextInput.scrollHeight)+"px"
+    if (statusTextInput.value.trim().length >= 1) {
+      document.querySelector('#sendTextButton').style.display = 'block'
+    } else {
+      document.querySelector('#sendTextButton').style.display = 'none'
+    }
   })
 
   document.querySelector('.edit-icon').addEventListener('click', () => {
@@ -92,6 +97,14 @@ const statusPageEventListener = () => {
     document.querySelector('#statusMainContent').style.display = 'none'
     document.querySelector('#statusTextContainer').style.display = 'block'
     statusTextInput.focus()
+  })
+
+  document.querySelector('#backButton').addEventListener('click', () => {
+    console.log('ok');
+  })
+
+  document.querySelector('#sendTextButton').addEventListener('click', () => {
+    console.log('ok');
   })
 
   let interval;
