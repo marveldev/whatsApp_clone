@@ -75,6 +75,9 @@ const StatusPage = async () => {
         <button id="previousButton">previous</button>
         <button id="nextButton">next</button>
       </div>
+      <div id="statusTextContainer">
+        <textarea id="statusText" placeholder="Type a status"></textarea>
+      </div>
       <div class="status-entry-options">
         <div id="statusOverlay" class="overlay"></div>
         <div class="status-options-nav">
