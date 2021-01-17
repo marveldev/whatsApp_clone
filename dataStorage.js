@@ -56,13 +56,17 @@ const clearAllEntries = (storeName) => {
   store.clear();
 }
 
-const deleteEntry = (itemId) => {
+const deleteEntry = (storeName, itemId) => {
   const database = request.result
-  const transaction = database.transaction(['chatData'], 'readwrite')
-  const store = transaction.objectStore('chatData')
-  for (let index = 0; index < itemId.length; index++) {
-    const singleItemId = itemId[index]
-    store.delete(singleItemId)
+  const transaction = database.transaction([storeName], 'readwrite')
+  const store = transaction.objectStore(storeName)
+  if (typeof itemId === 'string') {
+    store.delete(itemId)
+  } else {
+    for (let index = 0; index < itemId.length; index++) {
+      const singleItemId = itemId[index]
+      store.delete(singleItemId)
+    }
   }
 }
 
