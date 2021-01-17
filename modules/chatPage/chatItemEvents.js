@@ -40,8 +40,7 @@ const chatItemEvents = () => {
       document.querySelector('.delete-modal').style.display = 'none'
       document.querySelector('#singleChatNav').style.display = 'flex'
       overlay.style.display = 'none'
-
-      deleteEntry(itemId)
+      deleteEntry('chatData', itemId)
       itemId = []
     })
   }
