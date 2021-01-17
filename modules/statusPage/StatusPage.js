@@ -77,6 +77,8 @@ const StatusPage = async () => {
       </div>
       <div id="statusTextContainer">
         <textarea id="statusText" placeholder="Type a status"></textarea>
+        <button id="backButton" class="icon"><i class="material-icons">&#xe5c4;</i></button>
+        <button id="sendTextButton" class="icon"><i class="material-icons">&#xe163;</i></button>
       </div>
       <div class="status-entry-options">
         <div id="statusOverlay" class="overlay"></div>
