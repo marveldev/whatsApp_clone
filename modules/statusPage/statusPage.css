@@ -216,3 +216,28 @@
 #statusOverlay {
   display: none;
 }
+
+#statusTextContainer {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #08b99c;
+}
+
+#statusText {
+  font-size: 2em;
+  width: 90%;
+  margin: 0.8em;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  overflow: hidden;
+  resize: none;
+  max-height: 18em;
+  text-align: center;
+  line-height: 1.2em;
+  background-color: transparent;
+}
