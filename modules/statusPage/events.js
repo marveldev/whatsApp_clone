@@ -47,6 +47,7 @@ const statusItemEvent = () => {
 }
 
 const statusPageEventListener = () => {
+  const statusTextInput = document.querySelector('#statusText')
   const statusFilePicker = document.querySelector('#addStatus')
   statusFilePicker.addEventListener('change', () => {
     const itemId = 'id' + Date.parse(new Date()).toString()
@@ -79,6 +80,18 @@ const statusPageEventListener = () => {
       }
       addEntryToDb('statusData', statusObject)
     })
+  })
+
+  statusTextInput.addEventListener('keyup', () => {
+    statusTextInput.style.height = "1px"
+    statusTextInput.style.height = (3+statusTextInput.scrollHeight)+"px"
+  })
+
+  document.querySelector('.edit-icon').addEventListener('click', () => {
+    document.querySelector('.top-nav').style.display = 'none'
+    document.querySelector('#statusMainContent').style.display = 'none'
+    document.querySelector('#statusTextContainer').style.display = 'block'
+    statusTextInput.focus()
   })
 
   let interval;
