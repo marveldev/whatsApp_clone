@@ -140,6 +140,11 @@ const statusPageEventListener = () => {
     document.querySelector('#statusTextContainer').style.display = 'none'
   })
 
+  document.querySelector('#colorButton').addEventListener('click', () => {
+    const randomColor = Math.floor(Math.random()*16777215).toString(16);
+    document.querySelector('#statusTextContainer').style.backgroundColor = "#" + randomColor;
+  })
+
   document.querySelector('#sendTextButton').addEventListener('click', () => {
     const statusTextValue = statusTextInput.value
     addStatusFile(statusTextValue)
