@@ -1,7 +1,6 @@
 import { deleteEntry } from '../../dataStorage.js'
 
 const chatItemEvents = () => {
-  const chatItemDivs = document.querySelectorAll('.chat-item')
   const singleChatNav = document.querySelector('.single-chat-nav')
   const overlay = document.querySelector('#chatOverlay')
 
@@ -45,6 +44,7 @@ const chatItemEvents = () => {
     })
   }
 
+  const chatItemDivs = document.querySelectorAll('.chat-item')
   for (let index = 0; index < chatItemDivs.length; index++) {
     const chatItemDiv = chatItemDivs[index]
     chatItemDiv.addEventListener('click', () => {
@@ -52,6 +52,19 @@ const chatItemEvents = () => {
       singleChatNav.style.display = 'block'
       itemId.push(chatItemDiv.parentElement.id)
       modalEventListeners()
+    })
+  }
+
+  const chatItemOverlays = document.querySelectorAll('.chat-item-overlay')
+  for (let index = 0; index < chatItemOverlays.length; index++) {
+    const chatItemOverlay = chatItemOverlays[index]
+    chatItemOverlay.addEventListener('click', () => {
+      chatItemOverlay.style.display = 'none'
+      const index = itemId.indexOf(chatItemOverlay.parentElement.id)
+      itemId.splice(index, 1)
+      if (itemId.length === 0) {
+        singleChatNav.style.display = 'none'
+      }
     })
   }
 }
