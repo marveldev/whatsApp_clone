@@ -1,7 +1,7 @@
 import { addEntryToDb, deleteEntry } from "../../dataStorage.js"
 
 const statusItemEvent = () => {
-  let singleItemId;
+  let singleItemId
   const itemDropdownIcons =  document.querySelectorAll('.item-dropdown-icon')
   const statusOverlay = document.querySelector('#statusOverlay')
   const statusItemDropdown = document.querySelector('#statusItemDropdown')
@@ -157,7 +157,6 @@ const statusPageEventListener = () => {
       if (width >= 100) {
         const slides = document.querySelectorAll('.status-data')
         const currentSlide = document.querySelector('.current')
-        console.log(currentSlide);
         currentSlide.classList.remove('current')
         if (currentSlide.nextElementSibling) {
           currentSlide.nextElementSibling.classList.add('current')
@@ -188,7 +187,6 @@ const statusPageEventListener = () => {
     clearInterval(interval)
     const slides = document.querySelectorAll('.status-data')
     const currentSlide = document.querySelector('.current')
-    console.log(slides);
     currentSlide.classList.remove('current')
     document.querySelector('.bar').style.width = 100 + '%'
     if (currentSlide.nextElementSibling) {
