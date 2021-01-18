@@ -25,7 +25,7 @@
   transform: translateY(0.2em);
 }
 
-.edit-icon {
+#addTextButton {
   position: fixed;
   bottom: 8em;
   right: 3.2em;
@@ -37,7 +37,7 @@
   box-shadow: 0 0.2em 0.4em 0em #000000d5;
 }
 
-.edit-icon > i {
+#addTextButton > i {
   vertical-align: middle;
 }
 
@@ -80,6 +80,7 @@
   left: 0;
   background-color: #000;
   height: 100%;
+  width: 100%;
 }
 
 .status-profile small {
@@ -91,13 +92,16 @@
 }
 
 .status-photo {
-  display: none;
   position: relative;
   top: 2.5em;
   object-fit: cover;
   height: 22em;
   width: 100%;
   background-color: #000000d7;
+}
+
+.status-data {
+  display: none;
 }
 
 .current {
@@ -227,7 +231,7 @@
   background-color: #08b99c;
 }
 
-#statusText {
+#statusTextInput {
   font-size: 2em;
   width: 90%;
   margin: 0.8em 0.5em;
@@ -242,7 +246,7 @@
   background-color: transparent;
 }
 
-#statusText::placeholder {
+#statusTextInput::placeholder {
   color: #ffffffaf;
 }
 
@@ -262,4 +266,23 @@
 #sendTextButton > i {
   font-size: 1.5em;
   padding: 0.5em 0.4em;
+}
+
+.status-text {
+  position: relative;
+  top: 1.8em;
+  height: 14em;
+  padding: 0.5em 1.2em;
+  font-size: 1.5em;
+  background-color: #08b99c;
+  color: #fff;
+  text-align: center;
+}
+
+.status-text-content {
+  background-color: #08b99c;
+  color: #fff;
+  border-radius: 50%;
+  padding: 1.4em 1.5em;
+  margin: 0.4em 1em 0 0;
 }
