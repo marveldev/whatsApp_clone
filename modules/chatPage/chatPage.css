@@ -85,11 +85,13 @@
 
 .send-button {
   display: none;
+  position: fixed;
+  right: 2.8em;
+  bottom: 1.7em;
   background-color: #186d60fa;
   width: 3em;
   height: 3em;
   border-radius: 1.5em;
-  margin-top: 0.3em;
 }
 
 .send-button > i {
@@ -98,12 +100,14 @@
 }
 
 .record-button {
+  position: fixed;
+  right: 2.8em;
+  bottom: 1.7em;
   background-color: #186d60fa;
   width: 3em;
   height: 3em;
   border-radius: 1.5em;
   color: #fff;
-  margin-top: 0.3em;
 }
 
 .record-button > i {
@@ -218,6 +222,10 @@
   background-color: #2690b1a2;
 }
 
+.stuff {
+  display: block;
+}
+
 .single-chat-nav {
   display: none;
 }
@@ -315,6 +323,14 @@
 @media only screen and (max-width: 375px) {
   .smiley-icon {
     right: 16.5em;
+  }
+
+  .send-button {
+    right: 1em;
+  }
+
+  .record-button {
+    right: 1em;
   }
 }
 
