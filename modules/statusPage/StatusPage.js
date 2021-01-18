@@ -2,32 +2,61 @@ import { getEntryFromDb } from "../../dataStorage.js";
 
 const StatusPage = async () => {
   const statusData = await getEntryFromDb('statusData')
-  const statusItems = statusData.map(statusItem => {
-    const { photoSource } = statusItem
-    return `
-      <img src=${photoSource} class="status-photo" alt="photo">
-    `
+  const statusTextItems = statusData.map(statusTextItem => {
+    const { textValue } = statusTextItem
+    if (textValue.length >= 1) {
+      return `
+        <div class="status-text status-data">${textValue}</div>
+      `
+    }
   })
 
-  const statusItemsPreview = statusData.map(statusItem => {
-    const { itemId, photoSource } = statusItem
-    return `
-      <button class="status-item-preview">
-        <img src="${photoSource}" class="image" alt="photo">
-        <div class="status-info">
-          <strong>18 views</strong>
-          <p>Today 06:03</p>
-        </div>
-        <span id="${itemId}" class="item-dropdown-icon"><i class="material-icons">&#xe5d4;</i></span>
-      </button>
-    `
+  const statusPhotoItems = statusData.map(statusPhotoItem => {
+    const { photoSource } = statusPhotoItem
+    if (photoSource) {
+      return `
+        <img src="${photoSource}" class="status-photo status-data" alt="photo">
+      `
+    }
+  })
+
+  const textEntryPreview = statusData.map(singleTextPreview => {
+    const { itemId, textValue } = singleTextPreview
+    if (textValue.length >= 1) {
+      return `
+        <button class="status-item-preview">
+          <div class="status-text-content">${textValue}</div>
+          <div class="status-info">
+            <strong>18 views</strong>
+            <p>Today 06:03</p>
+          </div>
+          <span id="${itemId}" class="item-dropdown-icon"><i class="material-icons">&#xe5d4;</i></span>
+        </button>
+      `
+    }
+  })
+
+  const photoEntryPreview = statusData.map(singlePhotoPreview => {
+    const { itemId, photoSource } = singlePhotoPreview
+    if (photoSource) {
+      return `
+        <button class="status-item-preview">
+          <img src="${photoSource}" class="image" alt="photo">
+          <div class="status-info">
+            <strong>18 views</strong>
+            <p>Today 06:03</p>
+          </div>
+          <span id="${itemId}" class="item-dropdown-icon"><i class="material-icons">&#xe5d4;</i></span>
+        </button>
+      `
+    }
   })
 
   return `
     <div class="status-page">
       <div id="statusMainContent">
         <input type="file" id="addStatus">
-        <button class="add-status photo-button" style="display: ${statusItems.length >= 1 ? 'none' : 'flex'};">
+        <button class="add-status photo-button" style="display: ${statusData.length >= 1 ? 'none' : 'flex'};">
           <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
             class="image" alt="photo">
           <div class="status-info">
@@ -37,7 +66,7 @@ const StatusPage = async () => {
             </label>
           </div>
         </button>
-        <div class="view-status photo-button" style="display: ${statusItems.length >= 1 ? 'flex' : 'none'};">
+        <div class="view-status photo-button" style="display: ${statusData.length >= 1 ? 'flex' : 'none'};">
           <button class="display-status">
             <img src="${statusData[0] ? statusData[statusData.length - 1].photoSource : ''}" id="statusPreview" class="image" alt="photo">
             <div class="status-info">
@@ -48,13 +77,18 @@ const StatusPage = async () => {
           <button id="entryOptionsButton"><i class="material-icons">&#xe5d3;</i></button>
         </div>
         <div>
-          <button class="edit-icon"><i class="material-icons">&#xe3c9;</i></button>
+          <button id="addTextButton"><i class="material-icons">&#xe3c9;</i></button>
           <div>
             <label for="addStatus">
               <div id="addStatusButton"><i class="fa fa-camera"></i></div>
             </label>
           </div>
         </div>
+      </div>
+      <div id="statusTextContainer">
+        <textarea id="statusTextInput" placeholder="Type a status"></textarea>
+        <button id="backButton" class="icon"><i class="material-icons">&#xe5c4;</i></button>
+        <button id="sendTextButton" class="icon"><i class="material-icons">&#xe163;</i></button>
       </div>
       <div class="status-entry-container">
         <div>
@@ -64,21 +98,17 @@ const StatusPage = async () => {
             <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
               class="image" alt="photo">
             <div>
-              <strong>Jack Williams</strong>
-              <small>5 mins ago</small>
+            <strong>Jack Williams</strong>
+            <small>5 mins ago</small>
             </div>
           </div>
           <div id="statusItemContent">
-            ${statusItems.join('') || ''}
+            ${statusTextItems.join('') || ''}
+            ${statusPhotoItems.join('') || ''}
           </div>
         </div>
         <button id="previousButton">previous</button>
         <button id="nextButton">next</button>
-      </div>
-      <div id="statusTextContainer">
-        <textarea id="statusText" placeholder="Type a status"></textarea>
-        <button id="backButton" class="icon"><i class="material-icons">&#xe5c4;</i></button>
-        <button id="sendTextButton" class="icon"><i class="material-icons">&#xe163;</i></button>
       </div>
       <div class="status-entry-options">
         <div id="statusOverlay" class="overlay"></div>
@@ -99,7 +129,8 @@ const StatusPage = async () => {
             <button class="close-modal-button">CANCEL</button>
           </div>
           <div class="status-item-container">
-            ${statusItemsPreview.join('')}
+            ${textEntryPreview.join('') || ''}
+            ${photoEntryPreview.join('') || ''}
           </div>
         </div>
       </div>
