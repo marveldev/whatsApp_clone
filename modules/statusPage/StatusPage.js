@@ -52,6 +52,9 @@ const StatusPage = async () => {
     }
   })
 
+  const photoSource = statusData[0] ? statusData[statusData.length - 1].photoSource : ''
+  const textValue = statusData[0] ? statusData[statusData.length - 1].textValue : ''
+
   return `
     <div class="status-page">
       <div id="statusMainContent">
@@ -68,7 +71,7 @@ const StatusPage = async () => {
         </button>
         <div class="view-status photo-button" style="display: ${statusData.length >= 1 ? 'flex' : 'none'};">
           <button class="display-status">
-            <img src="${statusData[0] ? statusData[statusData.length - 1].photoSource : ''}" id="statusPreview" class="image" alt="photo">
+            <div class="recent-entry" style="background-image: url(${photoSource});">${textValue}</div>
             <div class="status-info">
               <strong>My status</strong>
               <p>Tap to view status update</p>
@@ -128,7 +131,7 @@ const StatusPage = async () => {
             <button class="delete-item-button">DELETE</button>
             <button class="close-modal-button">CANCEL</button>
           </div>
-          <div class="status-item-container">
+          <div class="status-entry-preview">
             ${textEntryPreview.join('') || ''}
             ${photoEntryPreview.join('') || ''}
           </div>
