@@ -59,10 +59,10 @@ const chatItemEvents = () => {
   for (let index = 0; index < chatItemOverlays.length; index++) {
     const chatItemOverlay = chatItemOverlays[index]
     chatItemOverlay.addEventListener('click', () => {
-      chatItemOverlay.style.display = 'none'
       const index = itemId.indexOf(chatItemOverlay.parentElement.id)
       itemId.splice(index, 1)
-      if (itemId.length === 0) {
+      chatItemOverlay.style.display = 'none'
+      if (itemId.length <= 0) {
         singleChatNav.style.display = 'none'
       }
     })
