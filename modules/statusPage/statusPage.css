@@ -259,6 +259,10 @@
   padding: 0.2em;
 }
 
+#colorButton {
+  left: 7em;
+}
+
 #sendTextButton {
   display: none;
 }
