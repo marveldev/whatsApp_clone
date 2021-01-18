@@ -46,42 +46,68 @@ const statusItemEvent = () => {
   })
 }
 
+const addStatusFile = (textValue, photoSource) => {
+  const itemId = 'id' + Date.parse(new Date()).toString()
+  let statusData
+  let singleStatusEntry
+
+  if (textValue) {
+    statusData =  `
+      <div class="status-text status-data">${textValue}</div>
+    `
+
+    singleStatusEntry = `
+      <button class="status-item-preview">
+        <div class="status-text-content">${textValue}</div>
+        <div class="status-info">
+          <strong>18 views</strong>
+          <p>Today 06:03</p>
+        </div>
+        <span id="${itemId}" class="item-dropdown-icon"><i class="material-icons">&#xe5d4;</i></span>
+      </button>
+    `
+  } else {
+    statusData =  `
+      <img src="${photoSource}" class="status-photo status-data" alt="photo">
+    `
+
+    singleStatusEntry = `
+      <button class="status-item-preview">
+        <img src="${photoSource}" class="image" alt="photo">
+        <div class="status-info">
+          <strong>18 views</strong>
+          <p>Today 06:03</p>
+        </div>
+        <span id="${itemId}" class="item-dropdown-icon"><i class="material-icons">&#xe5d4;</i></span>
+      </button>
+    `
+  }
+  
+  document.querySelector('#statusItemContent').innerHTML += statusData
+  document.querySelector('.status-item-container').innerHTML += singleStatusEntry
+  document.querySelector('.view-status').style.display = 'flex'
+  document.querySelector('.add-status').style.display = 'none'
+
+  const statusObject = {
+    itemId: itemId,
+    textValue: textValue,
+    photoSource: photoSource
+  }
+  addEntryToDb('statusData', statusObject)
+}
+
 const statusPageEventListener = () => {
-  const statusTextInput = document.querySelector('#statusText')
   const statusFilePicker = document.querySelector('#addStatus')
   statusFilePicker.addEventListener('change', () => {
-    const itemId = 'id' + Date.parse(new Date()).toString()
     const photoReader = new FileReader()
     photoReader.readAsDataURL(statusFilePicker.files[0])
     photoReader.addEventListener('load', () => {
-      const statusData =  `
-        <img src="${photoReader.result}" class="status-photo" alt="photo">
-      `
-
-      const singleStatusEntry = `
-        <button class="status-item-preview">
-          <img src="${photoReader.result}" class="image" alt="photo">
-          <div class="status-info">
-            <strong>18 views</strong>
-            <p>Today 06:03</p>
-          </div>
-          <span id="${itemId}" class="item-dropdown-icon"><i class="material-icons">&#xe5d4;</i></span>
-        </button>
-      `
-      document.querySelector('#statusItemContent').innerHTML += statusData
-      document.querySelector('.status-item-container').innerHTML += singleStatusEntry
+      addStatusFile('', photoReader.result)
       document.querySelector('#statusPreview').src = photoReader.result
-      document.querySelector('.view-status').style.display = 'flex'
-      document.querySelector('.add-status').style.display = 'none'
-
-      const statusObject = {
-        itemId: itemId,
-        photoSource: photoReader.result
-      }
-      addEntryToDb('statusData', statusObject)
     })
   })
 
+  const statusTextInput = document.querySelector('#statusTextInput')
   statusTextInput.addEventListener('keyup', () => {
     statusTextInput.style.height = "1px"
     statusTextInput.style.height = (3+statusTextInput.scrollHeight)+"px"
@@ -92,7 +118,7 @@ const statusPageEventListener = () => {
     }
   })
 
-  document.querySelector('.edit-icon').addEventListener('click', () => {
+  document.querySelector('#addTextButton').addEventListener('click', () => {
     document.querySelector('.top-nav').style.display = 'none'
     document.querySelector('#statusMainContent').style.display = 'none'
     document.querySelector('#statusTextContainer').style.display = 'block'
@@ -100,11 +126,17 @@ const statusPageEventListener = () => {
   })
 
   document.querySelector('#backButton').addEventListener('click', () => {
-    console.log('ok');
+    document.querySelector('.top-nav').style.display = 'block'
+    document.querySelector('#statusMainContent').style.display = 'block'
+    document.querySelector('#statusTextContainer').style.display = 'none'
   })
 
   document.querySelector('#sendTextButton').addEventListener('click', () => {
-    console.log('ok');
+    const statusTextValue = statusTextInput.value
+    addStatusFile(statusTextValue)
+    document.querySelector('.top-nav').style.display = 'block'
+    document.querySelector('#statusMainContent').style.display = 'block'
+    document.querySelector('#statusTextContainer').style.display = 'none'
   })
 
   let interval;
@@ -114,7 +146,7 @@ const statusPageEventListener = () => {
     let width = 1
     interval = setInterval(() => {
       if (width >= 100) {
-        const slides = document.querySelectorAll('.status-photo')
+        const slides = document.querySelectorAll('.status-data')
         const currentSlide = document.querySelector('.current')
         currentSlide.classList.remove('current')
         if (currentSlide.nextElementSibling) {
@@ -143,7 +175,7 @@ const statusPageEventListener = () => {
 
   document.querySelector('#nextButton').addEventListener('click', () => {
     clearInterval(interval)
-    const slides = document.querySelectorAll('.status-photo')
+    const slides = document.querySelectorAll('.status-data')
     const currentSlide = document.querySelector('.current')
     currentSlide.classList.remove('current')
     document.querySelector('.bar').style.width = 100 + '%'
@@ -156,7 +188,7 @@ const statusPageEventListener = () => {
 
   document.querySelector('#previousButton').addEventListener('click', () => {
     clearInterval(interval)
-    const slides = document.querySelectorAll('.status-photo')
+    const slides = document.querySelectorAll('.status-data')
     const currentSlide = document.querySelector('.current')
     currentSlide.classList.remove('current')
     document.querySelector('.bar').style.width = 100 + '%'
