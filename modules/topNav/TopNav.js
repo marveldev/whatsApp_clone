@@ -1,7 +1,6 @@
 const TopNav = () => {
   return `
     <div class="top-nav">
-      <div id="topNavOverlay"></div>
       <div class="top-nav-content">
         <div class="top-header">
           <span>WhatsApp</span>
