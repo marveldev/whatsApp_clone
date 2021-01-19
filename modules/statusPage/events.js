@@ -119,18 +119,6 @@ const statusPageEventListener = () => {
   const statusTextContainer =  document.querySelector('#statusTextContainer')
   const recentEntryDiv =  document.querySelector('.recent-entry')
 
-  const pusher = new Pusher('28732b89eff34d2e9cb2', {
-    cluster: 'mt1'
-  })
-
-  const channel = pusher.subscribe('status')
-  channel.bind('update-status', data => {
-    const { text, backgroundColor } = data
-    addStatusFile(text, null, backgroundColor)
-    recentEntryDiv.innerText = text
-    recentEntryDiv.style.backgroundColor = backgroundColor
-  })
-
   statusFilePicker.addEventListener('change', () => {
     const photoReader = new FileReader()
     photoReader.readAsDataURL(statusFilePicker.files[0])
