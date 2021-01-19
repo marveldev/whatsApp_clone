@@ -50,7 +50,6 @@ const chatPageEventListeners = () => {
   const sendChatButton = document.querySelector('.send-button')
   const overlay = document.querySelector('#chatOverlay')
   const chatInput = document.querySelector('.chat-input')
-  const chatItemDivs = document.querySelectorAll('.chat-item')
 
   const pusher = new Pusher('28732b89eff34d2e9cb2', {
     cluster: 'mt1'
@@ -113,18 +112,6 @@ const chatPageEventListeners = () => {
     document.querySelector('#chatPageDropdown').style.display = 'none'
   })
 
-  overlay.addEventListener('click', () => {
-    for (let index = 0; index < chatItemDivs.length; index++) {
-      const chatItemDiv = chatItemDivs[index]
-      chatItemDiv.previousElementSibling.style.display = 'none'
-    }
-    document.querySelector('.single-chat-nav').style.display = 'none'
-    document.querySelector('#singleChatNav').style.display = 'flex'
-    document.querySelector('.wallpaper-container').style.display = 'none'
-    document.querySelector('#chatPageDropdown').style.display = 'none'
-    overlay.style.display = 'none'
-  })
-
   const addChatPageBackground = document.querySelector('#addBackground')
   addChatPageBackground.addEventListener('change', () => {
     const photoReader = new FileReader()
@@ -151,7 +138,7 @@ const chatPageEventListeners = () => {
 
   document.querySelector('#clearChatButton').addEventListener('click', () => {
     document.querySelector('#chatPageDropdown').style.display = 'none'
-    document.querySelector('#chatOverlay').style.display = 'none'
+    overlay.style.display = 'none'
     document.querySelector('.chat-container').innerHTML = ''
     clearAllEntries('chatData')
   })
