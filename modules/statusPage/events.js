@@ -50,24 +50,30 @@ const statusItemEvent = () => {
   })
 }
 
-const addStatusFile = (textValue, photoSource) => {
+const addStatusFile = (textValue, photoSource, entryBackgroundColor) => {
   const itemId = 'id' + Date.parse(new Date()).toString()
   let statusData
   let singleStatusEntry
 
   if (textValue) {
     statusData =  `
-      <div class="status-text status-data">${textValue}</div>
+      <div class="status-text status-data" style="background-color: ${entryBackgroundColor};">
+        ${textValue}
+      </div>
     `
 
     singleStatusEntry = `
       <button class="status-item-preview">
-        <div class="status-text-content">${textValue}</div>
+        <div class="status-text-content" style="background-color: ${entryBackgroundColor};">
+          ${textValue}
+        </div>
         <div class="status-info">
           <strong>18 views</strong>
           <p>Today 06:03</p>
         </div>
-        <span id="${itemId}" class="item-dropdown-icon"><i class="material-icons">&#xe5d4;</i></span>
+        <span id="${itemId}" class="item-dropdown-icon">
+          <i class="material-icons">&#xe5d4;</i>
+        </span>
       </button>
     `
   } else {
@@ -82,7 +88,9 @@ const addStatusFile = (textValue, photoSource) => {
           <strong>18 views</strong>
           <p>Today 06:03</p>
         </div>
-        <span id="${itemId}" class="item-dropdown-icon"><i class="material-icons">&#xe5d4;</i></span>
+        <span id="${itemId}" class="item-dropdown-icon">
+          <i class="material-icons">&#xe5d4;</i>
+        </span>
       </button>
     `
   }
@@ -94,8 +102,9 @@ const addStatusFile = (textValue, photoSource) => {
 
   const statusObject = {
     itemId: itemId,
-    textValue: textValue,
-    photoSource: photoSource
+    textValue: textValue || '',
+    photoSource: photoSource || '',
+    entryBackgroundColor: entryBackgroundColor
   }
   addEntryToDb('statusData', statusObject)
 }
@@ -105,14 +114,16 @@ const statusPageEventListener = () => {
   const topNav =  document.querySelector('.top-nav')
   const statusMainContent =  document.querySelector('#statusMainContent')
   const statusFilePicker = document.querySelector('#addStatus')
+  const statusTextContainer =  document.querySelector('#statusTextContainer')
+  const recentEntryDiv =  document.querySelector('.recent-entry')
 
   statusFilePicker.addEventListener('change', () => {
     const photoReader = new FileReader()
     photoReader.readAsDataURL(statusFilePicker.files[0])
     photoReader.addEventListener('load', () => {
-      addStatusFile('', photoReader.result)
-      document.querySelector('.recent-entry').innerText = ''
-      document.querySelector('.recent-entry').style.backgroundImage = `url(${photoReader.result})`
+      addStatusFile(null, photoReader.result)
+      recentEntryDiv.innerText = ''
+      recentEntryDiv.style.backgroundImage = `url(${photoReader.result})`
     })
   })
 
@@ -130,29 +141,31 @@ const statusPageEventListener = () => {
   document.querySelector('#addTextButton').addEventListener('click', () => {
     topNav.style.display = 'none'
     statusMainContent.style.display = 'none'
-    document.querySelector('#statusTextContainer').style.display = 'block'
+    statusTextContainer.style.display = 'block'
     statusTextInput.focus()
   })
 
   document.querySelector('#backButton').addEventListener('click', () => {
     topNav.style.display = 'block'
     statusMainContent.style.display = 'block'
-    document.querySelector('#statusTextContainer').style.display = 'none'
+    statusTextContainer.style.display = 'none'
   })
 
   document.querySelector('#colorButton').addEventListener('click', () => {
-    const randomColor = Math.floor(Math.random()*16777215).toString(16);
-    document.querySelector('#statusTextContainer').style.backgroundColor = "#" + randomColor;
+    const randomColor = Math.floor(Math.random()*16777215).toString(16)
+    statusTextContainer.style.backgroundColor = "#" + randomColor
   })
 
   document.querySelector('#sendTextButton').addEventListener('click', () => {
     const statusTextValue = statusTextInput.value
-    addStatusFile(statusTextValue)
+    const entryBackgroundColor = statusTextContainer.style.backgroundColor
+    addStatusFile(statusTextValue, null, entryBackgroundColor)
     topNav.style.display = 'block'
     statusMainContent.style.display = 'block'
-    document.querySelector('.recent-entry').innerText = statusTextValue
-    document.querySelector('#statusTextContainer').style.display = 'none'
-    document.querySelector('.recent-entry').style.backgroundImage = `url('')`
+    recentEntryDiv.innerText = statusTextValue
+    recentEntryDiv.style.backgroundColor = entryBackgroundColor
+    recentEntryDiv.style.backgroundImage = `url('')`
+    statusTextContainer.style.display = 'none'
   })
 
   const progress = () => {
