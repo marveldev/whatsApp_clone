@@ -1,12 +1,14 @@
-import { getEntryFromDb } from "../../dataStorage.js";
+import { getEntryFromDb } from "../../dataStorage.js"
 
 const StatusPage = async () => {
   const statusData = await getEntryFromDb('statusData')
   const statusTextItems = statusData.map(statusTextItem => {
-    const { textValue } = statusTextItem
+    const { textValue, entryBackgroundColor } = statusTextItem
     if (textValue.length >= 1) {
       return `
-        <div class="status-text status-data">${textValue}</div>
+        <div class="status-text status-data" style="background-color:${entryBackgroundColor};">
+          ${textValue}
+        </div>
       `
     }
   })
@@ -21,16 +23,20 @@ const StatusPage = async () => {
   })
 
   const textEntryPreview = statusData.map(singleTextPreview => {
-    const { itemId, textValue } = singleTextPreview
+    const { itemId, textValue, entryBackgroundColor } = singleTextPreview
     if (textValue.length >= 1) {
       return `
         <button class="status-item-preview">
-          <div class="status-text-content">${textValue}</div>
+          <div class="status-text-content" style="background-color:${entryBackgroundColor};">
+            ${textValue}
+          </div>
           <div class="status-info">
             <strong>18 views</strong>
             <p>Today 06:03</p>
           </div>
-          <span id="${itemId}" class="item-dropdown-icon"><i class="material-icons">&#xe5d4;</i></span>
+          <span id="${itemId}" class="item-dropdown-icon">
+            <i class="material-icons">&#xe5d4;</i>
+          </span>
         </button>
       `
     }
@@ -46,7 +52,9 @@ const StatusPage = async () => {
             <strong>18 views</strong>
             <p>Today 06:03</p>
           </div>
-          <span id="${itemId}" class="item-dropdown-icon"><i class="material-icons">&#xe5d4;</i></span>
+          <span id="${itemId}" class="item-dropdown-icon">
+            <i class="material-icons">&#xe5d4;</i>
+          </span>
         </button>
       `
     }
@@ -54,12 +62,13 @@ const StatusPage = async () => {
 
   const photoSource = statusData[0] ? statusData[statusData.length - 1].photoSource : ''
   const textValue = statusData[0] ? statusData[statusData.length - 1].textValue : ''
+  const entryBackgroundColor = statusData[0] ? statusData[statusData.length - 1].entryBackgroundColor : ''
 
   return `
     <div class="status-page">
       <div id="statusMainContent">
         <input type="file" id="addStatus">
-        <button class="add-status photo-button" style="display: ${statusData.length >= 1 ? 'none' : 'flex'};">
+        <button class="add-status photo-button" style="display:${statusData.length >= 1 ? 'none' : 'flex'};">
           <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
             class="image" alt="photo">
           <div class="status-info">
@@ -69,9 +78,11 @@ const StatusPage = async () => {
             </label>
           </div>
         </button>
-        <div class="view-status photo-button" style="display: ${statusData.length >= 1 ? 'flex' : 'none'};">
+        <div class="view-status photo-button" style="display:${statusData.length >= 1 ? 'flex' : 'none'};">
           <button class="display-status">
-            <div class="recent-entry" style="background-image: url(${photoSource});">${textValue}</div>
+            <div class="recent-entry" style="background-color:${entryBackgroundColor};background-image:url(${photoSource});">
+              ${textValue}
+            </div>
             <div class="status-info">
               <strong>My status</strong>
               <p>Tap to view status update</p>
