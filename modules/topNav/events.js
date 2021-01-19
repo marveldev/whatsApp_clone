@@ -18,10 +18,10 @@ const topNavEventListeners = () => {
   addSwitchPageEvent(document.querySelector('.call'), 'callsPage')
   addSwitchPageEvent(document.querySelector('.settings'), 'settingsPage')
 
-  document.querySelector('#topNavOverlay').addEventListener('click', () => {
-    document.querySelector('#topNavDropdown').style.display = 'none'
-    document.querySelector('#topNavOverlay').style.display = 'none'
-  })
+  // document.querySelector('#topNavOverlay').addEventListener('click', () => {
+  //   document.querySelector('#topNavDropdown').style.display = 'none'
+  //   document.querySelector('#topNavOverlay').style.display = 'none'
+  // })
 }
 
 export default topNavEventListeners
