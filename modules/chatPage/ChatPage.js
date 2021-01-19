@@ -50,7 +50,9 @@ const ChatPage = async () => {
     <div class="chat-page" style="background-image: url(${chatPageBackground[0] || `https://cloud.githubusercontent.com/assets/398893/15136779/4e765036-1639-11e6-9201-67e728e86f39.jpg`});">
       <div id="chatOverlay" class="overlay"></div>
       <div class="chat-top-nav">
-        <button type="button" id="arrowLeftButton"><i class="material-icons">&#xe5c4;</i></button>
+        <button type="button" id="arrowLeftButton">
+          <i class="material-icons">&#xe5c4;</i>
+        </button>
         <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
           class="image" alt="photo">
         <div>
@@ -59,7 +61,9 @@ const ChatPage = async () => {
         </div>
         <button type="button"><i class="fa fa-video-camera"></i></button>
         <button type="button"><i class="fa fa-phone"></i></button>
-        <button type="button" class="dropdown-button"><i class="material-icons">&#xe5d4;</i></button>
+        <button type="button" class="dropdown-button">
+          <i class="material-icons">&#xe5d4;</i>
+        </button>
       </div>
       <div class="single-chat-nav">
         <div id="singleChatNav">
