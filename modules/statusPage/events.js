@@ -35,8 +35,10 @@ const statusItemEvent = () => {
 
   document.querySelector('.delete-item-button').addEventListener('click', () => {
     const element = document.querySelector(`#${singleItemId}`)
+    const singleItemContent = document.querySelector(`.${singleItemId}`)
     const singleStatusEntry = element.parentElement
     document.querySelector('.status-entry-preview').removeChild(singleStatusEntry)
+    document.querySelector('#statusItemContent').removeChild(singleItemContent)
     statusOverlay.style.display = 'none'
     statusDeleteModal.style.display = 'none'
     statusItemDropdown.style.display = 'none'
@@ -57,7 +59,7 @@ const addStatusFile = (textValue, photoSource, entryBackgroundColor) => {
 
   if (textValue) {
     statusData =  `
-      <div class="status-text status-data" style="background-color: ${entryBackgroundColor};">
+      <div class="status-text status-data ${itemId}" style="background-color: ${entryBackgroundColor};">
         ${textValue}
       </div>
     `
@@ -78,7 +80,7 @@ const addStatusFile = (textValue, photoSource, entryBackgroundColor) => {
     `
   } else {
     statusData =  `
-      <img src="${photoSource}" class="status-photo status-data" alt="photo">
+      <img src="${photoSource}" class="status-photo status-data ${itemId}" alt="photo">
     `
 
     singleStatusEntry = `
@@ -116,6 +118,18 @@ const statusPageEventListener = () => {
   const statusFilePicker = document.querySelector('#addStatus')
   const statusTextContainer =  document.querySelector('#statusTextContainer')
   const recentEntryDiv =  document.querySelector('.recent-entry')
+
+  const pusher = new Pusher('28732b89eff34d2e9cb2', {
+    cluster: 'mt1'
+  })
+
+  const channel = pusher.subscribe('status')
+  channel.bind('update-status', data => {
+    const { text, backgroundColor } = data
+    addStatusFile(text, null, backgroundColor)
+    recentEntryDiv.innerText = text
+    recentEntryDiv.style.backgroundColor = backgroundColor
+  })
 
   statusFilePicker.addEventListener('change', () => {
     const photoReader = new FileReader()
@@ -158,7 +172,7 @@ const statusPageEventListener = () => {
 
   document.querySelector('#sendTextButton').addEventListener('click', () => {
     const statusTextValue = statusTextInput.value
-    const entryBackgroundColor = statusTextContainer.style.backgroundColor
+    const entryBackgroundColor = statusTextContainer.style.backgroundColor || '#08b99c'
     addStatusFile(statusTextValue, null, entryBackgroundColor)
     topNav.style.display = 'block'
     statusMainContent.style.display = 'block'
@@ -244,3 +258,4 @@ const statusPageEventListener = () => {
 }
 
 export default statusPageEventListener
+export { addStatusFile }
