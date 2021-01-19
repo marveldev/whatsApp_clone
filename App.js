@@ -13,7 +13,6 @@ const App = () => {
 
 request.onsuccess = async () => {
   document.querySelector('.root').innerHTML = App()
-
   const currentPage = localStorage.getItem('currentPage')
 
   if (currentPage === 'chatPage') {
