@@ -13,6 +13,7 @@ const chatItemEvents = () => {
         chatItemDiv.previousElementSibling.style.display = 'none'
       }
       singleChatNav.style.display = 'none'
+      itemId = []
     })
 
     document.querySelector('.nav-delete-button').addEventListener('click', () => {
@@ -54,6 +55,20 @@ const chatItemEvents = () => {
       modalEventListeners()
     })
   }
+
+  overlay.addEventListener('click', () => {
+    for (let index = 0; index < chatItemDivs.length; index++) {
+      const chatItemDiv = chatItemDivs[index]
+      chatItemDiv.previousElementSibling.style.display = 'none'
+    }
+    document.querySelector('.single-chat-nav').style.display = 'none'
+    document.querySelector('#singleChatNav').style.display = 'flex'
+    document.querySelector('.wallpaper-container').style.display = 'none'
+    document.querySelector('#chatPageDropdown').style.display = 'none'
+    document.querySelector('.delete-modal').style.display = 'none'
+    overlay.style.display = 'none'
+    itemId = []
+  })
 
   const chatItemOverlays = document.querySelectorAll('.chat-item-overlay')
   for (let index = 0; index < chatItemOverlays.length; index++) {
