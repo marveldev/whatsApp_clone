@@ -281,6 +281,7 @@
   padding: 0.5em 1.2em;
   font-size: 1.5em;
   color: #fff;
+  word-break: break-all;
 }
 
 .status-text-content {
@@ -292,6 +293,7 @@
   margin: 0.4em 1em 0 0;
   height: 4em;
   width: 5em;
+  max-width: 4em;
 }
 
 .recent-entry {
@@ -302,6 +304,7 @@
   border-radius: 50%;
   height: 4em;
   width: 5em;
+  max-width: 4em;
   margin: 0.4em 1em 0 0;
   background-size: cover;
   background-position: center;
