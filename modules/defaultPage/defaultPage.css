@@ -44,3 +44,39 @@
   z-index: 2;
   background-color: #00000066;
 }
+
+.person-photo {
+  font-size: 0.9em;
+}
+
+.person-photo-modal {
+  display: none;
+  position: fixed;
+  left: 12%;
+  z-index: 2;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  width: 60%;
+  height: 50%;
+  background-color: #fff;
+}
+
+.modal-photo {
+  height: 85%;
+  width: 100%;
+  background-color: #000;
+  object-fit: cover;
+}
+
+.container {
+  display: flex;
+}
+
+.container > button {
+  flex: 1;
+  color: #186d60fa;
+  font-size: 1.5em;
+}
+
+.container i {
+  vertical-align: middle;
+}
