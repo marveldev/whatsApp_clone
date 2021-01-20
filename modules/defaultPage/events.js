@@ -22,6 +22,11 @@ const defaultPageEventListeners = () => {
     document.querySelector('.person-photo-modal').style.display = 'none'
     document.querySelector('#defaultPageOverlay').style.display = 'none'
   })
+
+  document.querySelector('.person-info-button').addEventListener('click', () => {
+    switchCurrentPage('personInfoPage')
+    document.querySelector('#defaultPageOverlay').style.display = 'none'
+  })
 }
 
 export default defaultPageEventListeners
