@@ -11,7 +11,7 @@ const DefaultPage = () => {
             <button><i class="material-icons">&#xe0b7;</i></button>
             <button><i class="fa fa-phone"></i></button>
             <button><i class="fa fa-video-camera"></i></button>
-            <button><i class="material-icons">&#xe88f;</i></button>
+            <button class="person-info-button"><i class="material-icons">&#xe88f;</i></button>
           </div>
         </div>
         <button class="person-profile status-info">
