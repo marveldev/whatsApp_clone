@@ -5,7 +5,7 @@ const settingsPageEventListener = () => {
     switchCurrentPage('defaultPage')
     document.querySelector('.top-nav').style.display = 'block'
     document.querySelector('#topNavDropdown').style.display = 'none'
-    document.querySelector('#topNavOverlay').style.display = 'none'
+    document.querySelector('#defaultPageOverlay').style.display = 'none'
   })
 }
 
