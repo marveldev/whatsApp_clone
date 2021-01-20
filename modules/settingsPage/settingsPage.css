@@ -44,7 +44,7 @@
   padding: 1em 0;
 }
 
-.user-profile > div > p {
+.user-profile p {
   margin: 0;
   font-size: 0.8em;
 }
@@ -58,7 +58,7 @@
   padding: 1em 0;
 }
 
-.settings-option > div > p {
+.settings-option p {
   margin: 0;
   font-size: 0.8em;
 }
