@@ -9,6 +9,7 @@ import SettingsPage from './settingsPage/SettingsPage.js'
 import settingsPageEventListener from './settingsPage/events.js'
 import statusPageEventListener from './statusPage/events.js'
 import PersonInfoPage from './personInfoPage/PersonInfoPage.js'
+import personPageEventListeners from './personInfoPage/events.js'
 
 const switchCurrentPage = async (page) => {
   const currentPage = document.querySelector('.current-page')
@@ -39,6 +40,7 @@ const switchCurrentPage = async (page) => {
       break;
     case 'personInfoPage':
       currentPage.innerHTML = PersonInfoPage()
+      personPageEventListeners()
       document.querySelector('.top-nav').style.display = 'none'
       break;
     case 'chatPage':
