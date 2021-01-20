@@ -2,7 +2,7 @@ const CallsPage = () => {
   return `
     <div class="calls-page">
       <div>
-        <button class="call icon"><i class="fa fa-phone"></i></button>
+        <button class="call-button icon"><i class="fa fa-phone"></i></button>
       </div>
       <div>
         <p>To start calling contacts who have WhatsApp, tap
