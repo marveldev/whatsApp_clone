@@ -1,14 +1,69 @@
 .person-info-page {
-  /* position: fixed;
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 100%;
-  height: 100%; */
+  height: 100%;
+  background-color: #EDEDED;
+}
+
+.person-bio {
+  position: relative;
+  height: 55%;
+}
+
+.person-bio > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.drop-modal-button {
+  right: 0.5em;
+}
+
+.person-bio > button {
+  position: absolute;
+  top: 0.7em;
+}
+
+.person-bio i {
+  font-size: 2em;
+  color: #fff;
+}
+
+.person-bio > span {
+  position: relative;
+  bottom: 1.3em;
+  left: 0.5em;
+  color: #fff;
+  font-size: 1.8em;
+}
+
+.fade-in-info {
+  display: none;
+  grid-template-columns: 0.2fr 1fr 0.2fr;
+  position: fixed;
+  top: 0;
+  padding: 1em 0;
+  background-color: #000000fb;
+  z-index: 1;
+  color: #fff;
+  width: 100%;
+}
+
+.fade-in-info i {
+  color: #fff;
+}
+
+.fade-in-info > span {
+  margin-top: 0.3em;
 }
 
 .page-options-info {
-  position: absolute;
-  left: 0;
-  width: 100%;
   background-color: #EDEDED;
+  padding-bottom: 1em;
 }
 
 .page-options-info > div {
@@ -19,8 +74,8 @@
 
 .page-options-info p {
   margin: 0;
-  /* border-bottom: 1px solid #E1E1E1; */
-  /* padding: 1em 0; */
+  border-bottom: 1px solid #E1E1E1;
+  padding: 1em 0;
 }
 
 .switch {
@@ -68,18 +123,56 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-.notifications {
+.page-info {
   display: grid;
   grid-template-columns: 1fr 0.1fr;
   border-bottom: 1px solid #E1E1E1;
   padding: 1em 0;
 }
 
-.notifications small {
+.page-info small {
   display: block;
 }
 
-.stuff {
+.person-contact {
+  display: grid;
+  grid-template-columns: 0.8fr 0.5fr;
+  padding: 1em 0;
+}
+
+.person-contact button {
+  margin: 0 0.5em;
+}
+
+.page-options-info i {
+  color: #186d60fa;
+  font-size: 1.7em;
+  vertical-align: middle;
+}
+
+.person-about > span:first-child {
+  display: block;
+  padding: 0em 0 1em 0;
+  color: #186d60fa;
+}
+
+.person-about {
   border-bottom: 1px solid #E1E1E1;
   padding: 1em 0;
+}
+
+.person-about > small {
+  display: block;
+}
+
+.user-person-option > div {
+  padding: 1em 0;
+  color: #ff0000;
+  font-weight: 550;
+}
+
+.user-person-option i {
+  color: #ff0000;
+  vertical-align: sub;
+  font-size: 1.5em;
 }
