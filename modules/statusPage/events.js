@@ -37,11 +37,11 @@ const statusItemEvent = () => {
     const element = document.querySelector(`#${singleItemId}`)
     const singleItemContent = document.querySelector(`.${singleItemId}`)
     const singleStatusEntry = element.parentElement
+    statusDeleteModal.style.display = 'none'
+    statusOverlay.style.display = 'none'
+    statusItemDropdown.style.display = 'none'
     document.querySelector('.status-entry-preview').removeChild(singleStatusEntry)
     document.querySelector('#statusItemContent').removeChild(singleItemContent)
-    statusOverlay.style.display = 'none'
-    statusDeleteModal.style.display = 'none'
-    statusItemDropdown.style.display = 'none'
 
     deleteEntry('statusData', singleItemId)
   })
