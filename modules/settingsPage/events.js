@@ -7,6 +7,10 @@ const settingsPageEventListener = () => {
     document.querySelector('#topNavDropdown').style.display = 'none'
     document.querySelector('#defaultPageOverlay').style.display = 'none'
   })
+
+  document.querySelector('#chatSettingsButton').addEventListener('click', () => {
+    switchCurrentPage('chatSettingsPage')
+  })
 }
 
 export default settingsPageEventListener
