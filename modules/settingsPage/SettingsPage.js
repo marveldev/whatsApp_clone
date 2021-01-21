@@ -22,7 +22,7 @@ const SettingsPage = () => {
               <p>Privacy,security, change number</p>
             </div>
           </div>
-          <div class="settings-option">
+          <div id="chatSettingsButton" class="settings-option">
             <button><i class="material-icons">&#xe0b7;</i></button>
             <div>
               <span>Chats</span>
@@ -56,4 +56,56 @@ const SettingsPage = () => {
   `
 }
 
+const chatSettingspage = () => {
+  return `
+    <div class="chat-settings-page">
+      <div class="settings-nav">
+        <button type="button" class=""><i class="material-icons">&#xe5c4;</i></button>
+        <strong>Chats</strong>
+      </div>
+      <div>
+        <div>
+          <button></button>
+          <div>
+            <span>Theme</span>
+            <small>Dark</small>
+          </div>
+        </div>
+        <div>
+          <button></button>
+          <div>
+            <span>Wallpaper</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p>Chat settings</p>
+        <div>
+          <span>Enter is send</span>
+          <small>Enter key will send your message</small>
+        </div>
+        <div>
+          <span>Media visibility</span>
+          <small>Show newly downloaded media in your phone's gallery</small>
+        </div>
+        <div>
+          <span>Font size</span>
+          <small>Medium</small>
+        </div>
+      </div>
+      <div>
+        <div>
+          <button></button>
+          <span>Chat backup</span>
+        </div>
+        <div>
+          <button></button>
+          <span>Chat history</span>
+        </div>
+      </div>
+    </div>
+  `
+}
+
 export default SettingsPage
+export { chatSettingspage }
