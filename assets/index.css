@@ -1,0 +1,10 @@
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
+@import '../modules/topNav/topNav.css';
+@import '../modules/defaultPage/defaultPage.css';
+@import '../modules/statusPage/statusPage.css';
+@import '../modules/chatPage/chatPage.css';
+@import '../modules/callsPage/callsPage.css';
+@import '../modules/settingsPage/settingsPage.css';
+@import '../modules/personInfoPage/personInfoPage.css';
+@import './darkTheme.css';
