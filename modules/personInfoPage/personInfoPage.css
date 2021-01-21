@@ -47,7 +47,7 @@
   position: fixed;
   top: 0;
   padding: 1em 0;
-  background-color: #000000fb;
+  background-color: #186d60fa;
   z-index: 1;
   color: #fff;
   width: 100%;
@@ -136,12 +136,8 @@ input:checked + .slider:before {
 
 .person-contact {
   display: grid;
-  grid-template-columns: 0.8fr 0.5fr;
+  grid-template-columns: 1fr 0.5fr;
   padding: 1em 0;
-}
-
-.person-contact button {
-  margin: 0 0.5em;
 }
 
 .page-options-info i {
