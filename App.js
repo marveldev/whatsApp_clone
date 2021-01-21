@@ -26,6 +26,11 @@ request.onsuccess = async () => {
 
   topNavEventListeners()
 
+  const theme = localStorage.getItem('theme')
+  if (theme) {
+    document.querySelector('.root').className = theme
+  }
+
   const pusher = new Pusher('28732b89eff34d2e9cb2', {
     cluster: 'mt1'
   })
