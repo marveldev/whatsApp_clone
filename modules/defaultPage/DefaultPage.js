@@ -4,6 +4,12 @@ const DefaultPage = () => {
       <div class="chat-persons">
         <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
           class="person-photo image" alt="photo">
+        <button class="person-profile status-info">
+          <strong>Jack Williams</strong>
+          <div>
+            <p>Hello</p>
+          </div>
+        </button>
         <div class="person-photo-modal">
           <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
             class="modal-photo" alt="photo">
@@ -14,16 +20,16 @@ const DefaultPage = () => {
             <button class="person-info-button"><i class="material-icons">&#xe88f;</i></button>
           </div>
         </div>
+      </div>
+      <div class="chat-persons">
+        <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
+          class="person-photo image" alt="photo">
         <button class="person-profile status-info">
           <strong>Jack Williams</strong>
           <div>
             <p>Hello</p>
           </div>
         </button>
-      </div>
-      <div class="chat-persons">
-        <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
-          class="person-photo image" alt="photo">
         <div class="person-photo-modal">
           <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
             class="modal-photo" alt="photo">
@@ -34,16 +40,16 @@ const DefaultPage = () => {
             <button><i class="material-icons">&#xe88f;</i></button>
           </div>
         </div>
+      </div>
+      <div class="chat-persons">
+        <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
+          class="person-photo image" alt="photo">
         <button class="person-profile status-info">
           <strong>Jack Williams</strong>
           <div>
             <p>Hello</p>
           </div>
         </button>
-      </div>
-      <div class="chat-persons">
-        <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
-          class="person-photo image" alt="photo">
         <div class="person-photo-modal">
           <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
             class="modal-photo" alt="photo">
@@ -54,16 +60,16 @@ const DefaultPage = () => {
             <button><i class="material-icons">&#xe88f;</i></button>
           </div>
         </div>
+      </div>
+      <div class="chat-persons">
+        <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
+          class="person-photo image" alt="photo">
         <button class="person-profile status-info">
           <strong>Jack Williams</strong>
           <div>
             <p>Hello</p>
           </div>
         </button>
-      </div>
-      <div class="chat-persons">
-        <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
-          class="person-photo image" alt="photo">
         <div class="person-photo-modal">
           <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
             class="modal-photo" alt="photo">
@@ -74,16 +80,16 @@ const DefaultPage = () => {
             <button><i class="material-icons">&#xe88f;</i></button>
           </div>
         </div>
+      </div>
+      <div class="chat-persons">
+        <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
+          class="person-photo image" alt="photo">
         <button class="person-profile status-info">
           <strong>Jack Williams</strong>
           <div>
             <p>Hello</p>
           </div>
         </button>
-      </div>
-      <div class="chat-persons">
-        <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
-          class="person-photo image" alt="photo">
         <div class="person-photo-modal">
           <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
             class="modal-photo" alt="photo">
@@ -94,16 +100,16 @@ const DefaultPage = () => {
             <button><i class="material-icons">&#xe88f;</i></button>
           </div>
         </div>
+      </div>
+      <div class="chat-persons">
+        <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
+          class="person-photo image" alt="photo">
         <button class="person-profile status-info">
           <strong>Jack Williams</strong>
           <div>
             <p>Hello</p>
           </div>
         </button>
-      </div>
-      <div class="chat-persons">
-        <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
-          class="person-photo image" alt="photo">
         <div class="person-photo-modal">
           <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
             class="modal-photo" alt="photo">
@@ -114,16 +120,16 @@ const DefaultPage = () => {
             <button><i class="material-icons">&#xe88f;</i></button>
           </div>
         </div>
+      </div>
+      <div class="chat-persons">
+        <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
+          class="person-photo image" alt="photo">
         <button class="person-profile status-info">
           <strong>Jack Williams</strong>
           <div>
             <p>Hello</p>
           </div>
         </button>
-      </div>
-      <div class="chat-persons">
-        <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
-          class="person-photo image" alt="photo">
         <div class="person-photo-modal">
           <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
             class="modal-photo" alt="photo">
@@ -134,16 +140,16 @@ const DefaultPage = () => {
             <button><i class="material-icons">&#xe88f;</i></button>
           </div>
         </div>
+      </div>
+      <div class="chat-persons">
+        <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
+          class="person-photo image" alt="photo">
         <button class="person-profile status-info">
           <strong>Jack Williams</strong>
           <div>
             <p>Hello</p>
           </div>
         </button>
-      </div>
-      <div class="chat-persons">
-        <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
-          class="person-photo image" alt="photo">
         <div class="person-photo-modal">
           <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
             class="modal-photo" alt="photo">
@@ -154,16 +160,16 @@ const DefaultPage = () => {
             <button><i class="material-icons">&#xe88f;</i></button>
           </div>
         </div>
+      </div>
+      <div class="chat-persons">
+        <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
+          class="person-photo image" alt="photo">
         <button class="person-profile status-info">
           <strong>Jack Williams</strong>
           <div>
             <p>Hello</p>
           </div>
         </button>
-      </div>
-      <div class="chat-persons">
-        <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
-          class="person-photo image" alt="photo">
         <div class="person-photo-modal">
           <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
             class="modal-photo" alt="photo">
@@ -174,12 +180,6 @@ const DefaultPage = () => {
             <button><i class="material-icons">&#xe88f;</i></button>
           </div>
         </div>
-        <button class="person-profile status-info">
-          <strong>Jack Williams</strong>
-          <div>
-            <p>Hello</p>
-          </div>
-        </button>
       </div>
       <div>
         <button class="contact icon"><i class="material-icons">&#xe0b7;</i></button>
