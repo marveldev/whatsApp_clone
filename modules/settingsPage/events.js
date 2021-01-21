@@ -13,4 +13,23 @@ const settingsPageEventListener = () => {
   })
 }
 
+const toggleTheme = () => {
+  document.querySelector('.theme-button').addEventListener('click', () => {
+    document.querySelector('#defaultPageOverlay').style.display = 'block'
+    document.querySelector('.theme-container').style.display = 'block'
+  })
+
+  document.querySelector('.close-theme-button').addEventListener('click', () => {
+    document.querySelector('#defaultPageOverlay').style.display = 'none'
+    document.querySelector('.theme-container').style.display = 'none'
+  })
+
+  document.querySelector('.confirm-theme-button').addEventListener('click', () => {
+    localStorage.setItem('theme', 'dark')
+    document.querySelector('#defaultPageOverlay').style.display = 'none'
+    document.querySelector('.theme-container').style.display = 'none'
+  })
+}
+
 export default settingsPageEventListener
+export { toggleTheme }
