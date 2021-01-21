@@ -60,48 +60,81 @@ const chatSettingspage = () => {
   return `
     <div class="chat-settings-page">
       <div class="settings-nav">
-        <button type="button" class=""><i class="material-icons">&#xe5c4;</i></button>
+        <button type="button" class="back-button"><i class="material-icons">&#xe5c4;</i></button>
         <strong>Chats</strong>
       </div>
-      <div>
-        <div>
-          <button></button>
-          <div>
-            <span>Theme</span>
-            <small>Dark</small>
-          </div>
+      <div class="chat-settings-options">
+        <p>Display</p>
+        <div class="chat-setting">
+          <button class="theme-button">
+            <span><i class="material-icons">&#xe3ab;</i></span>
+            <div>
+              <span>Theme</span>
+              <small>Light</small>
+            </div>
+          </button>
+          <button>
+            <span><i class="material-icons">&#xe1bc;</i></span>
+            <div>
+              <span>Wallpaper</span>
+            </div>
+          </button>
         </div>
-        <div>
-          <button></button>
-          <div>
-            <span>Wallpaper</span>
-          </div>
-        </div>
-      </div>
-      <div>
         <p>Chat settings</p>
-        <div>
-          <span>Enter is send</span>
-          <small>Enter key will send your message</small>
-        </div>
-        <div>
-          <span>Media visibility</span>
-          <small>Show newly downloaded media in your phone's gallery</small>
-        </div>
-        <div>
-          <span>Font size</span>
-          <small>Medium</small>
+        <div class="option-buttons">
+          <button>
+            <div>
+              <span>Enter is send</span>
+              <small>Enter key will send your message</small>
+            </div>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </button>
+          <button>
+            <div>
+              <span>Media visibility</span>
+              <small>Show newly downloaded media in your phone's gallery</small>
+            </div>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </button>
+          <button>
+            <div>
+              <span>Font size</span>
+              <small>Medium</small>
+            </div>
+          </button>
         </div>
       </div>
-      <div>
+      <div class="theme-container">
+        <h3>Choose theme</h3>
         <div>
-          <button></button>
-          <span>Chat backup</span>
+          <label class="radio input-options">
+            <input type="radio" name="radio">
+            <span class="checkmark"></span>
+          </label>
+          <p>System default</p>
         </div>
         <div>
-          <button></button>
-          <span>Chat history</span>
+          <label class="radio input-options">
+            <input type="radio" name="radio" checked>
+            <span class="checkmark"></span>
+          </label>
+          <p>Light</p>
         </div>
+        <div>
+          <label class="radio input-options">
+            <input type="radio" name="radio">
+            <span class="checkmark"></span>
+          </label>
+          <p>Dark</p>
+        </div>
+        <button class="close-theme-button">CANCEL</button>
+        <button class="confirm-theme-button">OK</button>
       </div>
     </div>
   `
