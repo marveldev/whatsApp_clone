@@ -54,7 +54,7 @@
   position: fixed;
   left: 12%;
   z-index: 2;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 #00000033;
   width: 75%;
   height: 45%;
   background-color: #fff;
