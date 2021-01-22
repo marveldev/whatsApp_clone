@@ -16,7 +16,7 @@
 
 .dark .dropdown-modal,
 .dark .person-photo-modal {
-  background-color: #222D36;
+  background-color: #202B33;
 }
 
 .dark .dropdown-modal > button,
@@ -36,7 +36,7 @@
 
 .dark #addTextButton,
 .dark .status-options-nav {
-  background-color: #222D36;
+  background-color: #202B33;
   color: #fff;
 }
 
@@ -70,7 +70,8 @@
   color: #00A694;
 }
 
-.dark .person-about {
+.dark .person-about,
+.dark .user-profile {
   border-bottom: 0.1em solid #29333A;
 }
 
@@ -85,4 +86,17 @@
 
 .dark .fade-in-info {
   background-color: #202B33;
+}
+
+.dark .settings-page,
+.dark .chat-settings-page {
+  color: #fff;
+}
+
+.dark .settings-nav {
+  background-color: #202B33;
+}
+
+.dark .settings-page i {
+  color: #fff;
 }
