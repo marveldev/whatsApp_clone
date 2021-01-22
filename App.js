@@ -15,27 +15,21 @@ const App = () => {
 
 request.onsuccess = async () => {
   document.querySelector('.root').innerHTML = App()
-  const recentEntryDiv =  document.querySelector('.recent-entry')
   const currentPage = localStorage.getItem('currentPage')
+  document.body.className = localStorage.getItem('theme')
 
   if (currentPage === 'chatPage') {
     await switchCurrentPage(currentPage)
   } else {
     switchCurrentPage(currentPage || 'defaultPage')
   }
-
   topNavEventListeners()
-
-  const theme = localStorage.getItem('theme')
-  if (theme) {
-    document.querySelector('.root').className = theme
-    document.body.style.backgroundColor = '#101D24'
-  }
 
   const pusher = new Pusher('28732b89eff34d2e9cb2', {
     cluster: 'mt1'
   })
 
+  const recentEntryDiv =  document.querySelector('.recent-entry')
   if (currentPage === 'statusPage') {
     const channel = pusher.subscribe('status')
     channel.bind('update-status', data => {
