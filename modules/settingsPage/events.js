@@ -14,6 +14,10 @@ const settingsPageEventListener = () => {
 }
 
 const toggleTheme = () => {
+  document.querySelector('.back-button').addEventListener('click', () => {
+    switchCurrentPage('settingsPage')
+  })
+
   document.querySelector('.theme-button').addEventListener('click', () => {
     document.querySelector('#defaultPageOverlay').style.display = 'block'
     document.querySelector('.theme-container').style.display = 'block'
