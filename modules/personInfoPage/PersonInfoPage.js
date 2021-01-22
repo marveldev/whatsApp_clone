@@ -5,7 +5,9 @@ const PersonInfoPage = () => {
         <img src="https://images.pexels.com/photos/4119310/pexels-photo-4119310.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="photo">
         <button class="close-button"><i class="material-icons">&#xe5c4;</i></button>
         <button class="drop-modal-button"><i class="material-icons">&#xe5d4;</i></button>
-        <span>Jack Williams</span>
+        <div id="personName">
+          <span>Jack Williams</span>
+        </div>
       </div>
       <div class="fade-in-info">
         <button class="close-button"><i class="material-icons">&#xe5c4;</i></button>
@@ -55,18 +57,14 @@ const PersonInfoPage = () => {
             </div>
           </div>
         </div>
-        <div class="user-person-option">
-          <div>
-            <button><i class="material-icons">&#xe14b;</i></button>
-            <span>Block</span>
-          </div>
-        </div>
-        <div class="user-person-option">
-          <div>
-            <button><i class="material-icons">&#xe8db;</i></button>
-            <span>Report contact</span>
-          </div>
-        </div>
+        <button class="complain-button">
+          <span><i class="material-icons">&#xe14b;</i></span>
+          <span>Block</span>
+        </button>
+        <button class="complain-button">
+          <span><i class="material-icons">&#xe8db;</i></span>
+          <span>Report contact</span>
+        </button>
       </div>
     </div>
   `

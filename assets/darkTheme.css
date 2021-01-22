@@ -1,0 +1,155 @@
+.dark {
+  background-color: #101D24;
+}
+
+.dark #topNav {
+  background-color: #222D36;
+  color: #9FA3A7;
+}
+
+.dark .search-button,
+.dark .top-nav-dropdown,
+.dark .page {
+  color: #9FA3A7;
+}
+
+.dark .active {
+  color: #00AF9C;
+  border-bottom: 0.25em solid #00AF9C;
+}
+
+.dark .dropdown-modal,
+.dark .person-photo-modal,
+.dark .chat-top-nav {
+  background-color: #202B33;
+}
+
+.dark .dropdown-modal > button,
+.dark .status-info {
+  color: #fff;
+}
+
+.dark .icon,
+.dark #addStatusButton {
+  background-color: #00AF9C;
+}
+
+.dark .container > button,
+.dark #entryOptionsButton {
+  color: #00AF9C; 
+}
+
+.dark #addTextButton,
+.dark .status-options-nav {
+  background-color: #202B33;
+  color: #fff;
+}
+
+.dark .calls-page {
+  color: #b8b8b8;
+}
+
+.dark .person-info-page,
+.dark .page-options-info {
+  background-color: #101D24;
+}
+
+.dark .page-options-info > div {
+  background-color: #222D36;
+  color: #fff;
+}
+
+.dark .page-options-info i,
+.dark .item-dropdown-icon,
+.dark .chat-settings-options p {
+  color: #00A694;
+}
+
+.dark .page-info,
+.dark .page-options-info p {
+  border-bottom: 0.1em solid #29333A;
+}
+
+.dark .person-about > span:first-child,
+.dark .status-delete-modal > button {
+  color: #00A694;
+}
+
+.dark .person-about,
+.dark .user-profile {
+  border-bottom: 0.1em solid #29333A;
+}
+
+.dark .complain-button {
+  background-color: #222D36;
+  color: #e36474;
+}
+
+.dark .complain-button i  {
+  color: #e36474;
+}
+
+.dark .fade-in-info,
+.dark .settings-nav {
+  background-color: #202B33;
+}
+
+.dark .settings-page,
+.dark .settings-page i {
+  color: #fff;
+}
+
+.dark .status-delete-modal,
+.dark .theme-container {
+  background-color: #202B33;
+  color: #fff;
+}
+
+.dark .chat-settings-options button {
+  color: #fff;
+}
+
+.dark .close-theme-button,
+.dark .confirm-theme-button,
+.dark .delete-modal > button {
+  color: #00A694;
+}
+
+.dark .chat-text {
+  background-color: #05433D;
+  color: #fff;
+}
+
+.dark #person-two {
+  background-color: #202C32;
+}
+
+.dark .arrow-right {
+  border-left: 0.8em solid #05433D;
+}
+
+.dark .arrow-left {
+  border-right: 0.8em solid #202c32;
+}
+
+.dark .record-button,
+.dark .send-button {
+  background-color: #00AF9C;
+}
+.dark .person-button-container {
+  background-color: #202B33;
+}
+
+.dark .person-button-container > button {
+  background-color: #00AF9C;
+}
+
+.dark #singleChatNav {
+  background-color: #202B33;
+}
+
+.dark .delete-modal,
+.dark .wallpaper-container {
+  background-color: #202B33;
+  color: #fff;
+}

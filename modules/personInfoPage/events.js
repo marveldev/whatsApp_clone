@@ -12,7 +12,6 @@ const personPageEventListeners = () => {
     } else {
       opacity = 0
       document.querySelector('.fade-in-info').style.display = 'grid'
-
     }
     document.querySelector('.person-bio').style.opacity = opacity
   })
