@@ -1,7 +1,16 @@
-import { getEntryFromDb } from "../../dataStorage.js"
+import { deleteEntry, getEntryFromDb } from "../../dataStorage.js"
 
 const StatusPage = async () => {
   const statusData = await getEntryFromDb('statusData')
+  statusData.map(statusItem => {
+    const { timeOfStatusUpload } = statusItem
+    let timeDifference = (new Date().getTime() - timeOfStatusUpload.getTime())
+    let statusDuration = Math.floor(timeDifference/1000/60/60)
+    if (statusDuration >= '24') {
+      deleteEntry('statusData', statusItem.itemId)
+    }
+  })
+
   const statusTextItems = statusData.map(statusTextItem => {
     const { textValue, entryBackgroundColor } = statusTextItem
     if (textValue.length >= 1) {
