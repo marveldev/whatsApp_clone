@@ -106,7 +106,8 @@ const addStatusFile = (textValue, photoSource, entryBackgroundColor) => {
     itemId: itemId,
     textValue: textValue || '',
     photoSource: photoSource || '',
-    entryBackgroundColor: entryBackgroundColor
+    entryBackgroundColor: entryBackgroundColor,
+    timeOfStatusUpload: new Date()
   }
   addEntryToDb('statusData', statusObject)
 }
