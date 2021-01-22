@@ -1,3 +1,88 @@
 .dark #topNav {
-  /* background-color: #101D24; */
+  background-color: #222D36;
+  color: #9FA3A7;
+}
+
+.dark .search-button,
+.dark .top-nav-dropdown,
+.dark .page {
+  color: #9FA3A7;
+}
+
+.dark .active {
+  color: #00AF9C;
+  border-bottom: 0.25em solid #00AF9C;
+}
+
+.dark .dropdown-modal,
+.dark .person-photo-modal {
+  background-color: #222D36;
+}
+
+.dark .dropdown-modal > button,
+.dark .status-info {
+  color: #fff;
+}
+
+.dark .icon,
+.dark #addStatusButton {
+  background-color: #00AF9C;
+}
+
+.dark .container > button,
+.dark #entryOptionsButton {
+  color: #00AF9C; 
+}
+
+.dark #addTextButton,
+.dark .status-options-nav {
+  background-color: #222D36;
+  color: #fff;
+}
+
+.dark .calls-page {
+  color: #b8b8b8;
+}
+
+.dark .person-info-page {
+  background-color: #101D24;
+}
+
+.dark .page-options-info {
+  background-color: #101D24;
+}
+
+.dark .page-options-info > div {
+  background-color: #222D36;
+  color: #fff;
+}
+
+.dark .page-options-info i {
+  color: #00A694;
+}
+
+.dark .page-info,
+.dark .page-options-info p {
+  border-bottom: 0.1em solid #29333A;
+}
+
+.dark .person-about > span:first-child {
+  color: #00A694;
+}
+
+.dark .person-about {
+  border-bottom: 0.1em solid #29333A;
+}
+
+.dark .complain-button {
+  background-color: #222D36;
+  color: #e36474;
+}
+
+.dark .complain-button i  {
+  color: #e36474;
+}
+
+.dark .fade-in-info {
+  background-color: #202B33;
 }
