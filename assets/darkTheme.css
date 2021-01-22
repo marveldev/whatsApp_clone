@@ -57,7 +57,8 @@
   color: #fff;
 }
 
-.dark .page-options-info i {
+.dark .page-options-info i,
+.dark .item-dropdown-icon {
   color: #00A694;
 }
 
@@ -99,4 +100,13 @@
 
 .dark .settings-page i {
   color: #fff;
+}
+
+.dark .status-delete-modal {
+  background-color: #202B33;
+  color: #fff;
+}
+
+.dark .status-delete-modal > button {
+  color: #00A694;
 }
