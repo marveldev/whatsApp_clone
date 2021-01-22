@@ -70,7 +70,7 @@ const chatSettingspage = () => {
             <span><i class="material-icons">&#xe3ab;</i></span>
             <div>
               <span>Theme</span>
-              <small>Light</small>
+              <small id="themeName">Light</small>
             </div>
           </button>
           <button>
@@ -112,23 +112,23 @@ const chatSettingspage = () => {
       </div>
       <div class="theme-container">
         <h3>Choose theme</h3>
-        <div>
+        <div class="theme-option">
           <label class="radio input-options">
-            <input type="radio" name="radio">
+            <input type="radio" name="radio" value="system-default">
             <span class="checkmark"></span>
           </label>
           <p>System default</p>
         </div>
-        <div>
+        <div class="theme-option">
           <label class="radio input-options">
-            <input type="radio" name="radio" checked>
+            <input type="radio" name="radio" value="light">
             <span class="checkmark"></span>
           </label>
           <p>Light</p>
         </div>
-        <div>
+        <div class="theme-option">
           <label class="radio input-options">
-            <input type="radio" name="radio">
+            <input type="radio" name="radio" value="dark">
             <span class="checkmark"></span>
           </label>
           <p>Dark</p>
