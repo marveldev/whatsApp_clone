@@ -58,7 +58,8 @@
 }
 
 .dark .page-options-info i,
-.dark .item-dropdown-icon {
+.dark .item-dropdown-icon,
+.dark .chat-settings-options p {
   color: #00A694;
 }
 
@@ -101,11 +102,21 @@
   color: #fff;
 }
 
-.dark .status-delete-modal {
+.dark .status-delete-modal,
+.dark .theme-container {
   background-color: #202B33;
   color: #fff;
 }
 
 .dark .status-delete-modal > button {
+  color: #00A694;
+}
+
+.dark .chat-settings-options button {
+  color: #fff;
+}
+
+.dark .close-theme-button,
+.dark .confirm-theme-button {
   color: #00A694;
 }
