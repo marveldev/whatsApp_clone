@@ -15,7 +15,8 @@
 }
 
 .dark .dropdown-modal,
-.dark .person-photo-modal {
+.dark .person-photo-modal,
+.dark .chat-top-nav {
   background-color: #202B33;
 }
 
@@ -44,10 +45,7 @@
   color: #b8b8b8;
 }
 
-.dark .person-info-page {
-  background-color: #101D24;
-}
-
+.dark .person-info-page,
 .dark .page-options-info {
   background-color: #101D24;
 }
@@ -68,7 +66,8 @@
   border-bottom: 0.1em solid #29333A;
 }
 
-.dark .person-about > span:first-child {
+.dark .person-about > span:first-child,
+.dark .status-delete-modal > button {
   color: #00A694;
 }
 
@@ -86,18 +85,12 @@
   color: #e36474;
 }
 
-.dark .fade-in-info {
-  background-color: #202B33;
-}
-
-.dark .settings-page {
-  color: #fff;
-}
-
+.dark .fade-in-info,
 .dark .settings-nav {
   background-color: #202B33;
 }
 
+.dark .settings-page,
 .dark .settings-page i {
   color: #fff;
 }
@@ -108,15 +101,51 @@
   color: #fff;
 }
 
-.dark .status-delete-modal > button {
-  color: #00A694;
-}
-
 .dark .chat-settings-options button {
   color: #fff;
 }
 
 .dark .close-theme-button,
-.dark .confirm-theme-button {
+.dark .confirm-theme-button,
+.dark .delete-modal > button {
   color: #00A694;
+}
+
+.dark .chat-text {
+  background-color: #05433D;
+  color: #fff;
+}
+
+.dark #person-two {
+  background-color: #202C32;
+}
+
+.dark .arrow-right {
+  border-left: 0.8em solid #05433D;
+}
+
+.dark .arrow-left {
+  border-right: 0.8em solid #202c32;
+}
+
+.dark .record-button,
+.dark .send-button {
+  background-color: #00AF9C;
+}
+.dark .person-button-container {
+  background-color: #202B33;
+}
+
+.dark .person-button-container > button {
+  background-color: #00AF9C;
+}
+
+.dark #singleChatNav {
+  background-color: #202B33;
+}
+
+.dark .delete-modal,
+.dark .wallpaper-container {
+  background-color: #202B33;
+  color: #fff;
 }
