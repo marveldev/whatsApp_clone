@@ -29,6 +29,7 @@ request.onsuccess = async () => {
   const theme = localStorage.getItem('theme')
   if (theme) {
     document.querySelector('.root').className = theme
+    document.body.style.backgroundColor = '#101D24'
   }
 
   const pusher = new Pusher('28732b89eff34d2e9cb2', {
