@@ -65,18 +65,18 @@ const chatSettingspage = () => {
       </div>
       <div class="chat-settings-options">
         <p>Display</p>
-        <div class="chat-setting">
+        <div class="display-setting">
           <button class="theme-button">
             <span><i class="material-icons">&#xe3ab;</i></span>
             <div>
-              <span>Theme</span>
+              <strong>Theme</strong>
               <small id="themeName">Light</small>
             </div>
           </button>
-          <button>
+          <button class="wallpaper-button">
             <span><i class="material-icons">&#xe1bc;</i></span>
             <div>
-              <span>Wallpaper</span>
+              <strong>Wallpaper</strong>
             </div>
           </button>
         </div>
