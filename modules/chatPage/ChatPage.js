@@ -46,19 +46,16 @@ const ChatPage = async () => {
     `
   })
 
-  const chatBackground = () => {
-    let backgroundUrl
-    const theme = localStorage.getItem('theme')
-    if (theme === 'light') {
-      backgroundUrl = chatPageBackground[0] || `https://cloud.githubusercontent.com/assets/398893/15136779/4e765036-1639-11e6-9201-67e728e86f39.jpg`
-    } else {
-      backgroundUrl = chatPageBackground[0] || 'https://i.ibb.co/q9mygMq/background.jpg'
-    }
-    return backgroundUrl
+  let backgroundUrl
+  const theme = localStorage.getItem('theme')
+  if (theme === 'dark') {
+    backgroundUrl = chatPageBackground[0] || 'https://i.ibb.co/q9mygMq/background.jpg'
+  } else {
+    backgroundUrl = chatPageBackground[0] || 'https://cloud.githubusercontent.com/assets/398893/15136779/4e765036-1639-11e6-9201-67e728e86f39.jpg'
   }
 
   return `
-    <div class="chat-page" style="background-image: url(${chatBackground()});">
+    <div class="chat-page" style="background-image: url(${backgroundUrl});">
       <div id="chatOverlay" class="overlay"></div>
       <div class="chat-top-nav">
         <button type="button" id="arrowLeftButton">
