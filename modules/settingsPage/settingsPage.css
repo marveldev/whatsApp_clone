@@ -78,23 +78,32 @@
   font-size: 0.9em;
   margin: 1em 0 1em 1.5em;
   color: #075E54;
+  font-weight: 600;3
 }
 
 .chat-settings-options > div {
   border-bottom: 0.5px solid #95959555;
 }
 
-.chat-setting > button {
-  display: grid;
-  grid-template-columns: 0.2fr 1fr;
+.display-setting > button {
+  display: flex;
   text-align: left;
   padding: 1em 0;
   width: 100%;
   padding-left: 2em;
 }
 
+.theme-button div {
+  padding-left: 1em;
+}
+
+.wallpaper-button > div {
+  padding: 0.5em 0 0 1em;
+}
+
 .chat-settings-options small {
   display: block;
+  padding-top: 0.3em;
 }
 
 .option-buttons > button {
@@ -183,8 +192,10 @@
   color: #075E54;
   width: 80%;
   text-align: right;
+  font-weight: 600;
 }
 
 .confirm-theme-button {
   color: #075E54;
+  font-weight: 600;
 }
