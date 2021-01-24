@@ -121,7 +121,7 @@ const chatSettingspage = () => {
         </div>
         <div class="theme-option">
           <label class="radio input-options">
-            <input type="radio" name="radio" value="light">
+            <input type="radio" name="radio" value="light" checked>
             <span class="checkmark"></span>
           </label>
           <p>Light</p>
