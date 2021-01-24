@@ -7,6 +7,12 @@ const topNavEventListeners = () => {
     document.querySelector('#defaultPageOverlay').style.display = 'block'
   })
 
+  document.querySelector('#defaultPageOverlay').addEventListener('click', () => {
+    document.querySelector('#topNavDropdown').style.display = 'none'
+    document.querySelector('.person-photo-modal').style.display = 'none'
+    document.querySelector('#defaultPageOverlay').style.display = 'none'
+  })
+
   const addSwitchPageEvent = (selector, page) => {
     selector.addEventListener('click', () => {
       switchCurrentPage(page)
