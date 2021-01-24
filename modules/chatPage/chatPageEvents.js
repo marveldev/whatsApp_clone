@@ -128,12 +128,19 @@ const chatPageEventListeners = () => {
 
   const defaultBackgroundButton = document.querySelector('#defaultBackgroundButton')
   defaultBackgroundButton.addEventListener('click', () => {
-    document.querySelector('.chat-page').style.backgroundImage = `url(https://cloud.githubusercontent.com/assets/398893/15136779/4e765036-1639-11e6-9201-67e728e86f39.jpg)`
+    const theme = localStorage.getItem('theme')
+    let backgroundUrl
+    if (theme === 'dark') {
+      backgroundUrl = 'https://i.ibb.co/q9mygMq/background.jpg'
+    } else {
+      backgroundUrl = `https://cloud.githubusercontent.com/assets/398893/15136779/4e765036-1639-11e6-9201-67e728e86f39.jpg`
+    }
+
+    document.querySelector('.chat-page').style.backgroundImage = `url(${backgroundUrl})`
     document.querySelector('.wallpaper-container').style.display = 'none'
     overlay.style.display = 'none'
 
     clearAllEntries('chatPageBackground')
-    addEntryToDb('chatPageBackground', `https://cloud.githubusercontent.com/assets/398893/15136779/4e765036-1639-11e6-9201-67e728e86f39.jpg`)
   })
 
   document.querySelector('#clearChatButton').addEventListener('click', () => {
