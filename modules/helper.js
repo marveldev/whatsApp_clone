@@ -10,6 +10,8 @@ import settingsPageEventListener, { toggleTheme } from './settingsPage/events.js
 import statusPageEventListener from './statusPage/events.js'
 import PersonInfoPage from './personInfoPage/PersonInfoPage.js'
 import personPageEventListeners from './personInfoPage/events.js'
+import singleStatusPage from './singleStatusPage/singleStatusPage.js'
+import statusItemEvent from './singleStatusPage/events.js'
 
 const switchCurrentPage = async (page) => {
   const currentPage = document.querySelector('.current-page')
@@ -27,6 +29,11 @@ const switchCurrentPage = async (page) => {
       document.querySelector('.active').classList.remove('active')
       document.querySelector('.status').classList.add('active')
       statusPageEventListener()
+      break;
+    case 'singleStatusPage':
+      currentPage.innerHTML = await singleStatusPage()
+      statusItemEvent()
+      document.querySelector('.top-nav').style.display = 'none'
       break;
     case 'callsPage':
       currentPage.innerHTML = CallsPage()
