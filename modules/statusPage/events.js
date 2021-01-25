@@ -1,56 +1,5 @@
-import { addEntryToDb, deleteEntry } from "../../dataStorage.js"
-
-const statusItemEvent = () => {
-  let singleItemId
-  const itemDropdownIcons =  document.querySelectorAll('.item-dropdown-icon')
-  const statusOverlay = document.querySelector('#statusOverlay')
-  const statusItemDropdown = document.querySelector('#statusItemDropdown')
-  const statusDeleteModal = document.querySelector('.status-delete-modal')
-
-  for (let index = 0; index < itemDropdownIcons.length; index++) {
-    const itemDropdownIcon = itemDropdownIcons[index]
-    itemDropdownIcon.addEventListener('click', () => {
-      statusItemDropdown.style.display = 'block'
-      statusOverlay.style.display = 'block'
-      singleItemId = itemDropdownIcon.id
-    })
-  }
-
-  document.querySelector('.previous-button').addEventListener('click', () => {
-    document.querySelector('.top-nav').style.display = 'block'
-    document.querySelector('#statusMainContent').style.display = 'block'
-    document.querySelector('.status-entry-options').style.display = 'none'
-  })
-
-  statusOverlay.addEventListener('click', () => {
-    statusItemDropdown.style.display = 'none'
-    statusDeleteModal.style.display = 'none'
-    statusOverlay.style.display = 'none'
-  })
-
-  document.querySelector('.delete-modal-button').addEventListener('click', () => {
-    statusItemDropdown.style.display = 'none'
-    statusDeleteModal.style.display = 'block'
-  })
-
-  document.querySelector('.delete-item-button').addEventListener('click', () => {
-    const element = document.querySelector(`#${singleItemId}`)
-    const singleItemContent = document.querySelector(`.${singleItemId}`)
-    const singleStatusEntry = element.parentElement
-    statusDeleteModal.style.display = 'none'
-    statusOverlay.style.display = 'none'
-    statusItemDropdown.style.display = 'none'
-    document.querySelector('.status-entry-preview').removeChild(singleStatusEntry)
-    document.querySelector('#statusItemContent').removeChild(singleItemContent)
-
-    deleteEntry('statusData', singleItemId)
-  })
-
-  document.querySelector('.close-modal-button').addEventListener('click', () => {
-    statusOverlay.style.display = 'none'
-    statusDeleteModal.style.display = 'none'
-  })
-}
+import { addEntryToDb } from "../../dataStorage.js"
+import switchCurrentPage from "../helper.js"
 
 const addStatusFile = (textValue, photoSource, entryBackgroundColor) => {
   const itemId = 'id' + Date.parse(new Date()).toString()
@@ -65,7 +14,7 @@ const addStatusFile = (textValue, photoSource, entryBackgroundColor) => {
     `
 
     singleStatusEntry = `
-      <button class="status-item-preview">
+      <button class="status-item-preview" id="${itemId}">
         <div class="status-text-content" style="background-color: ${entryBackgroundColor};">
           ${textValue}
         </div>
@@ -73,7 +22,7 @@ const addStatusFile = (textValue, photoSource, entryBackgroundColor) => {
           <strong>18 views</strong>
           <p>Today 06:03</p>
         </div>
-        <span id="${itemId}" class="item-dropdown-icon">
+        <span class="item-dropdown-icon">
           <i class="material-icons">&#xe5d4;</i>
         </span>
       </button>
@@ -84,13 +33,13 @@ const addStatusFile = (textValue, photoSource, entryBackgroundColor) => {
     `
 
     singleStatusEntry = `
-      <button class="status-item-preview">
+      <button class="status-item-preview" id="${itemId}">
         <img src="${photoSource}" class="image" alt="photo">
         <div class="status-info">
           <strong>18 views</strong>
           <p>Today 06:03</p>
         </div>
-        <span id="${itemId}" class="item-dropdown-icon">
+        <span class="item-dropdown-icon">
           <i class="material-icons">&#xe5d4;</i>
         </span>
       </button>
@@ -240,11 +189,9 @@ const statusPageEventListener = () => {
 
   document.querySelector('#entryOptionsButton').addEventListener('click', () => {
     topNav.style.display = 'none'
-    statusMainContent.style.display = 'none'
-    document.querySelector('.status-entry-options').style.display = 'block'
-    statusItemEvent()
+    switchCurrentPage('singleStatusPage')
+    // document.querySelector('.status-entry-options').style.display = 'block'
   })
 }
 
 export default statusPageEventListener
-export { addStatusFile }
