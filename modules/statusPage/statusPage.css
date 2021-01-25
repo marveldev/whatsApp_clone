@@ -206,18 +206,6 @@
   word-break: break-all;
 }
 
-.status-text-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  border-radius: 50%;
-  margin: 0.4em 1em 0 0;
-  height: 4em;
-  width: 5em;
-  max-width: 4em;
-}
-
 .recent-entry {
   display: flex;
   justify-content: center;
@@ -226,6 +214,8 @@
   border-radius: 50%;
   height: 4em;
   width: 5em;
+  word-break: break-all;
+  overflow: hidden;
   max-width: 4em;
   margin: 0.4em 1em 0 0;
   background-size: cover;
