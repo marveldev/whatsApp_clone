@@ -1,4 +1,5 @@
 import { deleteEntry } from "../../dataStorage.js"
+import switchCurrentPage from "../helper.js"
 
 const statusItemEvent = () => {
   const itemDropdownIcons =  document.querySelectorAll('.item-dropdown-icon')
@@ -17,10 +18,8 @@ const statusItemEvent = () => {
   }
 
   document.querySelector('.previous-button').addEventListener('click', () => {
-    document.querySelector('.status-entry-options').style.display = 'none'
+    switchCurrentPage('statusPage')
     document.querySelector('.top-nav').style.display = 'block'
-    document.querySelector('#statusMainContent').style.display = 'block'
-    console.log(document.querySelector('.status-entry-options'));
   })
 
   statusOverlay.addEventListener('click', () => {
@@ -33,23 +32,14 @@ const statusItemEvent = () => {
     statusItemDropdown.style.display = 'none'
     statusDeleteModal.style.display = 'block'
   })
-  console.log(document.querySelector('.status-entry-options'));
 
   document.querySelector('.delete-item-button').addEventListener('click', () => {
-    const singleItemContent = document.querySelector(`.${singleItemId}`)
     const singleStatusEntry = document.querySelector(`#${singleItemId}`)
     document.querySelector('.status-entry-preview').removeChild(singleStatusEntry)
-    document.querySelector('#statusItemContent').removeChild(singleItemContent)
-
-    if (document.querySelector('.status-entry-preview').innerHTML.trim().length === 0) {
-      document.querySelector('.view-status').style.display = 'none'
-      document.querySelector('.add-status').style.display = 'flex'
-    }
 
     statusDeleteModal.style.display = 'none'
     statusOverlay.style.display = 'none'
     statusItemDropdown.style.display = 'none'
-    console.log(document.querySelector('.status-entry-options'));
 
     deleteEntry('statusData', singleItemId)
   })
