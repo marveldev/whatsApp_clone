@@ -7,4 +7,5 @@
 @import '../modules/callsPage/callsPage.css';
 @import '../modules/settingsPage/settingsPage.css';
 @import '../modules/personInfoPage/personInfoPage.css';
+@import '../modules/singleStatusPage/singleStatus.css';
 @import './darkTheme.css';
