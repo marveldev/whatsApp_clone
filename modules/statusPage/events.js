@@ -4,50 +4,20 @@ import switchCurrentPage from "../helper.js"
 const addStatusFile = (textValue, photoSource, entryBackgroundColor) => {
   const itemId = 'id' + Date.parse(new Date()).toString()
   let statusData
-  let singleStatusEntry
 
   if (textValue) {
     statusData =  `
-      <div class="status-text status-data ${itemId}" style="background-color: ${entryBackgroundColor};">
+      <div class="status-text status-data" style="background-color:${entryBackgroundColor};">
         ${textValue}
       </div>
     `
-
-    singleStatusEntry = `
-      <button class="status-item-preview" id="${itemId}">
-        <div class="status-text-content" style="background-color: ${entryBackgroundColor};">
-          ${textValue}
-        </div>
-        <div class="status-info">
-          <strong>18 views</strong>
-          <p>Today 06:03</p>
-        </div>
-        <span class="item-dropdown-icon">
-          <i class="material-icons">&#xe5d4;</i>
-        </span>
-      </button>
-    `
   } else {
     statusData =  `
-      <img src="${photoSource}" class="status-photo status-data ${itemId}" alt="photo">
-    `
-
-    singleStatusEntry = `
-      <button class="status-item-preview" id="${itemId}">
-        <img src="${photoSource}" class="image" alt="photo">
-        <div class="status-info">
-          <strong>18 views</strong>
-          <p>Today 06:03</p>
-        </div>
-        <span class="item-dropdown-icon">
-          <i class="material-icons">&#xe5d4;</i>
-        </span>
-      </button>
+      <img src="${photoSource}" class="status-photo status-data" alt="photo">
     `
   }
 
   document.querySelector('#statusItemContent').innerHTML += statusData
-  document.querySelector('.status-entry-preview').innerHTML += singleStatusEntry
   document.querySelector('.view-status').style.display = 'flex'
   document.querySelector('.add-status').style.display = 'none'
 
@@ -188,9 +158,7 @@ const statusPageEventListener = () => {
   })
 
   document.querySelector('#entryOptionsButton').addEventListener('click', () => {
-    topNav.style.display = 'none'
     switchCurrentPage('singleStatusPage')
-    // document.querySelector('.status-entry-options').style.display = 'block'
   })
 }
 
